@@ -34,6 +34,7 @@ function predictFarmer(S) {
 /** The cost of ending a step in `zone` for turkey `t` (danger, noise, quirks). */
 function zoneCost(S, t, zone, pred) {
   let c = 1;
+  if (S.farmer.indoors && zone === S.farm.start.farmer) c += 100;   // nobody goes into the Farmhouse in round 1
   const F = S.farmer.zone;
   if (zone === F) c += 8;
   else if (S.adj[F].includes(zone)) c += 0.5;
@@ -170,6 +171,7 @@ export function greatSneakStep(S, t) {
   const T = p.zone;
   if (t.zone === T) return null;
   const next = nextStep(S, t, T);
+  if (S.farmer.indoors && next === S.farm.start.farmer) return null;
   const d = dmap(S, T);
   // A Great's extra zone only if that move wouldn't need a roll of its own (Ch 3 Sneak).
   if (!next || next === S.farmer.zone || sneakNeedsRoll(S, t.zone, next) || d[next] >= d[t.zone]) return null;
@@ -178,7 +180,7 @@ export function greatSneakStep(S, t) {
 
 export function scramStep(S, t, from, second = false) {
   const fd = dmap(S, S.farmer.zone);
-  const opts = S.adj[from].filter(n => n !== S.farmer.zone);
+  const opts = S.adj[from].filter(n => n !== S.farmer.zone && !(S.farmer.indoors && n === S.farm.start.farmer));
   if (!opts.length) return null;
   // Run away from the farmer, into a zone with somewhere to hide.
   const v = n => -fd[n] + (spotsOf(S, n).length ? 0 : 2) + 0.2 * zoneCost(S, t, n, S.pred);
@@ -224,14 +226,14 @@ export function act(S, t) {
       return actHunker(S, t);
     }
     const next = nextStep(S, t, prank.zone);
-    if (next) {
+    if (next && !(S.farmer.indoors && next === S.farm.start.farmer)) {
       const needRoll = sneakNeedsRoll(S, t.zone, next);
       if (next !== S.farmer.zone && !(needRoll && t.urge >= P.cautiousAt)) {
         // Soft Steps: keep going if the second zone is safe and gets closer.
         let then = null;
         if (t.knack === "softSteps" && next !== prank.zone) {
           const n2 = nextStepFrom(S, t, next, prank.zone);
-          if (n2 && n2 !== S.farmer.zone && !(sneakNeedsRoll(S, next, n2) && !needRoll)) then = n2;
+          if (n2 && n2 !== S.farmer.zone && !(S.farmer.indoors && n2 === S.farm.start.farmer) && !(sneakNeedsRoll(S, next, n2) && !needRoll)) then = n2;
         }
         return actSneak(S, t, next, then);
       }
@@ -243,7 +245,7 @@ export function act(S, t) {
   if (here >= P.fleeAt || t.spot === null) {
     let best = null, bestV = here - P.fleeGain;
     for (const n of S.adj[t.zone]) {
-      if (n === S.farmer.zone) continue;
+      if (n === S.farmer.zone) continue;   // (in round 1 that's the Farmhouse, which nobody may enter)
       const needRoll = sneakNeedsRoll(S, t.zone, n);
       if (needRoll && t.urge >= P.cautiousAt) continue;
       const v = danger(S, n) + (needRoll ? 0.3 : 0) + (spotsOf(S, n).length ? 0 : 1) + 0.05 * zoneCost(S, t, n, S.pred);

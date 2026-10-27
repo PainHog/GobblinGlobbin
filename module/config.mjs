@@ -34,7 +34,7 @@ GG.urge = { min: 0, max: 5, start: 1, hunker: 2, hunkerCoolHead: 3, closeRange: 
 
 /* --------------------------------------------------------------- knacks -- */
 GG.knacks = {
-  busyBeak:   { name: "Busy Beak",        text: "+1 white die when you pull a Prank, and every success you roll on a Prank counts twice." },
+  busyBeak:   { name: "Busy Beak",        text: "+1 white die when you pull a Prank, and when the roll works it ticks two boxes." },
   softSteps:  { name: "Soft Steps",       text: "+1 white die when you Sneak, and one Sneak can take you two zones (one roll covers both)." },
   still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden, and your red dice don’t count on those rolls." },
   bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away." },
@@ -51,8 +51,8 @@ GG.quirks = {
   worrywart:  { name: "Worrywart",  text: "+1 urge whenever another turkey is Spotted." },
   hiccups:    { name: "Hiccups",    text: "At the end of every round, roll one red die: on a 6 you gobble (hic!)." },
   fussy:      { name: "Fussy",      text: "+1 urge whenever you end an action sharing a hiding spot, or another turkey squeezes into yours." },
-  restless:   { name: "Restless",   text: "Hunker Down lowers your own urge by only 1." },
-  showOff:    { name: "Show-off",   text: "Whenever you roll a Great, you strike a pose: a “Huh?” token goes on your spot." },
+  restless:   { name: "Restless",   text: "When you Hunker Down, your own urge drops by only 1." },
+  showOff:    { name: "Show-off",   text: "Whenever you roll a Great, you strike a pose: a “Huh?” token goes on your spot (or your zone, if you’re in the open)." },
   jumpy:      { name: "Jumpy",      text: "+1 urge whenever another turkey gobbles." },
   chatterbox: { name: "Chatterbox", text: "+1 urge whenever you Lend a Wing, or a friend Lends you one." },
   scaredy:    { name: "Scaredy",    text: "A Close Call happens to you when the farmer or the dog ends in your zone or next to it." }
@@ -60,14 +60,14 @@ GG.quirks = {
 
 /* -------------------------------------------------------------- turkeys -- */
 GG.turkeys = [
-  { id: "butterbean", name: "Butterbean", breed: "Bourbon Red",   bird: "hen",  knack: "busyBeak",  quirk: "worrywart" },
+  { id: "butterbean", name: "Butterbean", breed: "Bourbon Red",   bird: "hen",  knack: "busyBeak",  quirk: "chatterbox" },
   { id: "pip",        name: "Pip",        breed: "Narragansett",  bird: "jake", knack: "softSteps", quirk: "hiccups" },
-  { id: "duchess",    name: "Duchess",    breed: "Royal Palm",    bird: "hen",  knack: "still",     quirk: "fussy" },
-  { id: "bigtom",     name: "Big Tom",    breed: "Bronze",        bird: "tom",  knack: "bigGobble", quirk: "restless" },
-  { id: "noodle",     name: "Noodle",     breed: "White Holland", bird: "jake", knack: "quickFeet", quirk: "showOff" },
-  { id: "clementine", name: "Clementine", breed: "Blue Slate",    bird: "hen",  knack: "coolHead",  quirk: "jumpy" },
-  { id: "gizmo",      name: "Gizmo",      breed: "Black Spanish", bird: "tom",  knack: "motherHen", quirk: "chatterbox" },
-  { id: "hazel",      name: "Hazel",      breed: "Chocolate",     bird: "hen",  knack: "keenEye",   quirk: "scaredy" }
+  { id: "duchess",    name: "Duchess",    breed: "Royal Palm",    bird: "hen",  knack: "still",     quirk: "showOff" },
+  { id: "bigtom",     name: "Big Tom",    breed: "Bronze",        bird: "tom",  knack: "bigGobble", quirk: "scaredy" },
+  { id: "noodle",     name: "Noodle",     breed: "White Holland", bird: "jake", knack: "quickFeet", quirk: "restless" },
+  { id: "clementine", name: "Clementine", breed: "Blue Slate",    bird: "hen",  knack: "coolHead",  quirk: "fussy" },
+  { id: "gizmo",      name: "Gizmo",      breed: "Black Spanish", bird: "tom",  knack: "motherHen", quirk: "worrywart" },
+  { id: "hazel",      name: "Hazel",      breed: "Chocolate",     bird: "hen",  knack: "keenEye",   quirk: "jumpy" }
 ];
 
 /* ---------------------------------------------------------------- farms -- */
@@ -117,6 +117,7 @@ GG.farms = {
 
   puddlewick: {
     id: "puddlewick", name: "Puddlewick Farm", farmer: "Farmer Puddlewick", dog: "Pickles", clock: 1,
+    creek: 0,   // the map draws a creek below this grid row (flavour: the paths say where you can cross)
     start: { turkeys: "pen", farmer: "house", dog: "house" },
     zones: {
       pond:       z("Duck Pond",     ["noisy"], [s("Reeds", 3, 4), s("Duck house", 4, 2), s("Under the jetty", 5, 2)],          [0,0,0,1,1,2], ["willow","willow","willow","goat","goat","goat"], [0,0]),
@@ -150,7 +151,7 @@ GG.farms = {
   },
 
   windy: {
-    id: "windy", name: "Windy Ridge Farm", farmer: "Farmer Ruiz", dog: "Moose", clock: 1,
+    id: "windy", name: "Windy Ridge Farm", farmer: "Farmer Windle", dog: "Moose", clock: 1,
     start: { turkeys: "pen", farmer: "house", dog: "house" },
     zones: {
       windmill: z("Windmill",         [],               [s("In the windmill", 4, 3), s("Grain sacks", 3, 2)],                       [0,0,0,0,1,1], ["meadow","meadow","meadow","orchard","orchard","orchard"], [0,0]),

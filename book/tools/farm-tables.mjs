@@ -10,7 +10,7 @@ import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { GG } from "../../module/config.mjs";
-import { neighbours } from "../../module/logic/rules.mjs";
+import { neighbors } from "../../module/logic/rules.mjs";
 
 const CH = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "chapters");
 
@@ -28,7 +28,7 @@ function d6Line(names) {
 }
 
 export function farmTable(farm) {
-  const adj = neighbours(farm);
+  const adj = neighbors(farm);
   const rows = Object.entries(farm.zones).map(([id, z]) => {
     const tags = [z.tags.includes("open") ? "Open" : null, z.tags.includes("noisy") ? "Noisy" : null].filter(Boolean);
     const name = `${z.name}${tags.length ? ` <span class="tag">${tags.join(", ")}</span>` : ""}`;

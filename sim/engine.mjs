@@ -16,7 +16,7 @@ const KNACK_FOR = { prank: "busyBeak", sneak: "softSteps", noisy: "softSteps", h
 
 export function newGame({ farmId = "bramble", difficulty = "standard", roster, rng, params }) {
   const farm = GG.farms[farmId];
-  const adj = R.neighbours(farm);
+  const adj = R.neighbors(farm);
   const diff = GG.difficulty[difficulty];
   const S = {
     farm, adj, diff, difficulty, P: params, rng,
@@ -27,7 +27,7 @@ export function newGame({ farmId = "bramble", difficulty = "standard", roster, r
       return { ...def, zone: farm.start.turkeys, spot: 0, spotted: false, urge: params.startUrge ?? GG.urge.start,
         acted: false, helped: false, lastRise: null, history: [] };
     }),
-    farmer: { zone: farm.start.farmer, indoors: true, searchAll: false, noMove: false, hurry: false, detour: null },
+    farmer: { zone: farm.start.farmer, indoors: true, searchAll: false, noMove: false, hurry: false, detours: [] },
     dog: diff.dog ? { zone: farm.start.dog } : null,
     kids: Array.from({ length: R.kidsFor(roster.length) }, () => ({ zone: farm.start.farmer })),
     heard: {}, heardSeq: 0, heardSpots: {},
@@ -157,7 +157,8 @@ function endAction(S, t, key) {
 export function actSneak(S, t, to, then = null) {
   const key = S.ctx = `a${++S.actionSeq}`;
   const from = t.zone;
-  if (t.knack !== "softSteps") then = null;
+  if (S.farmer.indoors && (to === S.farm.start.farmer || then === S.farm.start.farmer)) throw new Error("nobody enters the Farmhouse in round 1");
+  if (t.knack !== "softSteps" || farmerIn(S, to)) then = null;   // Soft Steps can't pass through the farmer's zone
   const path = then ? [from, to, then] : [from, to];
   const fdm = R.distancesFrom(S.farm, S.farmer.zone, S.adj);
   const farmerNear = !S.farmer.indoors && path.some(z => fdm[z] <= GG.roll.sneakRange);
@@ -209,12 +210,13 @@ export function actPrank(S, t, prank) {
   if (t.zone !== prank.zone || farmerIn(S, prank.zone) || S.done[prank.id]) throw new Error(`illegal prank ${prank.id}`);
   const rolled = roll(S, t, "prank", prank.target);
   if (rolled.res.success) {
-    S.progress[prank.id] += (rolled.res.great ? 2 : 1) * (t.knack === "busyBeak" ? 2 : 1);
+    // Busy Beak: a roll that works ticks two boxes (as a Great does).
+    S.progress[prank.id] += (rolled.res.great || t.knack === "busyBeak") ? 2 : 1;
     if (S.progress[prank.id] >= prank.need) {
       S.done[prank.id] = true;
       S.stats.pranks[prank.id] = 1;
       if (prank.loud) placeHeard(S, prank.zone, null);
-      if (prank.detour) S.farmer.detour = prank.detour;
+      if (prank.detour) S.farmer.detours.push(prank.detour);
       if (prank.decoy) S.decoy = true;
       if (prank.clock) { S.stats.prankClock += prank.clock; advanceClock(S, prank.clock); }
     }
@@ -234,7 +236,7 @@ export function actRescue(S, t, friend) {
   if (rolled.res.success) { friend.spotted = false; S.stats.rescueWins++; }
   if (!(rolled.res.success && rolled.res.great)) {
     if (farmerIn(S, t.zone)) spot(S, t, "rescue"); else placeHeard(S, t.zone, t.spot);
-  }
+  } else if (t.quirk === "showOff") placeHeard(S, t.zone, t.spot);   // a quirk beats the general rule
   if (rolled.helper) {
     if (rolled.res.helperGobble && S.feathers > 0 && policy.wantsFeather(S, rolled.helper)) { S.feathers--; S.stats.feathersSpent++; rolled.res.helperGobble = false; }
     if (rolled.res.helperGobble) gobble(S, rolled.helper, "helper", key);
@@ -302,77 +304,78 @@ function farmersTurn(S) {
   const F = S.farmer, farm = S.farm, rng = S.rng;
   // Round 1: he's indoors pulling his boots on, and skips his turn (the turkeys' head start).
   if (F.indoors) { F.indoors = false; S.preRoute = null; return; }
-  // 1. Grab.
+  // 1. Grab. A Spotted turkey he's no longer with (Grandma called, the decoy) gets away.
+  for (const t of S.turkeys) if (t.spotted && t.zone !== F.zone) t.spotted = false;
   const grab = S.turkeys.filter(t => t.spotted && t.zone === F.zone);
+  let decoyed = false;
   if (grab.length) {
     grab.sort((a, b) => b.urge - a.urge);
-    if (S.decoy) {
-      // The scarecrow decoy: he grabs it instead and carries it to the kitchen. His turn ends.
-      S.decoy = false; S.stats.decoyUsed++;
-      grab[0].spotted = false;
-      S.farmer.zone = "house";
-      advanceClock(S, GG.clock.decoyClock);
+    if (!S.decoy) {
+      S.over = true; S.result = "loss"; S.cause = "caught"; S.gobbled = grab[0].id; S.stats.caughtWhy = grab[0].spottedWhy;
       return;
     }
-    S.over = true; S.result = "loss"; S.cause = "caught"; S.gobbled = grab[0].id; S.stats.caughtWhy = grab[0].spottedWhy;
-    return;
+    // The decoy: he grabs it instead and carries it to the Farmhouse. Skip steps 2–4.
+    S.decoy = false; S.stats.decoyUsed++; decoyed = true;
+    grab[0].spotted = false;
+    F.zone = "house";
+    advanceClock(S, GG.clock.decoyClock);
+    if (S.over) return;
   }
-  // 2. Move.
-  let reachedHeard = false, busy = false;
-  if (F.detour) {
-    // A detour prank: he goes straight there and is too busy to search.
-    F.zone = F.detour; F.detour = null; busy = true; F.noMove = false;   // a next-turn effect lasts one turn
-  } else if (F.noMove) {
-    F.noMove = false;
-  } else {
-    const target = R.chooseHeard(farm, F.zone, S.heard, S.adj);
-    if (target) {
-      S.stats.heardChases++;
-      for (let i = 0; i < S.diff.chase && F.zone !== target; i++) F.zone = R.stepToward(farm, F.zone, target, S.adj);
+  const calm = new Set(S.turkeys.filter(t => t.knack === "keenEye").map(t => t.zone));   // Keen Eye warns its zone
+  if (!decoyed) {
+    // 2. Walk.
+    let reachedHeard = false, busy = false;
+    if (F.detours.length) {
+      // A detour prank (the first one, if several went off): straight there, too busy to search.
+      F.zone = F.detours.shift(); busy = true; F.noMove = false;   // a next-turn effect lasts one turn
+    } else if (F.noMove) {
+      F.noMove = false;
     } else {
-      const die = S.preRoute ?? rng.d6();
-      F.zone = farm.zones[F.zone].route[die - 1];
-      if (F.hurry) F.zone = farm.zones[F.zone].route[rng.d6() - 1];
-    }
-  }
-  F.hurry = false;
-  S.preRoute = null;
-  // 3. Search. A "Huh?" token in the zone he ends in tells him where to look.
-  reachedHeard = !!S.heard[F.zone];
-  S.stats.searches++;
-  if (!busy) for (const t of S.turkeys) if (t.zone === F.zone && t.spot === null) spot(S, t, "open");
-  const spots = spotsOf(S, F.zone);
-  if (spots.length && !busy) {
-    let searched;
-    if (F.searchAll) searched = spots.map((_, i) => i);
-    else if (reachedHeard) {
-      // He checks the spot(s) the noise came from; a noise from the open sends him to a rolled spot.
-      const marked = S.heardSpots[F.zone] ?? new Set([null]);
-      searched = [...marked].filter(i => i !== null);
-      if (marked.has(null) || !searched.length) searched.push(farm.zones[F.zone].search[rng.d6() - 1]);
-      searched = [...new Set(searched)];
-    } else {
-      searched = [];
-      searched.push(farm.zones[F.zone].search[rng.d6() - 1]);
-    }
-    for (const i of searched) {
-      for (const t of occupants(S, F.zone, i)) {
-        if (t.spotted) continue;
-        const rolled = roll(S, t, "hide", spots[i].cover);
-        if (!rolled.res.success) spot(S, t, "search");
-        afterRoll(S, t, rolled, key);
+      const target = R.chooseHeard(farm, F.zone, S.heard, S.adj);
+      if (target) {
+        S.stats.heardChases++;
+        for (let i = 0; i < S.diff.chase && F.zone !== target; i++) F.zone = R.stepToward(farm, F.zone, target, S.adj);
+      } else {
+        const die = S.preRoute ?? rng.d6();
+        F.zone = farm.zones[F.zone].route[die - 1];
+        if (F.hurry) F.zone = farm.zones[F.zone].route[rng.d6() - 1];
       }
     }
+    F.hurry = false;
+    // 3. Search. A "Huh?" token in the zone he ends in tells him where to look.
+    reachedHeard = !!S.heard[F.zone];
+    S.stats.searches++;
+    if (!busy) for (const t of S.turkeys) if (t.zone === F.zone && t.spot === null) spot(S, t, "open");
+    const spots = spotsOf(S, F.zone);
+    if (spots.length && !busy) {
+      let searched;
+      if (F.searchAll) searched = spots.map((_, i) => i);
+      else if (reachedHeard) {
+        // He checks the spot(s) the noise came from; a noise from the open sends him to a rolled spot.
+        const marked = S.heardSpots[F.zone] ?? new Set([null]);
+        searched = [...marked].filter(i => i !== null);
+        if (marked.has(null) || !searched.length) searched.push(farm.zones[F.zone].search[rng.d6() - 1]);
+        searched = [...new Set(searched)];
+      } else searched = [farm.zones[F.zone].search[rng.d6() - 1]];
+      for (const i of searched) {
+        for (const t of occupants(S, F.zone, i)) {
+          if (t.spotted) continue;
+          const rolled = roll(S, t, "hide", spots[i].cover);
+          if (!rolled.res.success) spot(S, t, "search");
+          afterRoll(S, t, rolled, key);
+        }
+      }
+    }
+    F.searchAll = false;
+    delete S.heard[F.zone]; delete S.heardSpots[F.zone];
+    // 4. Close calls.
+    const fdm = R.distancesFrom(S.farm, F.zone, S.adj);
+    for (const t of S.turkeys) {
+      if (t.spotted || calm.has(t.zone)) continue;
+      if (fdm[t.zone] <= GG.urge.closeRange + (t.quirk === "scaredy" ? 1 : 0)) rise(S, t, key);
+    }
   }
-  F.searchAll = false;
-  delete S.heard[F.zone]; delete S.heardSpots[F.zone];
-  // 4. Close call.
-  const fdm = R.distancesFrom(S.farm, F.zone, S.adj);
-  const calm = new Set(S.turkeys.filter(t => t.knack === "keenEye").map(t => t.zone));   // Keen Eye warns its zone
-  for (const t of S.turkeys) {
-    if (t.spotted || calm.has(t.zone)) continue;
-    if (fdm[t.zone] <= GG.urge.closeRange + (t.quirk === "scaredy" ? 1 : 0)) rise(S, t, key);
-  }
+  S.preRoute = null;
   // 5. The dog.
   if (S.dog) {
     // 1–3: the dog follows its nose toward the nearest turkey; 4–6: it wanders along its route.
@@ -381,7 +384,7 @@ function farmersTurn(S) {
       const d = R.distancesFrom(farm, S.dog.zone, S.adj);
       const near = [...S.turkeys].sort((a, b) => d[a.zone] - d[b.zone])[0];
       if (near && near.zone !== S.dog.zone) S.dog.zone = R.stepToward(farm, S.dog.zone, near.zone, S.adj);
-    } else S.dog.zone = farm.zones[S.dog.zone].route[die - 1];
+    } else S.dog.zone = farm.zones[S.dog.zone].route[rng.d6() - 1];   // roll again for its route
     let barked = false;
     for (const t of S.turkeys) {
       if (t.zone !== S.dog.zone || t.spotted) continue;
@@ -425,7 +428,7 @@ export function advanceClock(S, n) {
 }
 
 function farmEvent(S) {
-  const key = S.ctx;   // an event is part of whatever moved the clock
+  const key = `e${S.round}.${S.clock}`;   // a farm event is its own thing: it can raise an urge that just rose
   if (S.P.events !== false) {
     const ev = GG.events[S.rng.d6() - 1];
     S.stats.events.push(ev.id);

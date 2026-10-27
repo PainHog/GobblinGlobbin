@@ -62,14 +62,14 @@ export function canPush(urge) {
 /* ------------------------------------------------------------ the farm -- */
 
 /** Adjacency lists for a farm, from its links. */
-export function neighbours(farm) {
+export function neighbors(farm) {
   const n = Object.fromEntries(Object.keys(farm.zones).map(k => [k, []]));
   for (const [a, b] of farm.links) { n[a].push(b); n[b].push(a); }
   return n;
 }
 
 /** Distances (in zones) from one zone to every other (breadth-first). */
-export function distancesFrom(farm, from, adj = neighbours(farm)) {
+export function distancesFrom(farm, from, adj = neighbors(farm)) {
   const d = { [from]: 0 }, q = [from];
   while (q.length) {
     const c = q.shift();
@@ -83,7 +83,7 @@ export function distancesFrom(farm, from, adj = neighbours(farm)) {
  * the nearest one; if two are equally near, the newest. Returns the zone, or null when there is none.
  * `heard` is a map zone → the order it was placed (higher = newer).
  */
-export function chooseHeard(farm, from, heard, adj = neighbours(farm)) {
+export function chooseHeard(farm, from, heard, adj = neighbors(farm)) {
   const d = distancesFrom(farm, from, adj);
   let best = null;
   for (const [zone, order] of Object.entries(heard)) {
@@ -94,10 +94,10 @@ export function chooseHeard(farm, from, heard, adj = neighbours(farm)) {
 
 /**
  * One step of the farmer's walk toward a zone along a shortest path. Where two
- * neighbours are equally good, the one listed first on the farm's links wins (the book
+ * neighbors are equally good, the one listed first on the farm's links wins (the book
  * prints the paths, so the Storyteller never has to choose).
  */
-export function stepToward(farm, from, to, adj = neighbours(farm)) {
+export function stepToward(farm, from, to, adj = neighbors(farm)) {
   if (from === to) return from;
   const d = distancesFrom(farm, to, adj);
   return adj[from].filter(n => d[n] === d[from] - 1)[0] ?? from;

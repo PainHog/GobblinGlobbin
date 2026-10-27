@@ -99,11 +99,26 @@ function box(farm, id, zone) {
 
 function path(farm, a, b) {
   const [ax, ay] = farm.zones[a].pos, [bx, by] = farm.zones[b].pos;
-  if (Math.abs(ax - bx) + Math.abs(ay - by) !== 1) throw new Error(`${farm.id}: ${a}–${b} must be grid neighbours`);
+  if (Math.abs(ax - bx) + Math.abs(ay - by) !== 1) throw new Error(`${farm.id}: ${a}–${b} must be grid neighbors`);
   const cxA = M + ax * CW + CW / 2, cyA = M + ay * RH + RH / 2, cxB = M + bx * CW + CW / 2, cyB = M + by * RH + RH / 2;
   const mx = (cxA + cxB) / 2, my = (cyA + cyB) / 2;
   if (ay === by) return `<rect x="${mx - PAD - 10}" y="${my - 36}" width="${2 * PAD + 20}" height="72" rx="10" fill="${C.accent}" stroke="${C.dark}" stroke-width="3"/>`;
   return `<rect x="${mx - 50}" y="${my - PAD - 10}" width="100" height="${2 * PAD + 20}" rx="10" fill="${C.accent}" stroke="${C.dark}" stroke-width="3"/>`;
+}
+
+/** A creek running across the farm below grid row `row`, crossed only where a path is drawn. */
+function creek(row) {
+  const y = M + (row + 1) * RH, out = [];
+  const wave = dy => {
+    let d = `M ${M} ${y + dy}`;
+    for (let x = M; x < W - M; x += 40) d += ` q 10 -7 20 0 t 20 0`;
+    return d;
+  };
+  out.push(`<rect x="${M}" y="${y - 13}" width="${W - 2 * M}" height="26" fill="${C.paper2}"/>`);
+  out.push(`<path d="${wave(-8)}" fill="none" stroke="${C.accentDeep}" stroke-width="2.5"/>`);
+  out.push(`<path d="${wave(8)}" fill="none" stroke="${C.accentDeep}" stroke-width="2.5"/>`);
+  for (const col of [1, 3]) out.push(`<rect x="${M + col * CW + CW / 2 - 52}" y="${y - 14}" width="104" height="28" rx="6" fill="${C.paper}"/><text x="${M + col * CW + CW / 2}" y="${y + 8}" ${F} font-size="24" font-weight="800" fill="${C.accentDeep}" text-anchor="middle" letter-spacing="2">CREEK</text>`);
+  return out.join("\n");
 }
 
 function legend() {
@@ -124,6 +139,7 @@ export function farmMap(farm) {
   const parts = [`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Map of ${esc(farm.name)}">`,
     `<title>Map of ${esc(farm.name)}</title>`,
     `<rect x="0" y="0" width="${W}" height="${H}" fill="${C.paper}"/>`];
+  if (farm.creek !== undefined) parts.push(creek(farm.creek));
   for (const [a, b] of farm.links) parts.push(path(farm, a, b));
   for (const [id, zone] of Object.entries(farm.zones)) parts.push(box(farm, id, zone));
   parts.push(legend());

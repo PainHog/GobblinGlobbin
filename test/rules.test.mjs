@@ -67,7 +67,7 @@ test("the farmer heads for the nearest Heard marker, newest on a tie, one step a
 
 for (const farm of Object.values(GG.farms)) {
   test(`${farm.name}: the data is playable`, () => {
-    const adj = R.neighbours(farm);
+    const adj = R.neighbors(farm);
     const zones = Object.keys(farm.zones);
     assert.ok(farm.zones.house && farm.zones.pen, "has a Farmhouse and a Turkey Pen");
     assert.equal(farm.start.turkeys, "pen");
