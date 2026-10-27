@@ -34,6 +34,11 @@ This is a living document. **§1 Pitch** is Richard's own. **§3 Decisions** lis
 | Date | Decision | Notes |
 |---|---|---|
 | 2026-10-26 | Premise as in the pitch: turkeys hiding and escaping on dinner night, the gobble urge, one turkey gets gobbled, no turkey left behind | Title is a working title (§2) |
+| 2026-10-27 | **Tone and age:** a family-friendly cartoon comedy for ages 8+. "Gobbled" means eaten, played as a cartoon | Matches art checklist §24 |
+| 2026-10-27 | **Players and length:** 2–8 players; a session runs 60–120 minutes | Every size from 2 to 8 is simulated, with explicit per-size adjustments (A21); trackers and sheets fit 8 turkeys (A28). Whether the count includes the Storyteller: to confirm |
+| 2026-10-27 | **Holiday:** Thanksgiving. A seasonal one-shot that sells around Thanksgiving every year, not an evergreen product | No Pilgrims or Native American imagery of any kind (art checklist §25) |
+| 2026-10-27 | **Setting:** the turkeys live on a family farm, and the farmer is coming to get one of them | Replaces the house and dinner-guest framing in the §4–§6 suggestions. Seekers, map and escape are still open (§5 questions 6, 7 and 13) |
+| 2026-10-27 | **Standalone,** not part of a "Don't Get…" series. **Title kept:** *Don't Get Gobble Gobbled* | Drops the §6 series suggestion. The full name search is still required before any store page, cover or logo; check "Gobble Gobbled" against *Gobblet Gobblers* (§2) |
 
 ## 4. Early flags: where the pitch meets the lessons in `DESIGN-RULES.md`
 These aren't decisions. They're the first things to settle, because each one has already caused trouble in an earlier game.
