@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1428 1180" role="img" aria-label="Map of Bramble Farm">
+<title>Map of Bramble Farm</title>
+<rect x="0" y="0" width="1428" height="1180" fill="#fbf3e4"/>
+<rect x="340" y="150.66666666666666" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="688" y="150.66666666666666" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="1036" y="150.66666666666666" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="340" y="488" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="688" y="488" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="1036" y="488" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="340" y="825.3333333333333" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="688" y="825.3333333333333" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="1036" y="825.3333333333333" width="52" height="72" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="142" y="329.3333333333333" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="490" y="329.3333333333333" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="838" y="329.3333333333333" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="142" y="666.6666666666666" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="490" y="666.6666666666666" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="838" y="666.6666666666666" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="1186" y="666.6666666666666" width="100" height="52" rx="10" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<rect x="34" y="34" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="50" y="72" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Apple Orchard</text>
+<line x1="48" y1="84" x2="336" y2="84" stroke="#dcc39a" stroke-width="2"/>
+<text x="50" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Leaf pile</text>
+<text x="276" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="334" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<text x="50" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Apple trees</text>
+<text x="276" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="334" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<text x="50" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Fallen log</text>
+<text x="276" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="334" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="382" y="34" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="398" y="72" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Pumpkin Patch</text>
+<line x1="396" y1="84" x2="684" y2="84" stroke="#dcc39a" stroke-width="2"/>
+<text x="398" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Big pumpkins</text>
+<text x="624" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="682" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<text x="398" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Hay wagon</text>
+<text x="624" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="682" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<rect x="390" y="238.33333333333331" width="300" height="93" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="400" y="264.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Roll the giant pumpkin</text>
+<text x="400" y="293.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">4+</tspan>  clock −3  loud</text>
+<rect x="654" y="272.3333333333333" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="730" y="34" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="746" y="72" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Cornfield</text>
+<line x1="744" y1="84" x2="1032" y2="84" stroke="#dcc39a" stroke-width="2"/>
+<text x="746" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Corn rows</text>
+<text x="972" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1030" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×6</text>
+<text x="746" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Corn crib</text>
+<text x="972" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1030" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="1078" y="34" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="1094" y="72" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Cow Pasture</text>
+<line x1="1092" y1="84" x2="1380" y2="84" stroke="#dcc39a" stroke-width="2"/>
+<text x="1094" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Behind the cows</text>
+<text x="1320" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1378" y="114" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×4</text>
+<text x="1094" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Water trough</text>
+<text x="1320" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1378" y="143" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="1094" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Hay rack</text>
+<text x="1320" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1378" y="172" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="1086" y="238.33333333333331" width="300" height="93" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="1096" y="264.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Let the cows out</text>
+<text x="1096" y="293.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">4+</tspan>  clock −3  detour</text>
+<rect x="1350" y="272.3333333333333" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="34" y="371.3333333333333" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="50" y="409.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Vegetable Garden</text>
+<line x1="48" y1="421.3333333333333" x2="336" y2="421.3333333333333" stroke="#dcc39a" stroke-width="2"/>
+<text x="50" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Cabbage rows</text>
+<text x="276" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="334" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<text x="50" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Compost heap</text>
+<text x="276" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="334" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="50" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Scarecrow</text>
+<text x="276" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">5+</text>
+<text x="334" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×1</text>
+<rect x="42" y="546.6666666666666" width="300" height="122" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="52" y="572.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Dress the scarecrow as</text>
+<text x="52" y="601.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">   a turkey</text>
+<text x="52" y="630.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">5+</tspan>  clock −1  decoy</text>
+<rect x="306" y="609.6666666666666" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="274" y="609.6666666666666" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="382" y="371.3333333333333" width="316" height="305.3333333333333" rx="18" fill="#f1e2c6" stroke="#5a2e1d" stroke-width="4" stroke-dasharray="14 9"/>
+<text x="398" y="409.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Barnyard</text>
+<rect x="396" y="421.3333333333333" width="80" height="28" rx="14" fill="#9a4a12"/><text x="436" y="442.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="21" font-weight="800" fill="#fffaf0" text-anchor="middle" letter-spacing="1">OPEN</text>
+<line x1="396" y1="461.3333333333333" x2="684" y2="461.3333333333333" stroke="#dcc39a" stroke-width="2"/>
+<text x="398" y="491.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-style="italic" fill="#6b5243">Open ground: no spots</text>
+<rect x="730" y="371.3333333333333" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="746" y="409.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Big Barn</text>
+<line x1="744" y1="421.3333333333333" x2="1032" y2="421.3333333333333" stroke="#dcc39a" stroke-width="2"/>
+<text x="746" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Hayloft</text>
+<text x="972" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1030" y="451.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×4</text>
+<text x="746" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Old tractor</text>
+<text x="972" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1030" y="480.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="746" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Feed bins</text>
+<text x="972" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1030" y="509.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="738" y="546.6666666666666" width="300" height="122" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="748" y="572.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Tip over the milk</text>
+<text x="748" y="601.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">   pails</text>
+<text x="748" y="630.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">4+</tspan>  clock −3  loud</text>
+<rect x="1002" y="609.6666666666666" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="1078" y="371.3333333333333" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="1094" y="409.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Duck Pond</text>
+<rect x="1092" y="421.3333333333333" width="94" height="28" rx="14" fill="#a3262a"/><text x="1139" y="442.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="21" font-weight="800" fill="#fffaf0" text-anchor="middle" letter-spacing="1">NOISY</text>
+<line x1="1092" y1="461.3333333333333" x2="1380" y2="461.3333333333333" stroke="#dcc39a" stroke-width="2"/>
+<text x="1094" y="491.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Reeds</text>
+<text x="1320" y="491.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1378" y="491.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×4</text>
+<text x="1094" y="520.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Upturned boat</text>
+<text x="1320" y="520.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1378" y="520.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="1094" y="549.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Under the dock</text>
+<text x="1320" y="549.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">5+</text>
+<text x="1378" y="549.3333333333333" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="1086" y="575.6666666666666" width="300" height="93" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="1096" y="601.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Untie the rowboat</text>
+<text x="1096" y="630.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">4+</tspan>  clock −2  detour</text>
+<rect x="1350" y="609.6666666666666" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="34" y="708.6666666666666" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="50" y="746.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Farmhouse</text>
+<rect x="48" y="758.6666666666666" width="276" height="28" rx="14" fill="#3b1d12"/><text x="186" y="779.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="21" font-weight="800" fill="#f6c35c" text-anchor="middle" letter-spacing="1">FARMER &amp; DOG START</text>
+<line x1="48" y1="798.6666666666666" x2="336" y2="798.6666666666666" stroke="#dcc39a" stroke-width="2"/>
+<text x="50" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Porch steps</text>
+<text x="276" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">5+</text>
+<text x="334" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="50" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Woodpile</text>
+<text x="276" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="334" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="50" y="886.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Under the truck</text>
+<text x="276" y="886.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="334" y="886.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="42" y="913" width="300" height="93" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="52" y="939" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Turn off the oven</text>
+<text x="52" y="968" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">5+</tspan>  clock −3</text>
+<rect x="306" y="947" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="274" y="947" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="382" y="708.6666666666666" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="398" y="746.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Turkey Pen</text>
+<rect x="396" y="758.6666666666666" width="206" height="28" rx="14" fill="#3b1d12"/><text x="499" y="779.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="21" font-weight="800" fill="#f6c35c" text-anchor="middle" letter-spacing="1">TURKEYS START</text>
+<line x1="396" y1="798.6666666666666" x2="684" y2="798.6666666666666" stroke="#dcc39a" stroke-width="2"/>
+<text x="398" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Turkey house</text>
+<text x="624" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="682" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×8</text>
+<text x="398" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Feed trough</text>
+<text x="624" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="682" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="730" y="708.6666666666666" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="746" y="746.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Chicken Coop</text>
+<rect x="744" y="758.6666666666666" width="94" height="28" rx="14" fill="#a3262a"/><text x="791" y="779.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="21" font-weight="800" fill="#fffaf0" text-anchor="middle" letter-spacing="1">NOISY</text>
+<line x1="744" y1="798.6666666666666" x2="1032" y2="798.6666666666666" stroke="#dcc39a" stroke-width="2"/>
+<text x="746" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Nesting boxes</text>
+<text x="972" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1030" y="828.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<text x="746" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Behind the coop</text>
+<text x="972" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1030" y="857.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="738" y="913" width="300" height="93" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="748" y="939" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Wake the rooster</text>
+<text x="748" y="968" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">3+</tspan>  clock −2  loud</text>
+<rect x="1002" y="947" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="1078" y="708.6666666666666" width="316" height="305.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
+<text x="1094" y="746.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Tractor Shed</text>
+<line x1="1092" y1="758.6666666666666" x2="1380" y2="758.6666666666666" stroke="#dcc39a" stroke-width="2"/>
+<text x="1094" y="788.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Under the tarp</text>
+<text x="1320" y="788.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">4+</text>
+<text x="1378" y="788.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×3</text>
+<text x="1094" y="817.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12">Hay bales</text>
+<text x="1320" y="817.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#5a2e1d" text-anchor="end">3+</text>
+<text x="1378" y="817.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#6b5243" text-anchor="end">×2</text>
+<rect x="1086" y="884" width="300" height="122" rx="12" fill="#f1e2c6" stroke="#c8691c" stroke-width="2.5"/>
+<text x="1096" y="910" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">★ Let down the tractor</text>
+<text x="1096" y="939" font-family="Alegreya Sans, sans-serif" font-size="23" font-weight="800" fill="#3b1d12">   tires</text>
+<text x="1096" y="968" font-family="Alegreya Sans, sans-serif" font-size="22" fill="#2a1a12"><tspan font-weight="800">4+</tspan>  clock −2</text>
+<rect x="1350" y="947" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="1318" y="947" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
+<rect x="18" y="1064" width="1392" height="106" rx="14" fill="#f1e2c6" stroke="#dcc39a" stroke-width="2"/>
+<rect x="40" y="1082" width="40" height="28" rx="6" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
+<text x="92" y="1104" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12"><tspan font-weight="800">Path</tspan>: you can Sneak this way. No path, no way through.</text>
+<text x="40" y="1142" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12"><tspan font-weight="800">Hayloft 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>
+<text x="834" y="1104" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12"><tspan font-weight="800">★ Prank</tspan>: its target, clock jump, and boxes.</text>
+<text x="834" y="1142" font-family="Alegreya Sans, sans-serif" font-size="23" fill="#2a1a12"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>
+</svg>

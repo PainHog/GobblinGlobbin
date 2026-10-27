@@ -4,7 +4,7 @@
 
 **The game.** It's Thanksgiving morning on a family farm. The farmer is looking for a turkey to roast, and any turkey will do. Each player is a turkey; one more person is the **Storyteller**, who runs the farmer, the dog and the farm. The flock hides, sneaks, pulls pranks and stalls until it's **Too Late** to cook a turkey. If the farmer grabs one turkey, the game ends at once: that turkey is gobbled and **the whole flock loses**. Nobody is ever out while the game goes on. 2–8 turkeys, ages 8+, about 45–120 minutes.
 
-**You need.** Three white d6 (action dice), seven red d6 (gobble dice), one d6 of a third colour for helpers, and a d6 for the Storyteller. A farm map, the turkey cards, the Dinner Clock, Feather tokens, “Huh?” tokens, and pawns for the turkeys, the farmer and the dog.
+**You need.** Three white d6 (action dice), five red d6 (gobble dice), one d6 of a third colour for helpers, and a d6 for the Storyteller. A farm map, the turkey cards, the Dinner Clock, Feather tokens, “Huh?” tokens, and pawns for the turkeys, the farmer and the dog.
 
 **Setup.** Pick a farm and a difficulty. Each player takes a ready-made turkey (deal them, or roll off for one two players want). Every turkey starts hidden in the Turkey House in the Turkey Pen with urge 1. Put the farmer and the dog in the Farmhouse. Set the Dinner Clock to **16 + 1 per turkey** (Easy −4, Hard +2, 2–3 turkeys −2, plus the farm's own adjustment). The flock gets **2 Feathers** (2–3 turkeys +1; Easy +1, Hard −1). With 5 or more turkeys, the farmer's kid helps him search.
 

@@ -10,11 +10,11 @@ export const OUT = new URL("../../art/", import.meta.url).pathname; // book/art/
 
 /** PLACEHOLDER palette — keep in step with book/src/book.css :root tokens. */
 export const C = {
-  dark: "#3a3a3c", deep: "#222224", soft: "#5c5c60",
-  paper: "#f2f1ee", paper2: "#e3e1dc", edge: "#c9c6bf", light: "#faf9f6",
-  ink: "#161618", inkSoft: "#5a5a5e",
-  accent: "#7a7f88", accentDeep: "#555a63", accentB: "#e4e6ea",
-  alarm: "#7c2a2a", alarmB: "#b5473f", good: "#3f6f52",
+  dark: "#5a2e1d", deep: "#3b1d12", soft: "#7a4630",
+  paper: "#fbf3e4", paper2: "#f1e2c6", edge: "#dcc39a", light: "#fffaf0",
+  ink: "#2a1a12", inkSoft: "#6b5243",
+  accent: "#c8691c", accentDeep: "#9a4a12", accentB: "#f6c35c",
+  alarm: "#a3262a", alarmB: "#d2453a", good: "#4f7a3a",
 };
 
 // Unique ids per piece (clipPaths, gradients) — the book build also namespaces them.

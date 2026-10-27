@@ -15,22 +15,22 @@
   --page-ml: 0.68in;
 
   /* --- PLACEHOLDER palette (neutral greys + one muted accent) --- */
-  --dark: #3a3a3c;          /* primary dark fill, headings */
-  --dark-deep: #222224;     /* full-bleed pages, table heads, rule boxes */
-  --dark-soft: #5c5c60;     /* highlights on dark */
-  --paper: #f2f1ee;         /* the page */
-  --paper-2: #e3e1dc;       /* secondary light fill (boxes, stat lines) */
-  --paper-edge: #c9c6bf;    /* soft lines on light */
-  --paper-light: #faf9f6;   /* lightest fill (example boxes, sheet fields) */
-  --ink: #161618;           /* body text, linework */
-  --ink-soft: #5a5a5e;      /* captions, quiet text */
-  --footer: #85847f;        /* running footer */
-  --accent: #7a7f88;        /* rules, list markers, borders */
-  --accent-deep: #555a63;   /* labels on light */
-  --accent-bright: #e4e6ea; /* labels on dark */
-  --alarm: #7c2a2a;         /* danger / warning headings */
-  --alarm-bright: #b5473f;
-  --good: #3f6f52;          /* calm / safe (sparingly) */
+  --dark: #5a2e1d;          /* chestnut: primary dark fill, headings */
+  --dark-deep: #3b1d12;     /* dark roast: full-bleed pages, table heads, rule boxes */
+  --dark-soft: #7a4630;     /* highlights on dark */
+  --paper: #fbf3e4;         /* the page: warm cream */
+  --paper-2: #f1e2c6;       /* wheat: secondary light fill (boxes, stat lines) */
+  --paper-edge: #dcc39a;    /* soft lines on light */
+  --paper-light: #fffaf0;   /* lightest fill (example boxes, sheet fields) */
+  --ink: #2a1a12;           /* body text, linework */
+  --ink-soft: #6b5243;      /* captions, quiet text */
+  --footer: #9b8670;        /* running footer */
+  --accent: #c8691c;        /* pumpkin: rules, list markers, borders */
+  --accent-deep: #9a4a12;   /* burnt orange: labels on light */
+  --accent-bright: #f6c35c; /* harvest gold: labels on dark */
+  --alarm: #a3262a;         /* cranberry: danger / warning headings */
+  --alarm-bright: #d2453a;
+  --good: #4f7a3a;          /* sage: calm / safe (sparingly) */
 
   --display: "Fraunces", Georgia, serif;          /* PLACEHOLDER typeface */
   --text: "Alegreya", Georgia, serif;             /* PLACEHOLDER typeface */
@@ -515,3 +515,70 @@ figure.tailpiece svg { height: 100%; width: auto; max-width: 100%; }
 .back-cover .back-tagline { margin-top: auto; text-align: center; font: 600 11pt var(--sans); color: var(--paper); }
 .back-cover .back-title { text-align: center; margin: 0.08in 0 0; font: 900 20pt var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-bright); }
 .back-cover .back-title span { font: 800 10pt var(--sans); letter-spacing: .3em; color: var(--paper-2); }
+
+/* ------------------------------------------------ Don't Get Gobble Gobbled -- */
+/* turkey entries stay whole */
+.chapter .entry { break-inside: avoid; }
+/* farm chapters: the map spans both columns; the zone table is compact */
+.chapter figure.map { column-span: all; margin: 0.02in auto 0.1in; max-width: 6.5in; }
+.chapter figure.map svg { display: block; width: 100%; height: auto; }
+.chapter figure.map figcaption { text-align: center; }
+.tbl.farm { font-size: 7.8pt; line-height: 1.2; }
+.tbl.farm td { padding-top: 0.025in; padding-bottom: 0.025in; }
+.tbl.farm td:first-child { width: 1.05in; }
+.tbl.farm td:nth-child(2) { width: 1.15in; }
+.tag { font: 800 7.6pt var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--alarm); white-space: nowrap; }
+
+/* glossary */
+dl.glossary { margin: 0; }
+dl.glossary dt { margin-top: 0.07in; font: 800 9.6pt var(--sans); color: var(--dark-deep); break-after: avoid; }
+dl.glossary dd { margin: 0.01in 0 0; }
+
+/* compact reference sheets */
+.sheet.ref { font-size: 9.1pt; line-height: 1.28; padding: 0.26in 0.32in 0.22in; }
+.sheet.ref h2 { font-size: 24pt; }
+.sheet.ref .sheet-intro { margin-bottom: 0.1in !important; }
+.ref-cols { columns: 2; column-gap: 0.26in; }
+.ref-cols h3 { margin: 0.08in 0 0.03in; font-size: 11.2pt; }
+.ref-cols h3:first-child { margin-top: 0; }
+.ref-cols p { margin: 0 0 0.05in; }
+.ref-cols ul, .ref-cols ol { margin: 0 0 0.06in; padding-left: 0.16in; }
+.ref-cols li { margin: 0 0 0.02in; }
+.ref-cols .tbl { font-size: 8.4pt; margin: 0.02in 0 0.06in; }
+.ref-box { break-inside: avoid; margin: 0 0 0.08in; padding: 0.05in 0.08in; border: 1.5px solid var(--dark); border-radius: 6px; background: var(--paper); }
+.ref-box h3 { margin-top: 0 !important; }
+
+/* turkey cards: four to a page */
+.cards { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.16in; height: 8.55in; }
+.card { box-sizing: border-box; padding: 0.12in 0.14in; border: 2.5px solid var(--dark); border-radius: 10px; background: var(--paper); display: flex; flex-direction: column; font-size: 8.9pt; line-height: 1.27; }
+.card h3 { margin: 0; font: 900 19pt/1 var(--display); color: var(--dark-deep); }
+.card .card-breed { margin: 0.02in 0 0.06in; font: italic 600 9pt var(--display); color: var(--ink-soft); }
+.card .card-draw { flex: 1 1 auto; min-height: 0.9in; margin: 0 0 0.06in; border: 1.5px dashed var(--paper-edge); border-radius: 8px; display: flex; align-items: flex-end; justify-content: center; font: italic 7.8pt var(--sans); color: var(--ink-soft); padding-bottom: 0.04in; }
+.card .card-knack, .card .card-quirk { margin: 0 0 0.05in; padding: 0.04in 0.07in; border-radius: 5px; }
+.card .card-knack { background: var(--dark-deep); color: var(--paper); }
+.card .card-knack strong { color: var(--accent-bright); }
+.card .card-quirk { background: var(--paper-2); border: 1px solid var(--paper-edge); }
+.card .card-quirk strong { color: var(--alarm); }
+.card .urge { display: flex; align-items: center; gap: 0.05in; margin: 0.02in 0 0.03in; font: 800 8pt var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--alarm); }
+.card .urge span.u { display: inline-flex; align-items: center; justify-content: center; width: 0.27in; height: 0.27in; border: 1.8px solid var(--dark); border-radius: 50%; font: 800 10pt var(--sans); color: var(--dark-deep); background: var(--paper-light); letter-spacing: 0; }
+.card .card-foot { font: 7.8pt/1.25 var(--sans); color: var(--ink-soft); }
+
+/* the Dinner Clock */
+.clock-track { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.07in; margin: 0.06in 0 0.16in; }
+.clock-track .sp { box-sizing: border-box; height: 0.78in; border: 2px solid var(--dark); border-radius: 8px; background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; font: 900 20pt var(--display); color: var(--dark-deep); }
+.clock-track .sp small { font: 800 7.6pt var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--alarm); }
+.clock-track .sp.pie { border-width: 3px; border-style: double; background: var(--paper-2); }
+.clock-track .sp.late { grid-column: span 2; background: var(--dark-deep); color: var(--accent-bright); font-size: 16pt; }
+.clock-track .sp.late small { color: var(--paper); }
+.tracker-row { display: flex; gap: 0.3in; align-items: flex-start; }
+.tracker-row > div { flex: 1; }
+.sheet .boxes { display: flex; gap: 0.08in; flex-wrap: wrap; margin: 0.04in 0 0.1in; }
+.sheet .boxes span { display: inline-block; width: 0.32in; height: 0.32in; border: 2px solid var(--ink); border-radius: 5px; background: var(--paper-light); }
+
+/* tokens to cut out */
+.tokens { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.1in; }
+.tokens .tk { box-sizing: border-box; aspect-ratio: 1; border: 2px solid var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0.04in; font: 800 8.4pt/1.1 var(--sans); color: var(--dark-deep); background: var(--paper); }
+.tokens .tk.huh { background: var(--paper-2); font: 900 13pt var(--display); }
+.tokens .tk.big { border-width: 3px; font-size: 9.2pt; background: var(--paper-2); }
+.tokens .tk.sq { border-radius: 8px; }
+.tokens-label { margin: 0.12in 0 0.05in; font: 800 9pt var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--alarm); }

@@ -37,3 +37,11 @@ export function placeholder_wide() {
 export function placeholder() {
   return svg("0 0 800 600", "Placeholder art", panel(800, 600, "PLACEHOLDER", "illustration to be made (4:3)", { id: "php" }));
 }
+
+/** End-of-chapter spot placeholders (4:3), one per chapter that ends with room to spare.
+ *  The build sizes each to the gap it fills (SPOTS in book/build.mjs). */
+const spot = k => () => svg("0 0 800 600", `Placeholder spot art ${k}`, panel(800, 600, "PLACEHOLDER", `spot illustration ${k} to be made (4:3)`, { id: `phs${k}` }));
+export const spot_01 = spot("01"), spot_02 = spot("02"), spot_03 = spot("03"), spot_04 = spot("04"),
+  spot_05 = spot("05"), spot_06 = spot("06"), spot_07 = spot("07"), spot_08 = spot("08"),
+  spot_09 = spot("09"), spot_10 = spot("10"), spot_11 = spot("11"), spot_12 = spot("12"),
+  spot_13 = spot("13"), spot_14 = spot("14");

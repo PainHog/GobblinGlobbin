@@ -12,25 +12,25 @@ Targets: Easy 85–93%, Standard 74–86%, Hard 52–68%. A cell outside its ban
 
 | Difficulty | 2 turkeys | 3 turkeys | 4 turkeys | 5 turkeys | 6 turkeys | 7 turkeys | 8 turkeys |
 |---|---|---|---|---|---|---|---|
-| Easy | 92% | 89% | 87% | 88% | 87% | 89% | 88% |
-| Standard | 79% | 80% | 80% | 83% | 82% | 83% | 83% |
-| Hard | 54% | 56% | 60% | 67% | 68% | **70%** | **70%** |
+| Easy | 92% | 90% | **84%** | 88% | 87% | 87% | **84%** |
+| Standard | 81% | 82% | 77% | 82% | 80% | 80% | 76% |
+| Hard | 55% | 59% | 58% | 65% | 62% | 65% | 62% |
 
 ### Puddlewick Farm
 
 | Difficulty | 2 turkeys | 3 turkeys | 4 turkeys | 5 turkeys | 6 turkeys | 7 turkeys | 8 turkeys |
 |---|---|---|---|---|---|---|---|
-| Easy | 86% | 90% | 86% | 90% | 89% | 91% | 90% |
-| Standard | 75% | 83% | 83% | **88%** | **86%** | **90%** | **88%** |
-| Hard | 53% | 61% | 66% | **71%** | **72%** | **77%** | **78%** |
+| Easy | 88% | 91% | 85% | 89% | 86% | 89% | 89% |
+| Standard | 77% | 83% | 80% | 84% | 85% | **87%** | 85% |
+| Hard | 54% | 63% | 64% | **72%** | **69%** | **73%** | **70%** |
 
 ### Windy Ridge Farm
 
 | Difficulty | 2 turkeys | 3 turkeys | 4 turkeys | 5 turkeys | 6 turkeys | 7 turkeys | 8 turkeys |
 |---|---|---|---|---|---|---|---|
-| Easy | **95%** | 91% | 89% | 88% | 86% | 86% | 86% |
-| Standard | 86% | 85% | 84% | 85% | 83% | 84% | 84% |
-| Hard | 57% | 57% | 60% | 64% | 65% | **72%** | 67% |
+| Easy | **96%** | 91% | 89% | 85% | **85%** | **84%** | **83%** |
+| Standard | **88%** | **87%** | 83% | 83% | 82% | 82% | 81% |
+| Hard | 60% | 58% | 61% | 61% | 65% | 64% | 62% |
 
 Loss rate is 100% minus the win rate: every loss is one turkey gobbled, and the game can't end any other way (the farmer grabs a turkey, or the clock reaches Too Late).
 
@@ -40,15 +40,15 @@ Rounds per game (target 8–15), and an estimated table time of about a minute p
 
 | Farm | Difficulty | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| Bramble Farm | Easy | 9.8 (54 min) | 9.3 (62 min) | 9.8 (74 min) | 9.1 (79 min) | 9.9 (94 min) | 10.0 (105 min) | 10.8 (123 min) |
-| Bramble Farm | Standard | 11.6 (61 min) | 11.1 (71 min) | 11.5 (84 min) | 11.0 (92 min) | 11.3 (105 min) | 11.5 (118 min) | 12.1 (136 min) |
-| Bramble Farm | Hard | 11.3 (60 min) | 11.0 (70 min) | 11.5 (84 min) | 10.8 (90 min) | 11.4 (106 min) | 11.5 (118 min) | 12.2 (137 min) |
-| Puddlewick Farm | Easy | 11.3 (60 min) | 11.5 (73 min) | 11.8 (86 min) | 11.9 (99 min) | 12.3 (113 min) | 12.5 (127 min) | 13.1 (146 min) |
-| Puddlewick Farm | Standard | 13.2 (68 min) | 13.3 (81 min) | 13.6 (97 min) | 13.8 (112 min) | 14.0 (127 min) | 14.3 (144 min) | 14.9 (164 min) |
-| Puddlewick Farm | Hard | 12.7 (66 min) | 12.9 (79 min) | 13.6 (97 min) | 13.5 (109 min) | 14.0 (127 min) | 14.4 (145 min) | 15.3 (168 min) |
-| Windy Ridge Farm | Easy | 10.2 (56 min) | 10.3 (66 min) | 10.8 (80 min) | 10.6 (89 min) | 11.2 (105 min) | 11.2 (116 min) | 11.8 (133 min) |
-| Windy Ridge Farm | Standard | 12.9 (66 min) | 12.1 (75 min) | 12.6 (91 min) | 12.3 (101 min) | 12.8 (117 min) | 13.0 (132 min) | 13.7 (152 min) |
-| Windy Ridge Farm | Hard | 12.5 (65 min) | 11.7 (74 min) | 12.3 (89 min) | 11.9 (98 min) | 12.4 (114 min) | 13.0 (132 min) | 13.2 (147 min) |
+| Bramble Farm | Easy | 9.8 (54 min) | 8.8 (59 min) | 9.6 (73 min) | 8.7 (76 min) | 9.1 (88 min) | 8.8 (95 min) | 9.0 (105 min) |
+| Bramble Farm | Standard | 11.7 (62 min) | 10.6 (68 min) | 11.4 (83 min) | 10.5 (88 min) | 10.4 (98 min) | 10.1 (106 min) | 10.1 (116 min) |
+| Bramble Farm | Hard | 11.3 (60 min) | 10.6 (68 min) | 11.3 (83 min) | 10.3 (87 min) | 10.2 (96 min) | 10.0 (105 min) | 9.9 (114 min) |
+| Puddlewick Farm | Easy | 11.4 (61 min) | 11.0 (70 min) | 11.7 (85 min) | 11.4 (95 min) | 11.3 (106 min) | 11.1 (115 min) | 11.4 (129 min) |
+| Puddlewick Farm | Standard | 13.3 (68 min) | 12.7 (79 min) | 13.5 (96 min) | 13.0 (106 min) | 13.1 (120 min) | 13.0 (132 min) | 12.9 (144 min) |
+| Puddlewick Farm | Hard | 12.9 (66 min) | 12.5 (78 min) | 13.2 (94 min) | 13.2 (107 min) | 12.9 (119 min) | 12.7 (129 min) | 12.8 (143 min) |
+| Windy Ridge Farm | Easy | 10.1 (55 min) | 9.6 (63 min) | 10.8 (80 min) | 10.1 (85 min) | 10.2 (97 min) | 9.8 (103 min) | 10.1 (116 min) |
+| Windy Ridge Farm | Standard | 12.9 (67 min) | 11.5 (72 min) | 12.5 (90 min) | 11.9 (99 min) | 11.9 (110 min) | 11.7 (120 min) | 11.7 (132 min) |
+| Windy Ridge Farm | Hard | 12.6 (65 min) | 11.0 (70 min) | 12.1 (88 min) | 11.4 (95 min) | 11.6 (108 min) | 11.1 (115 min) | 11.1 (126 min) |
 
 ## 3. Getting spotted, and getting saved
 
@@ -56,42 +56,42 @@ Per game: how often at least one turkey is Spotted, how many Spotted moments the
 
 | Farm | Difficulty | Turkeys | Games with a Spotted turkey | Spotted moments / game | Rescues tried / game | Rescue works | Scram works | Saved when Spotted |
 |---|---|---|---|---|---|---|---|---|
-| Bramble Farm | Easy | 2 | 41% | 0.7 | 0.07 | 63% | 79% | 88% |
-| Bramble Farm | Easy | 4 | 73% | 1.6 | 0.32 | 61% | 79% | 92% |
-| Bramble Farm | Easy | 6 | 83% | 2.3 | 0.56 | 63% | 78% | 94% |
-| Bramble Farm | Easy | 8 | 91% | 3.3 | 0.78 | 66% | 80% | 96% |
-| Bramble Farm | Standard | 2 | 70% | 1.4 | 0.13 | 57% | 80% | 86% |
-| Bramble Farm | Standard | 4 | 87% | 2.3 | 0.42 | 63% | 79% | 91% |
-| Bramble Farm | Standard | 6 | 90% | 3.1 | 0.71 | 66% | 78% | 94% |
-| Bramble Farm | Standard | 8 | 97% | 4.6 | 1.11 | 68% | 80% | 96% |
-| Bramble Farm | Hard | 2 | 83% | 1.6 | 0.26 | 57% | 59% | 72% |
-| Bramble Farm | Hard | 4 | 92% | 2.6 | 0.86 | 61% | 60% | 85% |
-| Bramble Farm | Hard | 6 | 95% | 3.2 | 1.31 | 63% | 60% | 90% |
-| Bramble Farm | Hard | 8 | 97% | 4.8 | 2.13 | 68% | 61% | 94% |
-| Puddlewick Farm | Easy | 2 | 53% | 1.0 | 0.12 | 45% | 75% | 86% |
-| Puddlewick Farm | Easy | 4 | 85% | 2.5 | 0.49 | 61% | 79% | 95% |
-| Puddlewick Farm | Easy | 6 | 94% | 3.7 | 0.92 | 64% | 79% | 97% |
-| Puddlewick Farm | Easy | 8 | 97% | 4.9 | 1.23 | 69% | 80% | 98% |
-| Puddlewick Farm | Standard | 2 | 82% | 1.9 | 0.20 | 51% | 77% | 87% |
-| Puddlewick Farm | Standard | 4 | 94% | 3.5 | 0.72 | 60% | 79% | 95% |
-| Puddlewick Farm | Standard | 6 | 98% | 5.0 | 1.20 | 63% | 79% | 97% |
-| Puddlewick Farm | Standard | 8 | 99% | 6.3 | 1.59 | 67% | 79% | 98% |
-| Puddlewick Farm | Hard | 2 | 91% | 2.2 | 0.36 | 53% | 61% | 79% |
-| Puddlewick Farm | Hard | 4 | 97% | 3.7 | 1.27 | 59% | 60% | 91% |
-| Puddlewick Farm | Hard | 6 | 99% | 5.1 | 2.09 | 64% | 60% | 94% |
-| Puddlewick Farm | Hard | 8 | 100% | 6.7 | 2.91 | 68% | 61% | 97% |
-| Windy Ridge Farm | Easy | 2 | 27% | 0.4 | 0.02 | 65% | 81% | 87% |
-| Windy Ridge Farm | Easy | 4 | 62% | 1.3 | 0.21 | 63% | 79% | 91% |
-| Windy Ridge Farm | Easy | 6 | 82% | 2.2 | 0.44 | 66% | 80% | 94% |
-| Windy Ridge Farm | Easy | 8 | 90% | 3.1 | 0.75 | 70% | 79% | 96% |
-| Windy Ridge Farm | Standard | 2 | 57% | 1.0 | 0.06 | 52% | 79% | 85% |
-| Windy Ridge Farm | Standard | 4 | 81% | 1.9 | 0.32 | 63% | 77% | 92% |
-| Windy Ridge Farm | Standard | 6 | 93% | 3.2 | 0.70 | 64% | 78% | 95% |
-| Windy Ridge Farm | Standard | 8 | 98% | 4.9 | 1.17 | 69% | 79% | 97% |
-| Windy Ridge Farm | Hard | 2 | 80% | 1.4 | 0.14 | 61% | 58% | 70% |
-| Windy Ridge Farm | Hard | 4 | 94% | 2.5 | 0.76 | 61% | 59% | 84% |
-| Windy Ridge Farm | Hard | 6 | 97% | 3.7 | 1.40 | 65% | 59% | 90% |
-| Windy Ridge Farm | Hard | 8 | 99% | 5.3 | 2.31 | 66% | 60% | 94% |
+| Bramble Farm | Easy | 2 | 41% | 0.6 | 0.07 | 61% | 79% | 88% |
+| Bramble Farm | Easy | 4 | 73% | 1.5 | 0.25 | 59% | 79% | 90% |
+| Bramble Farm | Easy | 6 | 81% | 2.1 | 0.38 | 69% | 79% | 94% |
+| Bramble Farm | Easy | 8 | 89% | 2.7 | 0.56 | 67% | 79% | 94% |
+| Bramble Farm | Standard | 2 | 69% | 1.4 | 0.13 | 55% | 79% | 86% |
+| Bramble Farm | Standard | 4 | 88% | 2.3 | 0.38 | 63% | 79% | 90% |
+| Bramble Farm | Standard | 6 | 89% | 2.6 | 0.51 | 63% | 78% | 92% |
+| Bramble Farm | Standard | 8 | 95% | 3.7 | 0.76 | 68% | 78% | 94% |
+| Bramble Farm | Hard | 2 | 83% | 1.6 | 0.24 | 56% | 59% | 72% |
+| Bramble Farm | Hard | 4 | 91% | 2.4 | 0.69 | 63% | 60% | 82% |
+| Bramble Farm | Hard | 6 | 93% | 2.8 | 0.95 | 66% | 59% | 86% |
+| Bramble Farm | Hard | 8 | 96% | 3.7 | 1.39 | 69% | 59% | 90% |
+| Puddlewick Farm | Easy | 2 | 53% | 0.9 | 0.11 | 48% | 76% | 86% |
+| Puddlewick Farm | Easy | 4 | 85% | 2.4 | 0.42 | 62% | 78% | 94% |
+| Puddlewick Farm | Easy | 6 | 93% | 3.3 | 0.64 | 66% | 80% | 96% |
+| Puddlewick Farm | Easy | 8 | 97% | 4.2 | 0.85 | 69% | 80% | 97% |
+| Puddlewick Farm | Standard | 2 | 81% | 1.9 | 0.18 | 53% | 78% | 88% |
+| Puddlewick Farm | Standard | 4 | 95% | 3.4 | 0.60 | 61% | 78% | 94% |
+| Puddlewick Farm | Standard | 6 | 98% | 4.5 | 0.88 | 66% | 79% | 97% |
+| Puddlewick Farm | Standard | 8 | 99% | 5.4 | 1.14 | 68% | 78% | 97% |
+| Puddlewick Farm | Hard | 2 | 91% | 2.1 | 0.36 | 51% | 60% | 78% |
+| Puddlewick Farm | Hard | 4 | 97% | 3.4 | 1.04 | 60% | 60% | 89% |
+| Puddlewick Farm | Hard | 6 | 99% | 4.5 | 1.56 | 66% | 59% | 93% |
+| Puddlewick Farm | Hard | 8 | 99% | 5.3 | 1.95 | 70% | 60% | 94% |
+| Windy Ridge Farm | Easy | 2 | 26% | 0.4 | 0.02 | 59% | 81% | 87% |
+| Windy Ridge Farm | Easy | 4 | 61% | 1.2 | 0.20 | 63% | 79% | 91% |
+| Windy Ridge Farm | Easy | 6 | 82% | 2.0 | 0.35 | 69% | 79% | 92% |
+| Windy Ridge Farm | Easy | 8 | 88% | 2.7 | 0.52 | 71% | 79% | 94% |
+| Windy Ridge Farm | Standard | 2 | 57% | 0.9 | 0.06 | 51% | 80% | 87% |
+| Windy Ridge Farm | Standard | 4 | 81% | 1.9 | 0.26 | 66% | 78% | 91% |
+| Windy Ridge Farm | Standard | 6 | 91% | 2.8 | 0.53 | 64% | 78% | 93% |
+| Windy Ridge Farm | Standard | 8 | 96% | 3.7 | 0.73 | 67% | 79% | 95% |
+| Windy Ridge Farm | Hard | 2 | 80% | 1.4 | 0.13 | 61% | 58% | 71% |
+| Windy Ridge Farm | Hard | 4 | 93% | 2.4 | 0.62 | 63% | 59% | 84% |
+| Windy Ridge Farm | Hard | 6 | 97% | 3.1 | 1.03 | 66% | 60% | 89% |
+| Windy Ridge Farm | Hard | 8 | 98% | 4.1 | 1.49 | 69% | 59% | 91% |
 
 ## 4. Gobbles, Feathers, pushes and help (Standard, all farms)
 
@@ -99,23 +99,23 @@ Feathers spent is the share of the flock's starting Feathers used (A7: at least 
 
 | Turkeys | Gobbles from the dice / game | Full-urge gobbles | Let It Out | Gobble for a Friend | Helpers' gobbles | Feathers spent | Pushes / game | Helps / game | Rolls: works | Great (any white 6) | A roll gobbles |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 2 | 2.95 | 0.36 | 0.88 | 0.13 | 0.11 | 80% | 9.2 | 1.2 | 71% | 27% | 30% |
-| 3 | 4.96 | 0.56 | 1.75 | 0.30 | 0.31 | 87% | 12.4 | 2.6 | 70% | 28% | 30% |
-| 4 | 7.56 | 0.71 | 2.04 | 0.49 | 0.66 | 91% | 17.4 | 4.6 | 72% | 29% | 29% |
-| 5 | 9.38 | 1.09 | 3.08 | 0.64 | 0.97 | 92% | 19.9 | 6.4 | 72% | 29% | 29% |
-| 6 | 11.13 | 1.49 | 3.61 | 0.87 | 1.25 | 94% | 24.4 | 8.4 | 73% | 29% | 28% |
-| 7 | 13.33 | 2.25 | 4.79 | 1.03 | 1.57 | 95% | 28.0 | 10.2 | 73% | 29% | 29% |
-| 8 | 15.27 | 2.94 | 5.25 | 1.29 | 2.05 | 97% | 33.4 | 13.0 | 74% | 30% | 28% |
+| 2 | 2.98 | 0.28 | 0.82 | 0.12 | 0.10 | 81% | 9.3 | 1.1 | 71% | 27% | 30% |
+| 3 | 4.64 | 0.38 | 1.51 | 0.25 | 0.24 | 86% | 11.7 | 2.2 | 70% | 27% | 30% |
+| 4 | 7.52 | 0.50 | 1.83 | 0.41 | 0.53 | 91% | 17.5 | 3.8 | 72% | 28% | 29% |
+| 5 | 9.26 | 0.73 | 2.64 | 0.50 | 0.73 | 92% | 20.0 | 5.1 | 72% | 29% | 29% |
+| 6 | 10.57 | 0.96 | 2.83 | 0.64 | 0.96 | 94% | 24.1 | 6.6 | 73% | 29% | 28% |
+| 7 | 12.28 | 1.43 | 3.84 | 0.72 | 1.16 | 95% | 26.6 | 7.8 | 73% | 29% | 29% |
+| 8 | 13.65 | 1.81 | 3.92 | 0.88 | 1.40 | 95% | 30.8 | 9.3 | 74% | 30% | 28% |
 
 ## 5. Pranks (Standard, 4 turkeys)
 
 Share of games in which each prank gets pulled, and how far pranks moved the clock on average.
 
-**Bramble Farm** (pranks moved the clock 8.0 spaces a game; the decoy saved a turkey in 0.9% of games): Turn off the oven 30% · Let the cows out 43% · Wake the rooster 65% · Dress the scarecrow as a turkey 15% · Tip over the milk pails 49% · Let down the tractor tires 61% · Untie the rowboat 42% · Roll the giant pumpkin 24%
+**Bramble Farm** (pranks moved the clock 7.8 spaces a game; the decoy saved a turkey in 0.8% of games): Turn off the oven 29% · Let the cows out 43% · Wake the rooster 65% · Dress the scarecrow as a turkey 16% · Tip over the milk pails 48% · Let down the tractor tires 60% · Untie the rowboat 42% · Roll the giant pumpkin 23%
 
-**Puddlewick Farm** (pranks moved the clock 7.3 spaces a game; the decoy saved a turkey in 15.4% of games): Hide the roasting pan 37% · Let the goats loose 36% · Start a hen party 67% · Turn on the sprinklers 64% · Jam the water wheel 20% · Gobble up the pie berries 24% · Start the duck choir 27% · Dress a hay bale as a turkey 68%
+**Puddlewick Farm** (pranks moved the clock 7.1 spaces a game; the decoy saved a turkey in 16.3% of games): Hide the roasting pan 37% · Let the goats loose 33% · Start a hen party 68% · Turn on the sprinklers 64% · Jam the water wheel 20% · Gobble up the pie berries 22% · Start the duck choir 27% · Dress a hay bale as a turkey 67%
 
-**Windy Ridge Farm** (pranks moved the clock 8.2 spaces a game; the decoy saved a turkey in 3.4% of games): Unplug the oven 18% · Send his hat up the windmill 54% · Stampede the sheep 65% · Carve a pumpkin turkey 35% · Hide the tractor keys 46% · Let the pigs loose 67% · Let down the truck tires 27% · Shake the apple trees 36%
+**Windy Ridge Farm** (pranks moved the clock 8.2 spaces a game; the decoy saved a turkey in 3.1% of games): Unplug the oven 19% · Send his hat up the windmill 53% · Stampede the sheep 64% · Carve a pumpkin turkey 35% · Hide the tractor keys 46% · Let the pigs loose 68% · Let down the truck tires 31% · Shake the apple trees 35%
 
 ## 6. How much the way you play matters (Standard, 4 turkeys)
 
@@ -123,16 +123,16 @@ The same games with a *timid* flock (calms down early, rarely pranks), a *bold* 
 
 | Farm | Default | Timid | Bold | No pranks |
 |---|---|---|---|---|
-| Bramble Farm | 80% | 72% | 84% | 68% |
-| Puddlewick Farm | 83% | 71% | 88% | 64% |
-| Windy Ridge Farm | 84% | 77% | 85% | 69% |
+| Bramble Farm | 77% | 68% | 78% | 67% |
+| Puddlewick Farm | 80% | 70% | 86% | 61% |
+| Windy Ridge Farm | 83% | 77% | 82% | 66% |
 
 | Turkeys (Bramble Farm, Standard) | Default | No pranks |
 |---|---|---|
-| 2 | 79% | 84% |
-| 4 | 80% | 70% |
-| 6 | 82% | 57% |
-| 8 | 83% | 48% |
+| 2 | 81% | 84% |
+| 4 | 77% | 66% |
+| 6 | 80% | 54% |
+| 8 | 76% | 41% |
 
 ## 7. Who gets gobbled (Standard, all farms and sizes)
 
@@ -142,9 +142,9 @@ Share of losses in which each turkey was the one caught, against its share of se
 |---|---|---|---|
 | Butterbean | Busy Beak | Worrywart | 12% (seat share 12.5%) |
 | Pip | Soft Steps | Hiccups | 12% (seat share 12.5%) |
-| Duchess | Still as a Stump | Fussy | 8% (seat share 12.5%) |
-| Big Tom | Big Gobble | Restless | 19% (seat share 12.5%) |
-| Noodle | Quick Feet | Show-off | 9% (seat share 12.5%) |
+| Duchess | Still as a Stump | Fussy | 9% (seat share 12.5%) |
+| Big Tom | Big Gobble | Restless | 20% (seat share 12.5%) |
+| Noodle | Quick Feet | Show-off | 8% (seat share 12.5%) |
 | Clementine | Cool Head | Jumpy | 17% (seat share 12.5%) |
 | Gizmo | Mother Hen | Chatterbox | 12% (seat share 12.5%) |
 | Hazel | Keen Eye | Scaredy | 11% (seat share 12.5%) |

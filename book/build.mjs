@@ -34,7 +34,7 @@ const DIST = join(BOOK, "dist");
 const BOOK_TITLE = "Don’t Get Gobble Gobbled";             // curly apostrophe, as in the chapters
 const BOOK_DESCRIPTION = "A tabletop roleplaying game by Richard Moore";   // PLACEHOLDER — the real subtitle is not written yet
 const AUTHOR = "Richard Moore";
-const VERSION = "0.1";
+const VERSION = "1.0";
 const FILE_STEM = "Dont_Get_Gobble_Gobbled";        // → Dont_Get_Gobble_Gobbled_v0.1.pdf
 const HTML_NAME = "gobble-gobbled.html";   // the self-contained print HTML (digital build only)
 // An ornament anchored in the top-left corner of the Table of Contents page
@@ -185,9 +185,23 @@ const FOOTER_CSS = `@page { @bottom-center { content: ${cssString(BOOK_TITLE + "
  * room is left, and a spot sized to fit is placed there (never enough to move a page).
  * Each chapter lists spots in order of preference; the first not yet used wins.
  *   e.g.  "ch-01": ["spot-something", "spot-spare"],
- * Empty until the art exists (the build then warns about large unfilled gaps).
+ * Until the art exists these are PLACEHOLDER spots (book/tools/art-gen/scenes/placeholders.mjs).
  */
-const SPOTS = {};
+const SPOTS = {
+  "ch-01": ["spot-01", "spot-14"],
+  "ch-02": ["spot-02", "spot-14"],
+  "ch-03": ["spot-03", "spot-14"],
+  "ch-04": ["spot-04", "spot-14"],
+  "ch-05": ["spot-05", "spot-14"],
+  "ch-06": ["spot-06", "spot-14"],
+  "ch-07": ["spot-07", "spot-14"],
+  "ch-08": ["spot-08", "spot-14"],
+  "ch-09": ["spot-09", "spot-14"],
+  "ch-10": ["spot-10", "spot-14"],
+  "ch-11": ["spot-11", "spot-14"],
+  "ch-12": ["spot-12", "spot-14"],
+  "ch-13": ["spot-13", "spot-14"]
+};
 const PT_PER_IN = 72;
 const BOTTOM_LIMIT_PT = (0.78 + BLEED_IN) * PT_PER_IN;   // @page bottom margin: content must end above this
 const TEXT_H_IN = 11 - 0.72 - 0.78;   // the text area's height (the print bleed adds to both the page and its margins)

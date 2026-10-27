@@ -43,8 +43,8 @@ test("clock and Feathers by difficulty and flock size", () => {
   const bramble = GG.farms.bramble;
   assert.equal(R.clockStart("standard", 4, bramble), 20);
   assert.equal(R.clockStart("easy", 2, bramble), 12);
-  assert.equal(R.clockStart("hard", 8, bramble), 30);
-  assert.equal(R.clockStart("standard", 4, GG.farms.puddlewick), 22);
+  assert.equal(R.clockStart("hard", 8, bramble), 26);
+  assert.equal(R.clockStart("standard", 4, GG.farms.puddlewick), 21);
   assert.equal(R.startingFeathers("standard", 4), 2);
   assert.equal(R.startingFeathers("standard", 3), 3);
   assert.equal(R.startingFeathers("easy", 6), 3);

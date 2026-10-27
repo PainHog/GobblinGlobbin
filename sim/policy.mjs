@@ -142,8 +142,7 @@ export function chooseHelper(S, t, kind, target) {
   if (kind === "hide" && target < 4) return null;
   const fd = dmap(S, S.farmer.zone);
   if (kind === "prank" && fd[t.zone] < 2) return null;
-  const cands = S.turkeys.filter(o => o !== t && (!o.helped || o.knack === "motherHen") && !o.spotted &&
-    (o.zone === t.zone || (o.knack === "motherHen" && S.adj[o.zone].includes(t.zone))) &&
+  const cands = S.turkeys.filter(o => o !== t && !o.helped && !o.spotted && o.zone === t.zone &&
     o.urge <= (o.quirk === "chatterbox" ? S.P.helpMaxUrge - 1 : S.P.helpMaxUrge));
   cands.sort((a, b) => a.urge - b.urge);
   return cands[0] ?? null;
@@ -172,7 +171,8 @@ export function greatSneakStep(S, t) {
   if (t.zone === T) return null;
   const next = nextStep(S, t, T);
   const d = dmap(S, T);
-  if (!next || next === S.farmer.zone || tags(S, next).includes("noisy") || d[next] >= d[t.zone]) return null;
+  // A Great's extra zone only if that move wouldn't need a roll of its own (Ch 3 Sneak).
+  if (!next || next === S.farmer.zone || sneakNeedsRoll(S, t.zone, next) || d[next] >= d[t.zone]) return null;
   return next;
 }
 
@@ -216,7 +216,8 @@ export function act(S, t) {
     if (P.letItOut && fd >= P.letItOutDist && t.urge >= P.letItOutAt) return actLetItOut(S, t);
     return actHunker(S, t);
   }
-  const prank = S.assign.get(t);
+  const assigned = S.assign.get(t);
+  const prank = assigned && !S.done[assigned.id] ? assigned : null;
   if (prank) {
     if (t.zone === prank.zone) {
       if (S.farmer.zone !== t.zone) return actPrank(S, t, prank);

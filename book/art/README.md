@@ -7,30 +7,33 @@ rendered piece is looked at (`node book/tools/preview-art.mjs <outDir>`) before 
 called done. Every SVG has a `viewBox` and **no** fixed width or height; the CSS sizes it.
 No `<image>`, `<script>`, filters such as `feTurbulence`, or external links.
 
-## House style — TBD
+## House style
 
-The art direction is **undecided**. Until the author picks it, art uses the neutral
-PLACEHOLDER palette below (the same tokens as `book/src/book.css` and `C` in
-`book/tools/art-gen/lib.mjs`; change all three together).
+Cartoon, warm and slapstick (DESIGN.md Decisions log): an autumn farm palette. The
+illustrations themselves are not made yet (the book ships “minus the art”), so every
+illustration slot holds a placeholder in this palette. The farm maps are diagrams
+generated from the game data (`book/tools/maps.mjs`), not illustrations.
 
-## Palette — TBD (placeholder values)
+## Palette
+
+The same tokens as `book/src/book.css` and `C` in `book/tools/art-gen/lib.mjs`; change all three together.
 
 | Token | Hex | Use |
 |---|---|---|
-| dark | `#3a3a3c` | primary dark fill |
-| deep | `#222224` | shadows, night, dark bands |
-| soft | `#5c5c60` | highlights on dark |
-| paper | `#f2f1ee` | page, light fills |
-| paper2 | `#e3e1dc` | secondary light fill |
-| edge | `#c9c6bf` | soft lines on light |
-| light | `#faf9f6` | lightest fill |
-| ink | `#161618` | linework, text |
-| accent | `#7a7f88` | accents |
-| accentDeep | `#555a63` | accents on light |
-| accentB | `#e4e6ea` | glints, accents on dark |
-| alarm | `#7c2a2a` | danger, warning |
-| alarmB | `#b5473f` | strong danger |
-| good | `#3f6f52` | calm / safe (sparingly) |
+| dark | `#5a2e1d` | chestnut: primary dark fill |
+| deep | `#3b1d12` | dark roast: shadows, night, dark bands |
+| soft | `#7a4630` | highlights on dark |
+| paper | `#fbf3e4` | warm cream: page, light fills |
+| paper2 | `#f1e2c6` | wheat: secondary light fill |
+| edge | `#dcc39a` | soft lines on light |
+| light | `#fffaf0` | lightest fill |
+| ink | `#2a1a12` | linework, text |
+| accent | `#c8691c` | pumpkin: accents |
+| accentDeep | `#9a4a12` | burnt orange: accents on light |
+| accentB | `#f6c35c` | harvest gold: glints, accents on dark |
+| alarm | `#a3262a` | cranberry: danger, warning |
+| alarmB | `#d2453a` | strong danger |
+| good | `#4f7a3a` | sage: calm / safe (sparingly) |
 
 ## Shapes
 
@@ -48,4 +51,7 @@ PLACEHOLDER palette below (the same tokens as `book/src/book.css` and `C` in
 - `placeholder-wide`: wide placeholder (3:1), used by the Part One page and Chapter 1
 - `placeholder`: 4:3 placeholder, used by the back cover
 
-No real art exists yet.
+**Maps** (`book/tools/maps.mjs`, from `module/config.mjs`)
+- `map-bramble`, `map-puddlewick`, `map-windy`: the three farm maps (diagrams, 1428×1150)
+
+No illustrations exist yet.
