@@ -1,0 +1,38 @@
+{
+  "id": "gobble-gobbled",
+  "type": "system",
+  "title": "Don't Get Gobble Gobbled",
+  "description": "The companion Foundry VTT game system for Don't Get Gobble Gobbled, a tabletop roleplaying game by Richard Moore. Early skeleton: the game's rules are not written yet.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Richard Moore",
+      "url": "https://github.com/PainHog/GobblinGlobbin"
+    }
+  ],
+  "esmodules": [
+    "module/gobble-gobbled.mjs"
+  ],
+  "styles": [
+    "styles/gobble-gobbled.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "socket": true,
+  "url": "https://github.com/PainHog/GobblinGlobbin",
+  "bugs": "https://github.com/PainHog/GobblinGlobbin/issues",
+  "manifest": "https://github.com/PainHog/GobblinGlobbin/releases/latest/download/system.json",
+  "download": "https://github.com/PainHog/GobblinGlobbin/releases/latest/download/system.zip",
+  "license": "LICENSE",
+  "readme": "README.md"
+}
