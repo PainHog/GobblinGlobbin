@@ -18,8 +18,9 @@ const BIRD = { hen: "hen", tom: "tom", jake: "jake (a young male)" };
 
 function card(t) {
   const k = GG.knacks[t.knack], q = GG.quirks[t.quirk];
+  const n = GG.turkeys.indexOf(t) + 1;
   return `    <div class="card" id="card-${t.id}">
-      <h3>${t.name}</h3>
+      <h3>${t.name} <span class="card-num">${n}</span></h3>
       <p class="card-breed">${t.breed} ${BIRD[t.bird]}</p>
       <div class="card-draw">draw ${t.name} here</div>
       <p class="card-knack"><strong>Knack: ${k.name}.</strong> ${k.text}</p>

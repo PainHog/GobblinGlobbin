@@ -37,7 +37,7 @@ GG.knacks = {
   busyBeak:   { name: "Busy Beak",        text: "+1 white die when you pull a Prank, and when the roll works it ticks two boxes." },
   softSteps:  { name: "Soft Steps",       text: "+1 white die when you Sneak, and one Sneak can take you two zones (one roll covers both)." },
   still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden, and your red dice don’t count on those rolls." },
-  bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away." },
+  bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away (two paths)." },
   quickFeet:  { name: "Quick Feet",       text: "+1 white die when you Scram, and a Scram that works can take you two zones." },
   coolHead:   { name: "Cool Head",        text: "Hunker Down lowers your urge, or a friend’s, by 3 instead of 2." },
   motherHen:  { name: "Mother Hen",       text: "When you Hunker Down, every other turkey in your zone lowers its urge by 1 too." },
