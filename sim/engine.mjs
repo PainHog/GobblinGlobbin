@@ -62,6 +62,9 @@ export const occupants = (S, zone, spot) => S.turkeys.filter(t => t.zone === zon
 /** The farmer is in this zone and outdoors (Ch 7: he spends the first round indoors). */
 export const farmerIn = (S, zone) => !S.farmer.indoors && S.farmer.zone === zone;
 
+/** The number on a turkey's card (Ch 7 breaks ties with it). */
+const cardNo = t => GG.turkeys.findIndex(d => d.id === t.id);
+
 function placeHeard(S, zone, spot = null) { S.heard[zone] = ++S.heardSeq; (S.heardSpots[zone] ??= new Set()).add(spot); }
 
 /** Ch 4 "When the Urge Rises": +1, at most once per action or farmer's turn; past 5 is a gobble. */
@@ -123,7 +126,8 @@ function roll(S, t, kind, target, { red = true, pushOK = true } = {}) {
 
 /** After a roll's result is applied (result first), resolve the gobbles it caused. */
 function afterRoll(S, t, { res, helper }, key) {
-  if (res.great && t.quirk === "showOff") placeHeard(S, t.zone, t.spot);
+  // Show-off: a pose struck during the farmer's search goes down after he clears his tokens.
+  if (res.great && t.quirk === "showOff") { if (S.poses) S.poses.push([t.zone, t.spot]); else placeHeard(S, t.zone, t.spot); }
   if (helper && t.quirk === "chatterbox") rise(S, t, key);
   // Ch 4 "Feathers": spend one to swallow a gobble from the dice (yours or a helper's).
   if (res.gobble && S.feathers > 0 && policy.wantsFeather(S, t)) { S.feathers--; S.stats.feathersSpent++; res.gobble = false; }
@@ -187,6 +191,9 @@ export function actSneak(S, t, to, then = null) {
 }
 
 export function actHunker(S, t, friend = t) {
+  // Restless: never two rounds in a row.
+  if (t.quirk === "restless" && t.lastHunker === S.round - 1) throw new Error(`${t.id} is Restless and hunkered last round`);
+  t.lastHunker = S.round;
   const key = S.ctx = `a${++S.actionSeq}`;
   if (t.spot === null && !t.spotted) {
     if (farmerIn(S, t.zone)) {
@@ -195,8 +202,7 @@ export function actHunker(S, t, friend = t) {
       afterRoll(S, t, rolled, key);
     } else hideIn(S, t, key);
   }
-  let by = t.knack === "coolHead" ? GG.urge.hunkerCoolHead : GG.urge.hunker;
-  if (friend === t && t.quirk === "restless") by = 1;
+  const by = t.knack === "coolHead" ? GG.urge.hunkerCoolHead : GG.urge.hunker;
   friend.urge = R.lowerUrge(friend.urge, by);
   // Mother Hen: everyone else in the zone calms down a little too.
   if (t.knack === "motherHen") for (const o of S.turkeys) if (o !== t && o !== friend && o.zone === t.zone) o.urge = R.lowerUrge(o.urge, 1);
@@ -257,9 +263,11 @@ export function actScram(S, t) {
     if (to) {
       t.spotted = false; S.stats.scramWins++;
       enterZone(S, t, to);
-      if (t.knack === "quickFeet" || rolled.res.great) {
+      // Quick Feet runs two zones; a Great adds one more (three for Quick Feet).
+      const extra = (t.knack === "quickFeet" ? 1 : 0) + (rolled.res.great ? 1 : 0);
+      for (let i = 0; i < extra; i++) {
         const next = policy.scramStep(S, t, t.zone, true);
-        if (next) enterZone(S, t, next);
+        if (next) enterZone(S, t, next); else break;
       }
       hideIn(S, t, key);
     }
@@ -309,7 +317,7 @@ function farmersTurn(S) {
   const grab = S.turkeys.filter(t => t.spotted && t.zone === F.zone);
   let decoyed = false;
   if (grab.length) {
-    grab.sort((a, b) => b.urge - a.urge);
+    grab.sort((a, b) => b.urge - a.urge || cardNo(a) - cardNo(b));   // a tie: the lowest card number
     if (!S.decoy) {
       S.over = true; S.result = "loss"; S.cause = "caught"; S.gobbled = grab[0].id; S.stats.caughtWhy = grab[0].spottedWhy;
       return;
@@ -347,6 +355,7 @@ function farmersTurn(S) {
     S.stats.searches++;
     if (!busy) for (const t of S.turkeys) if (t.zone === F.zone && t.spot === null) spot(S, t, "open");
     const spots = spotsOf(S, F.zone);
+    S.poses = [];
     if (spots.length && !busy) {
       let searched;
       if (F.searchAll) searched = spots.map((_, i) => i);
@@ -368,6 +377,8 @@ function farmersTurn(S) {
     }
     F.searchAll = false;
     delete S.heard[F.zone]; delete S.heardSpots[F.zone];
+    for (const [z, sp] of S.poses) placeHeard(S, z, sp);
+    S.poses = null;
     // 4. Close calls.
     const fdm = R.distancesFrom(S.farm, F.zone, S.adj);
     for (const t of S.turkeys) {
@@ -382,7 +393,7 @@ function farmersTurn(S) {
     const die = rng.d6();
     if (die <= S.diff.nose) {
       const d = R.distancesFrom(farm, S.dog.zone, S.adj);
-      const near = [...S.turkeys].sort((a, b) => d[a.zone] - d[b.zone])[0];
+      const near = [...S.turkeys].sort((a, b) => d[a.zone] - d[b.zone] || cardNo(a) - cardNo(b))[0];
       if (near && near.zone !== S.dog.zone) S.dog.zone = R.stepToward(farm, S.dog.zone, near.zone, S.adj);
     } else S.dog.zone = farm.zones[S.dog.zone].route[rng.d6() - 1];   // roll again for its route
     let barked = false;

@@ -582,4 +582,6 @@ dl.glossary dd { margin: 0.01in 0 0; }
 .tokens .tk.huh { background: var(--paper-2); font: 900 13pt var(--display); }
 .tokens .tk.big { border-width: 3px; font-size: 9.2pt; background: var(--paper-2); }
 .tokens .tk.sq { border-radius: 8px; }
+.tokens.small { grid-template-columns: repeat(10, 1fr); gap: 0.07in; }
+.tokens.small .tk.huh { font-size: 10pt; }
 .tokens-label { margin: 0.12in 0 0.05in; font: 800 9pt var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--alarm); }

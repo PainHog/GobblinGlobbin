@@ -82,7 +82,7 @@ test("no names of the tools used to make the game, anywhere in the repository", 
       if (skip.has(name)) continue;
       const p = join(dir, name);
       if (statSync(p).isDirectory()) { walk(p); continue; }
-      if (!/\.(md|mjs|js|json|html|css|svg|yml|yaml|txt|py)$/.test(name) && !/^(LICENSE|\.gitignore)$/.test(name)) continue;
+      if (!/\.(md|mjs|js|json|jsonl|log|html|css|svg|yml|yaml|txt|py)$/.test(name) && !/^(LICENSE|\.gitignore)$/.test(name)) continue;
       const lines = readFileSync(p, "utf8").split("\n");
       lines.forEach((l, i) => { if (re.test(l)) hits.push(`${p.slice(ROOT.length + 1)}:${i + 1}`); });
     }

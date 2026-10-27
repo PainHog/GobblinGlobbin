@@ -1,0 +1,72 @@
+1	Setup | Player A | deal turkey: half die	4
+2	Setup | Player A | deal turkey: card die	1
+3	Setup | Player B | deal turkey: half die	2
+4	Setup | Player B | deal turkey: card die	5
+5	Setup | Player B | deal turkey: card die (reroll, 5-6)	4
+6	Setup | Player C | deal turkey: half die	6
+7	Setup | Player C | deal turkey: card die	5
+8	Setup | Player C | deal turkey: card die (reroll, 5-6)	5
+9	Setup | Player C | deal turkey: card die (reroll again, 5-6)	6
+10	Setup | Player C | deal turkey: card die (reroll 3rd, 5-6)	3
+11	R1 | Noodle | Sneak Turkey Pen->Chicken Coop (Noisy) | target 3+ | WHITE x1 (rolled via shared script, its #3)	2
+12	R1 | Noodle | Sneak Turkey Pen->Chicken Coop | urge 1 | RED x1 (rolled via shared script, its #4)	3
+13	R1 end | Storyteller | farm event (clock 13->12, pie) | d6	6
+14	R2 | Gizmo | Sneak Turkey Pen->Barnyard, Puff Up 1->2 | target 4+ | WHITE x2	5 2
+15	R2 | Gizmo | Sneak Turkey Pen->Barnyard | urge 2 | RED x2	2 3
+16	R3 | Big Tom | Prank: Tip over the milk pails (Big Barn) | target 4+ | WHITE x1	5
+17	R3 | Big Tom | Prank milk pails | urge 2 | RED x2	2 6
+18	R3 | Storyteller | farm event (milk pails: clock 11->8, pie) | d6	1
+19	R3 farmer | Storyteller | search line Big Barn (zone token) 1-3 Hayloft 4-5 Old tractor 6 Feed bins | d6	2
+20	R3 farmer | Big Tom | stay hidden in Hayloft | target 3+ | WHITE x1	6
+21	R3 farmer | Big Tom | stay hidden in Hayloft | urge 3 | RED x3	3 6 6
+22	R4 | Noodle | Prank: Let down the tractor tires (Tractor Shed) | target 4+ | WHITE x1	2
+23	R4 | Noodle | Prank tractor tires | urge 3 | RED x3	4 3 3
+24	R4 farmer | Storyteller | route from Big Barn 1-2 Barnyard 3 Chicken Coop 4-5 Cornfield 6 Duck Pond | d6	3
+25	R4 farmer | Storyteller | search line Chicken Coop 1-3 Nesting boxes 4-6 Behind the coop | d6	2
+26	R5 | Gizmo | Prank: Roll the giant pumpkin (Pumpkin Patch) | target 4+ | WHITE x1	3
+27	R5 | Gizmo | Prank giant pumpkin | urge 4 | RED x4	4 3 6 2
+28	R6 | Gizmo | Sneak Pumpkin Patch->Cornfield, Puff Up 1->2 | target 4+ | WHITE x2	2 3
+29	R6 | Gizmo | Sneak Pumpkin Patch->Cornfield | urge 2 | RED x2	3 3
+30	R6 | Noodle | Prank: tractor tires, Puff Up 3->4 | target 4+ | WHITE x2	1 2
+31	R6 | Noodle | Prank tractor tires | urge 4 | RED x4	2 1 6 3
+32	R6 end | Storyteller | farm event (clock 5->4, pie) | d6	1
+33	R7 | Gizmo | Sneak Cornfield->Cow Pasture | target 4+ | WHITE x1	5
+34	R7 | Gizmo | Sneak Cornfield->Cow Pasture | urge 3 | RED x3	1 3 5
+35	R7 | Noodle | Prank: tractor tires, Puff Up 1->2 | target 4+ | WHITE x2	4 5
+36	R7 | Noodle | Prank tractor tires | urge 2 | RED x2	4 1
+37	R8 | Gizmo | Prank: Let the cows out (Cow Pasture), Puff Up 4->5 | target 4+ | WHITE x2	6 2
+38	R8 | Gizmo | Prank cows | urge 5 | RED x5	2 1 2 4 1
+39	End | Storyteller | What's for dinner instead | d6	4
+40	DRILL C | Noodle | Prank: Dress the scarecrow, Puff Up 1->2, Wing from Gizmo | target 5+ | WHITE x3	2 4 3
+41	DRILL C | Noodle | Prank scarecrow | urge 2 | RED x2	3 6
+42	DRILL C | Gizmo | Lend a Wing on Noodle's prank | 6=Gizmo gobbles | HELPER x1	6
+43	DRILL C farmer | Noodle | stay hidden Cabbage rows | target 3+ | WHITE x1 (urge 0, no red)	1
+44	DRILL C farmer | Gizmo | stay hidden Cabbage rows | target 3+ | WHITE x1 (urge 0, no red)	1
+45	DRILL A | Noodle (Spotted) | Scram, Quick Feet + Puff Up 0->1 | target 4+ | WHITE x3	5 1 4
+46	DRILL A | Noodle | Scram | urge 1 | RED x1	4
+47	DRILL A | Gizmo (Spotted) | Scram, Puff Up 0->1 | target 4+ | WHITE x2	3 3
+48	DRILL A | Gizmo | Scram | urge 1 | RED x1	1
+49	DRILL A | Big Tom | Gobble for a Friend (Gizmo), Big Gobble, urge->0 no red | target 4+ | WHITE x2	6 4
+50	DRILL A farmer | Storyteller | route from Vegetable Garden 1-2 Farmhouse 3-4 Barnyard 5-6 Apple Orchard | d6	5
+51	DRILL A farmer | Storyteller | search line Apple Orchard 1-3 Leaf pile 4-5 Apple trees 6 Fallen log | d6	4
+52	DRILL B farmer | Storyteller | route from Turkey Pen 1-2 Farmhouse 3-4 Barnyard 5-6 Chicken Coop | d6	2
+53	DRILL B farmer | Storyteller | search line Farmhouse 1-2 Porch steps 3-4 Woodpile 5-6 Under the truck | d6	2
+54	DRILL E | Big Tom | Prank: Wake the rooster, Wing from Gizmo | target 3+ | WHITE x2	3 3
+55	DRILL E | Big Tom | Prank rooster | urge 1 | RED x1	3
+56	DRILL E | Gizmo | Lend a Wing on Big Tom's prank | 6=Gizmo gobbles | HELPER x1	3
+57	DRILL E | Storyteller | farm event (rooster: clock 9->7, past pie 8) | d6	1
+58	DRILL E farmer | Storyteller | search line Chicken Coop (zone token) 1-3 Nesting boxes 4-6 Behind the coop | d6	2
+59	DRILL E farmer | Gizmo | stay hidden Nesting boxes, Wing from Big Tom | target 4+ | WHITE x2	2 2
+60	DRILL E farmer | Gizmo | stay hidden | urge 4 (Chatterbox) | RED x4	3 3 6 3
+61	DRILL E farmer | Big Tom | Lend a Wing on Gizmo's hide roll | 6=Big Tom gobbles | HELPER x1	3
+62	DRILL E next turn | Gizmo (Spotted) | Scram, Puff Up 0->1 | target 4+ | WHITE x2	2 4
+63	DRILL E next turn | Gizmo | Scram | urge 1 | RED x1	3
+64	DRILL F | Noodle | Prank: Untie the rowboat (Duck Pond) | target 4+ | WHITE x1	2
+65	DRILL F | Noodle | Prank rowboat | urge 2 | RED x2	2 1
+66	DRILL F farmer | Storyteller | route from Big Barn 1-2 Barnyard 3 Chicken Coop 4-5 Cornfield 6 Duck Pond | d6	1
+67	DRILL F round 2 | Noodle | Prank: Untie the rowboat, Puff Up 3->4 | target 4+ | WHITE x2	2 4
+68	DRILL F round 2 | Noodle | Prank rowboat | urge 4 | RED x4	2 2 1 5
+69	DRILL F round 2 | Storyteller | farm event (rowboat: clock 6->4, pie) | d6	4
+70	DRILL F round 3 | Noodle (Spotted after full-urge gobble) | Scram, Quick Feet + Puff Up 0->1 | target 4+ | WHITE x3	3 3 1
+71	DRILL F round 3 | Noodle | Scram | urge 1 | RED x1	4
+72	DRILL F round 3 farmer | Noodle's player | Famous last gobbles | d6	4

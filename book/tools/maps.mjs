@@ -54,7 +54,7 @@ function box(farm, id, zone) {
   if (noisy) badges.push(["NOISY", C.alarm]);
   if (open) badges.push(["OPEN", C.accentDeep]);
   if (farm.start.turkeys === id) badges.push(["TURKEYS", C.deep]);
-  if (farm.start.farmer === id) badges.push(["FARMER & DOG", C.deep]);
+  if (farm.start.farmer === id) badges.push(["FARMER, DOG & KID", C.deep]);
   if (badges.length) {
     ty += 12;
     let bx = x + 14;
@@ -131,7 +131,7 @@ function legend() {
   out.push(star(W / 2 + 132, ly - 9, 12));
   out.push(`<text x="${W / 2 + 150}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Prank</tspan>: its target, clock jump, and boxes.</text>`);
   out.push(`<text x="${W / 2 + 120}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>`);
-  out.push(`<text x="${M + 22}" y="${y + 116}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">FARMER &amp; DOG</tspan>, <tspan font-weight="800">TURKEYS</tspan>: where they start the game.</text>`);
+  out.push(`<text x="${M + 22}" y="${y + 116}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">FARMER, DOG &amp; KID</tspan>, <tspan font-weight="800">TURKEYS</tspan>: where they start the game.</text>`);
   return out.join("\n");
 }
 

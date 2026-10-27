@@ -38,10 +38,10 @@ GG.knacks = {
   softSteps:  { name: "Soft Steps",       text: "+1 white die when you Sneak, and one Sneak can take you two zones (one roll covers both)." },
   still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden, and your red dice don’t count on those rolls." },
   bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away (two paths)." },
-  quickFeet:  { name: "Quick Feet",       text: "+1 white die when you Scram, and a Scram that works can take you two zones." },
+  quickFeet:  { name: "Quick Feet",       text: "+1 white die when you Scram, and a Scram that works can take you two zones (three on a Great)." },
   coolHead:   { name: "Cool Head",        text: "Hunker Down lowers your urge, or a friend’s, by 3 instead of 2." },
   motherHen:  { name: "Mother Hen",       text: "When you Hunker Down, every other turkey in your zone lowers its urge by 1 too." },
-  keenEye:    { name: "Keen Eye",         text: "At the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die and tells the flock where he’ll walk if no “Huh?” token calls him. Close Calls don’t raise the urge of turkeys in your zone." }
+  keenEye:    { name: "Keen Eye",         text: "At the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die and tells the flock where he’ll walk if nothing else (a detour, a rake or a “Huh?” token) decides it. Close Calls don’t raise the urge of turkeys in your zone." }
 };
 
 /* --------------------------------------------------------------- quirks -- */
@@ -51,10 +51,10 @@ GG.quirks = {
   worrywart:  { name: "Worrywart",  text: "+1 urge whenever another turkey is Spotted." },
   hiccups:    { name: "Hiccups",    text: "At the end of every round, roll one red die: on a 6 you gobble (hic!)." },
   fussy:      { name: "Fussy",      text: "+1 urge whenever you end an action sharing a hiding spot, or another turkey squeezes into yours." },
-  restless:   { name: "Restless",   text: "When you Hunker Down, your own urge drops by only 1." },
-  showOff:    { name: "Show-off",   text: "Whenever you roll a Great, you strike a pose: a “Huh?” token goes on your spot (or your zone, if you’re in the open)." },
+  restless:   { name: "Restless",   text: "You can’t Hunker Down two rounds in a row." },
+  showOff:    { name: "Show-off",   text: "Whenever you roll a Great, you strike a pose: a “Huh?” token goes on your spot (or your zone, if you’re in the open). A pose struck while the farmer searches stays down after he clears his tokens, so he’ll be back." },
   jumpy:      { name: "Jumpy",      text: "+1 urge whenever another turkey gobbles." },
-  chatterbox: { name: "Chatterbox", text: "+1 urge whenever you Lend a Wing, or a friend Lends you one." },
+  chatterbox: { name: "Chatterbox", text: "+1 urge after any roll where you Lend a Wing, or a friend Lends you one." },
   scaredy:    { name: "Scaredy",    text: "A Close Call happens to you when the farmer or the dog ends in your zone or next to it." }
 };
 

@@ -132,7 +132,7 @@
 <rect x="1350" y="689.6666666666666" width="24" height="24" rx="4" fill="#fffaf0" stroke="#2a1a12" stroke-width="2.5"/>
 <rect x="34" y="788.6666666666666" width="316" height="345.3333333333333" rx="18" fill="#fffaf0" stroke="#5a2e1d" stroke-width="4"/>
 <text x="50" y="826.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="31" font-weight="800" fill="#3b1d12">Farmhouse</text>
-<rect x="48" y="838.6666666666666" width="210" height="28" rx="14" fill="#3b1d12"/><text x="153" y="859.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="24" font-weight="800" fill="#f6c35c" text-anchor="middle" letter-spacing="1">FARMER &amp; DOG</text>
+<rect x="48" y="838.6666666666666" width="287.5" height="28" rx="14" fill="#3b1d12"/><text x="191.75" y="859.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="24" font-weight="800" fill="#f6c35c" text-anchor="middle" letter-spacing="1">FARMER, DOG &amp; KID</text>
 <line x1="48" y1="878.6666666666666" x2="336" y2="878.6666666666666" stroke="#dcc39a" stroke-width="2"/>
 <text x="50" y="908.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12">Porch</text>
 <text x="294" y="908.6666666666666" font-family="Alegreya Sans, sans-serif" font-size="24" font-weight="800" fill="#5a2e1d" text-anchor="end">5+</text>
@@ -184,5 +184,5 @@
 <polygon points="846.0,1203.0 849.2,1210.6 857.4,1211.3 851.1,1216.7 853.1,1224.7 846.0,1220.4 838.9,1224.7 840.9,1216.7 834.6,1211.3 842.8,1210.6" fill="#c8691c" stroke="#3b1d12" stroke-width="1.5"/>
 <text x="864" y="1224" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">Prank</tspan>: its target, clock jump, and boxes.</text>
 <text x="834" y="1262" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>
-<text x="40" y="1300" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">FARMER &amp; DOG</tspan>, <tspan font-weight="800">TURKEYS</tspan>: where they start the game.</text>
+<text x="40" y="1300" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">FARMER, DOG &amp; KID</tspan>, <tspan font-weight="800">TURKEYS</tspan>: where they start the game.</text>
 </svg>
