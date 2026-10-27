@@ -21,7 +21,7 @@ for (const diff of Object.keys(GG.difficulty)) {
     for (let i = 0; i < runs; i++) {
       const rng = makeRng(seed, farmId, diff, n, i);
       const roster = rng.shuffle(ids).slice(0, n);
-      const g = playGame({ farmId, difficulty: diff, roster, rng, params });
+      const g = await playGame({ farmId, difficulty: diff, roster, rng, params });
       if (g.result === "win") win++; else if (g.cause === "caught") caught++; else clock++;
       rounds += g.rounds; sg += g.stats.spottedGames; rt += g.stats.rescueTries; rw += g.stats.rescueWins;
       st += g.stats.scramTries; sw += g.stats.scramWins;

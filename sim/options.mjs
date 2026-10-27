@@ -20,7 +20,7 @@ const OUT = arg("out", "sim/OPTIONS.md");
 const IDS = GG.turkeys.map(t => t.id);
 
 /** Win count over the games a turkey plays in, with an optional change to that turkey. */
-function wins(farmId, focus, change) {
+async function wins(farmId, focus, change) {
   const t = GG.turkeys.find(x => x.id === focus);
   const saved = { ...t };
   if (change) t[change] = "none";
@@ -30,7 +30,7 @@ function wins(farmId, focus, change) {
     const roster = rng.shuffle(IDS).slice(0, SIZE);
     if (!roster.includes(focus)) continue;
     games++;
-    if (playGame({ farmId, difficulty: DIFF, roster, rng, params: DEFAULTS }).result === "win") win++;
+    if ((await playGame({ farmId, difficulty: DIFF, roster, rng, params: DEFAULTS })).result === "win") win++;
   }
   Object.assign(t, saved);
   return { win, games };
@@ -38,10 +38,11 @@ function wins(farmId, focus, change) {
 
 if (process.argv.includes("--worker")) {
   const jobs = JSON.parse(arg("jobs", "[]"));
-  const out = jobs.map(([farmId, id]) => {
-    const base = wins(farmId, id), k = wins(farmId, id, "knack"), q = wins(farmId, id, "quirk");
-    return { farmId, id, base, k, q };
-  });
+  const out = [];
+  for (const [farmId, id] of jobs) {
+    const base = await wins(farmId, id), k = await wins(farmId, id, "knack"), q = await wins(farmId, id, "quirk");
+    out.push({ farmId, id, base, k, q });
+  }
   process.send(out);
   process.exit(0);
 }

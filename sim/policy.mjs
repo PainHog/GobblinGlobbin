@@ -9,7 +9,13 @@
  */
 import { GG } from "../module/config.mjs";
 import * as R from "../module/logic/rules.mjs";
-import { actSneak, actHunker, actPrank, actLetItOut, tags, spotsOf, occupants } from "./engine.mjs";
+import { tags, spotsOf, occupants } from "../module/logic/game.mjs";
+
+/* Intents (what a turkey does), carried out by the engine (module/logic/game.mjs act). */
+const sneak = (to, then = null) => ({ kind: "sneak", to, then });
+const hunker = (t, friend = t) => ({ kind: "hunker", friend: friend.id });
+const prankAt = p => ({ kind: "prank", prank: p.id });
+const letItOut = () => ({ kind: "letItOut" });
 
 /** P(at least one of `dice` white dice reaches `target`). */
 export const pHit = (target, dice) => 1 - Math.pow((target - 1) / 6, dice);
@@ -213,37 +219,38 @@ export function chooseRescuer(S, friend) {
 /** Restless (Ch 2): no Hunker Down two rounds in a row. Prank, slip away, or let it out instead. */
 function restlessInstead(S, t) {
   const prank = S.farm.pranks.find(p => p.zone === t.zone && !S.done[p.id]);
-  if (prank && S.farmer.zone !== t.zone) return actPrank(S, t, prank);
+  if (prank && S.farmer.zone !== t.zone) return prankAt(prank);
   let best = null, bestV = Infinity;
   for (const n of S.adj[t.zone]) {
     if (n === S.farmer.zone || (S.farmer.indoors && n === S.farm.start.farmer)) continue;
     const v = danger(S, n) + (sneakNeedsRoll(S, t.zone, n) ? 0.3 : 0) + (spotsOf(S, n).length ? 0 : 1);
     if (v < bestV) { bestV = v; best = n; }
   }
-  if (best && !(t.urge >= S.P.cautiousAt && sneakNeedsRoll(S, t.zone, best) && dmap(S, S.farmer.zone)[t.zone] > 1)) return actSneak(S, t, best);
-  return actLetItOut(S, t);
+  if (best && !(t.urge >= S.P.cautiousAt && sneakNeedsRoll(S, t.zone, best) && dmap(S, S.farmer.zone)[t.zone] > 1)) return sneak(best);
+  return letItOut();
 }
 
+/** One turkey's go: the intent it takes this turn. */
 export function act(S, t) {
-  if (t.quirk === "restless" && t.lastHunker === S.round - 1) return actWith(S, t, restlessInstead);
-  return actWith(S, t, actHunker);
+  if (t.quirk === "restless" && t.lastHunker === S.round - 1) return choose(S, t, () => restlessInstead(S, t));
+  return choose(S, t, (f = t) => hunker(t, f));
 }
 
-/** One turkey's choice; `actHunker` is swapped out when Hunker Down isn't allowed. */
-function actWith(S, t, actHunker) {
+/** One turkey's choice; `stay` is what it does instead of moving (Hunker Down, unless Restless forbids it). */
+function choose(S, t, stay) {
   const P = S.P;
   const fd = dmap(S, S.farmer.zone)[t.zone];
   // Too twitchy: calm down, or let it out where the farmer can't hear.
   if (t.urge >= P.calmAt) {
-    if (P.letItOut && fd >= P.letItOutDist && t.urge >= P.letItOutAt) return actLetItOut(S, t);
-    return actHunker(S, t);
+    if (P.letItOut && fd >= P.letItOutDist && t.urge >= P.letItOutAt) return letItOut();
+    return stay();
   }
   const assigned = S.assign.get(t);
   const prank = assigned && !S.done[assigned.id] ? assigned : null;
   if (prank) {
     if (t.zone === prank.zone) {
-      if (S.farmer.zone !== t.zone) return actPrank(S, t, prank);
-      return actHunker(S, t);
+      if (S.farmer.zone !== t.zone) return prankAt(prank);
+      return stay();
     }
     const next = nextStep(S, t, prank.zone);
     if (next && !(S.farmer.indoors && next === S.farm.start.farmer)) {
@@ -255,10 +262,10 @@ function actWith(S, t, actHunker) {
           const n2 = nextStepFrom(S, t, next, prank.zone);
           if (n2 && n2 !== S.farmer.zone && !(S.farmer.indoors && n2 === S.farm.start.farmer) && !(sneakNeedsRoll(S, next, n2) && !needRoll)) then = n2;
         }
-        return actSneak(S, t, next, then);
+        return sneak(next, then);
       }
     }
-    return actHunker(S, t);
+    return stay();
   }
   // A hider: move out of the farmer's likely path if that's cheap, else hunker down.
   const here = danger(S, t.zone) + (t.zone === S.farmer.zone ? 1 : 0);
@@ -271,11 +278,11 @@ function actWith(S, t, actHunker) {
       const v = danger(S, n) + (needRoll ? 0.3 : 0) + (spotsOf(S, n).length ? 0 : 1) + 0.05 * zoneCost(S, t, n, S.pred);
       if (v < bestV) { bestV = v; best = n; }
     }
-    if (best) return actSneak(S, t, best);
+    if (best) return sneak(best);
   }
   if (t.knack === "coolHead") {
     const f = S.turkeys.filter(o => o.zone === t.zone && o !== t).sort((a, b) => b.urge - a.urge)[0];
-    if (f && f.urge > t.urge + 1) return actHunker(S, t, f);
+    if (f && f.urge > t.urge + 1) return stay(f);
   }
-  return actHunker(S, t);
+  return stay();
 }

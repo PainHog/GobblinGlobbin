@@ -32,14 +32,14 @@ export const TARGETS = {
 /** Minutes per round at the table: about a minute per turkey plus two for the farmer (an estimate, not measured). */
 const minutes = (rounds, n) => rounds * (n + 2);
 
-function cell(farmId, difficulty, n, params, runs = RUNS, tag = "") {
+async function cell(farmId, difficulty, n, params, runs = RUNS, tag = "") {
   const a = { win: 0, rounds: 0, spottedGames: 0, spotted: 0, rescueTries: 0, rescueWins: 0, scramTries: 0, scramWins: 0,
     gob: { roll: 0, full: 0, letItOut: 0, rescue: 0, helper: 0 }, feathersSpent: 0, feathersStart: 0, pushes: 0, helps: 0,
     pranks: {}, prankClock: 0, decoy: 0, rolls: { n: 0, ok: 0, great: 0, gobble: 0 }, clutch: 0, roundsHist: {}, gobbled: {} };
   for (let i = 0; i < runs; i++) {
     const rng = makeRng(SEED, tag, farmId, difficulty, n, i);
     const roster = rng.shuffle(IDS).slice(0, n);
-    const g = playGame({ farmId, difficulty, roster, rng, params });
+    const g = await playGame({ farmId, difficulty, roster, rng, params });
     const s = g.stats;
     if (g.result === "win") a.win++; else a.gobbled[g.gobbled] = (a.gobbled[g.gobbled] ?? 0) + 1;
     a.rounds += g.rounds; a.roundsHist[g.rounds] = (a.roundsHist[g.rounds] ?? 0) + 1;
@@ -60,7 +60,7 @@ const f1 = x => x.toFixed(1);
 const inBand = (v, [lo, hi]) => v >= lo && v <= hi;
 
 const results = {};
-for (const farm of FARMS) for (const d of DIFFS) for (const n of SIZES) results[`${farm}|${d}|${n}`] = cell(farm, d, n, DEFAULTS);
+for (const farm of FARMS) for (const d of DIFFS) for (const n of SIZES) results[`${farm}|${d}|${n}`] = await cell(farm, d, n, DEFAULTS);
 
 const L = [];
 L.push("# Simulator report");
@@ -156,14 +156,15 @@ L.push("");
 L.push("| Farm | Default | Timid | Bold | No pranks |");
 L.push("|---|---|---|---|---|");
 for (const farm of FARMS) {
-  const w = p => { const a = cell(farm, "standard", 4, { ...DEFAULTS, ...PRESETS[p] }, RUNS, p); return pct(a.win / a.runs); };
-  L.push(`| ${GG.farms[farm].name} | ${pct(results[`${farm}|standard|4`].win / RUNS)} | ${w("timid")} | ${w("bold")} | ${w("noPranks")} |`);
+  const w = async p => { const a = await cell(farm, "standard", 4, { ...DEFAULTS, ...PRESETS[p] }, RUNS, p); return pct(a.win / a.runs); };
+  const [timid, bold, noPranks] = [await w("timid"), await w("bold"), await w("noPranks")];
+  L.push(`| ${GG.farms[farm].name} | ${pct(results[`${farm}|standard|4`].win / RUNS)} | ${timid} | ${bold} | ${noPranks} |`);
 }
 L.push("");
 L.push("| Turkeys (Bramble Farm, Standard) | Default | No pranks |");
 L.push("|---|---|---|");
 for (const n of [2, 4, 6, 8]) {
-  const a = cell("bramble", "standard", n, { ...DEFAULTS, ...PRESETS.noPranks }, RUNS, "np");
+  const a = await cell("bramble", "standard", n, { ...DEFAULTS, ...PRESETS.noPranks }, RUNS, "np");
   L.push(`| ${n} | ${pct(results[`bramble|standard|${n}`].win / RUNS)} | ${pct(a.win / a.runs)} |`);
 }
 L.push("");

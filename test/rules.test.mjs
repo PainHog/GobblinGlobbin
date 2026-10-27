@@ -106,23 +106,23 @@ test("every turkey has a real knack and quirk, all different", () => {
   assert.equal(GG.events.length, 6, "a d6 event table");
 });
 
-test("the simulator is deterministic", () => {
+test("the simulator is deterministic", async () => {
   const play = () => {
     const rng = makeRng(42, "det");
     return playGame({ farmId: "bramble", difficulty: "standard", roster: ["pip", "duchess", "bigtom", "hazel"], rng, params: DEFAULTS });
   };
-  const a = play(), b = play();
+  const a = await play(), b = await play();
   assert.equal(a.result, b.result);
   assert.equal(a.rounds, b.rounds);
   assert.deepEqual(a.stats, b.stats);
 });
 
-test("every game ends, as a win at Too Late or a loss with one turkey gobbled", () => {
+test("every game ends, as a win at Too Late or a loss with one turkey gobbled", async () => {
   for (const farmId of Object.keys(GG.farms)) for (const difficulty of Object.keys(GG.difficulty)) for (let n = 2; n <= 8; n += 3) {
     for (let i = 0; i < 40; i++) {
       const rng = makeRng(7, farmId, difficulty, n, i);
       const roster = rng.shuffle(GG.turkeys.map(t => t.id)).slice(0, n);
-      const g = playGame({ farmId, difficulty, roster, rng, params: DEFAULTS });
+      const g = await playGame({ farmId, difficulty, roster, rng, params: DEFAULTS });
       assert.ok(g.result === "win" || g.result === "loss");
       if (g.result === "win") { assert.equal(g.cause, "tooLate"); assert.equal(g.clockLeft, 0); }
       else { assert.equal(g.cause, "caught"); assert.ok(roster.includes(g.gobbled)); }
