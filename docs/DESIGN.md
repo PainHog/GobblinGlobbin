@@ -45,6 +45,8 @@ This is a living document. **§1 Pitch** is Richard's own. **§3 Decisions** lis
 | 2026-10-27 | **The game ends as soon as one turkey is caught.** That turkey is gobbled; the rest are safe | No player is ever out while the game goes on (A4, flag 2). Both settled in the next two rows |
 | 2026-10-27 | **The flock wins or loses together.** Nobody caught: the flock wins. One turkey gobbled: the whole flock loses | Standing by each other is always the smart play (A4, A6, flag 4) |
 | 2026-10-27 | **Rescue happens in a danger state before the catch.** The farmer can corner or grab a turkey before the catch is final, and the flock gets one chance to save it. The rescuer takes on risk | Names of the states, the exact timing and what a rescue costs are open (§5 questions 8 and 10). A failed rescue can't snowball, because the next catch ends the game |
+| 2026-10-27 | **Dice:** the game uses dice, d6 only | Compared dice need different colours, and the book says so (A27) |
+| 2026-10-27 | **Engine:** a new system if one fits, otherwise the best-fitting existing engine | Choice pending between three d6 options offered on 2026-10-27 |
 
 ## 4. Early flags: where the pitch meets the lessons in `DESIGN-RULES.md`
 These aren't decisions. They're the first things to settle, because each one has already caused trouble in an earlier game.
