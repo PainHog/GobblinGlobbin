@@ -1,7 +1,7 @@
 {
   "name": "gobble-gobbled",
   "version": "0.1.0",
-  "description": "Don't Get Gobble Gobbled — a tabletop roleplaying game by Richard Moore: rulebook pipeline, Foundry VTT system and rules simulator.",
+  "description": "Don't Get Gobble Gobbled — a comedy party game by Richard Moore: rulebook pipeline, rules simulator and a Foundry VTT system skeleton.",
   "private": true,
   "type": "module",
   "scripts": {

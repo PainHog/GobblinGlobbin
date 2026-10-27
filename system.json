@@ -2,7 +2,7 @@
   "id": "gobble-gobbled",
   "type": "system",
   "title": "Don't Get Gobble Gobbled",
-  "description": "The companion Foundry VTT game system for Don't Get Gobble Gobbled, a tabletop roleplaying game by Richard Moore. Early skeleton: the game's rules are not written yet.",
+  "description": "The companion Foundry VTT game system for Don't Get Gobble Gobbled, a comedy party game by Richard Moore. A skeleton for now: play from the rulebook (version 1.0); automation comes later.",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "13",
