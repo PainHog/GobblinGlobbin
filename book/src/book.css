@@ -535,10 +535,10 @@ dl.glossary dt { margin-top: 0.07in; font: 800 9.6pt var(--sans); color: var(--d
 dl.glossary dd { margin: 0.01in 0 0; }
 
 /* compact reference sheets */
-.sheet.ref { font-size: 9.1pt; line-height: 1.28; padding: 0.26in 0.32in 0.22in; }
+.sheet.ref { font-size: 10.6pt; line-height: 1.34; padding: 0.26in 0.32in 0.22in; }
 .sheet.ref h2 { font-size: 24pt; }
 .sheet.ref .sheet-intro { margin-bottom: 0.1in !important; }
-.ref-cols { columns: 2; column-gap: 0.26in; }
+.ref-cols { columns: 2; column-gap: 0.26in; column-fill: balance; }
 .ref-cols h3 { margin: 0.08in 0 0.03in; font-size: 11.2pt; }
 .ref-cols h3:first-child { margin-top: 0; }
 .ref-cols p { margin: 0 0 0.05in; }

@@ -1,8 +1,8 @@
 # Don't Get Gobble Gobbled: core rules (one page)
 
-*The rulebook chapters replace this page once they exist; until then, this is the rules. Numbers are tuned by the simulator (`sim/REPORT.md`).*
+*A one-page summary of the design. The rulebook (`book/src/chapters/`) is the source of truth; where they differ, the book wins. Numbers are tuned by the simulator (`sim/REPORT.md`).*
 
-**The game.** It's Thanksgiving morning on a family farm. The farmer is looking for a turkey to roast, and any turkey will do. Each player is a turkey; one more person is the **Storyteller**, who runs the farmer, the dog and the farm. The flock hides, sneaks, pulls pranks and stalls until it's **Too Late** to cook a turkey. If the farmer grabs one turkey, the game ends at once: that turkey is gobbled and **the whole flock loses**. Nobody is ever out while the game goes on. 2–8 turkeys, ages 8+, about 45–120 minutes.
+**The game.** It's Thanksgiving morning on a family farm. The farmer is looking for a turkey to roast, and any turkey will do. Each player is a turkey; one more person is the **Storyteller**, who runs the farmer, the dog and the farm. The flock hides, sneaks, pulls pranks and stalls until it's **Too Late** to cook a turkey. If the farmer grabs one turkey, the game ends at once: that turkey is gobbled and **the whole flock loses**. Nobody is ever out while the game goes on. 2–8 turkeys, ages 8+, about 60–120 minutes.
 
 **You need.** Three white d6 (action dice), five red d6 (gobble dice), one d6 of a third colour for helpers, and a d6 for the Storyteller. A farm map, the turkey cards, the Dinner Clock, Feather tokens, “Huh?” tokens, and pawns for the turkeys, the farmer and the dog.
 
