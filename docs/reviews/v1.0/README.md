@@ -83,7 +83,7 @@ Art should follow `book/art/ART-CHECKLIST.md` and `book/art/README.md`, and each
 
 Checked by rendering every page:
 
-- **Pages:** 46, digital and print.
+- **Pages:** 46 in the digital PDF. The print files are a 44-page interior plus separate front and back covers.
 - **Fonts:** Fraunces, Alegreya and Alegreya Sans only, all embedded, with no Type 3 fonts.
 - **Text size:** no text under 7.5 pt, including the maps.
 - **Print files:** they have a 0.125 in bleed.
