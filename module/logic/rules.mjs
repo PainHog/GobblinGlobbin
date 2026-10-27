@@ -103,9 +103,15 @@ export function stepToward(farm, from, to, adj = neighbours(farm)) {
   return adj[from].filter(n => d[n] === d[from] - 1)[0] ?? from;
 }
 
-/** Where the Dinner Clock starts (Ch 6): 8 + 2 per turkey, plus the difficulty's adjustment. */
-export function clockStart(difficulty, flockSize) {
-  return GG.clock.base + GG.clock.perTurkey * flockSize + GG.difficulty[difficulty].clock;
+/** Where the Dinner Clock starts (Ch 6): 16 + 1 per turkey (−2 for a small flock), plus the difficulty's and the farm's adjustments. */
+export function clockStart(difficulty, flockSize, farm = null) {
+  const small = flockSize <= GG.flock.smallFlock ? GG.flock.smallClock : 0;
+  return GG.clock.base + GG.clock.perTurkey * flockSize + small + GG.difficulty[difficulty].clock + (farm?.clock ?? 0);
+}
+
+/** How many of the farmer's kids help him search (Ch 8 "Flock Size"). */
+export function kidsFor(flockSize) {
+  return GG.flock.kids.filter(n => flockSize >= n).length;
 }
 
 /** A farm event is rolled when the clock lands on a multiple of 4 (above 0) (Ch 7 "Farm Events"). */
@@ -113,9 +119,10 @@ export function isEventSpace(space) {
   return space > 0 && space % GG.clock.eventEvery === 0;
 }
 
-/** The flock's Feathers at the start (Ch 8): by flock size, plus the difficulty's adjustment, at least 0. */
-export function startingFeathers(difficulty) {
-  return Math.max(0, GG.flock.feathers + GG.difficulty[difficulty].feathers);
+/** The flock's Feathers at the start (Ch 8): 2, +1 for a small flock, plus the difficulty's adjustment, at least 0. */
+export function startingFeathers(difficulty, flockSize) {
+  const small = flockSize <= GG.flock.smallFlock ? GG.flock.smallFeathers : 0;
+  return Math.max(0, GG.flock.feathers + small + GG.difficulty[difficulty].feathers);
 }
 
 /** Room left in a hiding spot. */

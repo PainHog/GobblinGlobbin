@@ -63,10 +63,13 @@ function costTo(S, t, target, pred) {
 }
 
 function nextStep(S, t, target) {
+  return nextStepFrom(S, t, t.zone, target);
+}
+function nextStepFrom(S, t, from, target) {
   const pred = S.pred;
   const c = costTo(S, t, target, pred);
   let best = null, bestV = Infinity;
-  for (const n of S.adj[t.zone]) {
+  for (const n of S.adj[from]) {
     const v = zoneCost(S, t, n, pred) + c[n];
     if (v < bestV) { bestV = v; best = n; }
   }
@@ -139,7 +142,7 @@ export function chooseHelper(S, t, kind, target) {
   if (kind === "hide" && target < 4) return null;
   const fd = dmap(S, S.farmer.zone);
   if (kind === "prank" && fd[t.zone] < 2) return null;
-  const cands = S.turkeys.filter(o => o !== t && !o.helped && !o.spotted &&
+  const cands = S.turkeys.filter(o => o !== t && (!o.helped || o.knack === "motherHen") && !o.spotted &&
     (o.zone === t.zone || (o.knack === "motherHen" && S.adj[o.zone].includes(t.zone))) &&
     o.urge <= (o.quirk === "chatterbox" ? S.P.helpMaxUrge - 1 : S.P.helpMaxUrge));
   cands.sort((a, b) => a.urge - b.urge);
@@ -156,6 +159,7 @@ export function chooseSpot(S, t, zone) {
     const pSearch = line.filter(x => x === i).length / 6;
     let v = pSearch * (1 - pHit(sp.cover, 1)) + 0.02 * sp.cover;
     if (t.quirk === "fussy" && occ > 0) v += 0.25;
+    if (occ > 0 && occupants(S, zone, i).some(o => o.quirk === "fussy")) v += 0.1;
     if (v < bestV) { bestV = v; best = i; }
   });
   return best;
@@ -221,7 +225,15 @@ export function act(S, t) {
     const next = nextStep(S, t, prank.zone);
     if (next) {
       const needRoll = sneakNeedsRoll(S, t.zone, next);
-      if (next !== S.farmer.zone && !(needRoll && t.urge >= P.cautiousAt)) return actSneak(S, t, next);
+      if (next !== S.farmer.zone && !(needRoll && t.urge >= P.cautiousAt)) {
+        // Soft Steps: keep going if the second zone is safe and gets closer.
+        let then = null;
+        if (t.knack === "softSteps" && next !== prank.zone) {
+          const n2 = nextStepFrom(S, t, next, prank.zone);
+          if (n2 && n2 !== S.farmer.zone && !(sneakNeedsRoll(S, next, n2) && !needRoll)) then = n2;
+        }
+        return actSneak(S, t, next, then);
+      }
     }
     return actHunker(S, t);
   }

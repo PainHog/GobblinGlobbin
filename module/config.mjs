@@ -23,7 +23,8 @@ GG.roll = {
   gobbleFace: 6,        // any red 6 is a gobble (only one gobble per roll)
   greatFace: 6,         // a white 6 is a Great result
   targets: { sneak: 4, noisy: 3, hunker: 4, rescue: 4, scram: 4, sniff: 4 },
-  sneakRange: 1          // a Sneak needs a roll when the farmer is in or next to the zone you leave or enter
+  sneakRange: 1,         // a Sneak needs a roll when the farmer is in or next to the zone you leave or enter
+  rescuesPerTurkey: 1    // Gobble for a Friend: one try per Spotted turkey per round
 };
 
 /* ------------------------------------------------------------- the urge -- */
@@ -33,54 +34,53 @@ GG.urge = { min: 0, max: 5, start: 1, hunker: 2, hunkerCoolHead: 3, closeRange: 
 
 /* --------------------------------------------------------------- knacks -- */
 GG.knacks = {
-  busyBeak:   { name: "Busy Beak",       text: "+1 white die when you pull a Prank." },
-  softSteps:  { name: "Soft Steps",      text: "+1 white die when you Sneak." },
-  still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden (a search or a sniff)." },
-  bigGobble:  { name: "Big Gobble",      text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away." },
-  quickFeet:  { name: "Quick Feet",      text: "+1 white die when you Scram, and a Scram that works can take you two zones." },
-  coolHead:   { name: "Cool Head",       text: "Hunker Down lowers your urge, or a friend’s, by 3 instead of 2." },
-  motherHen:  { name: "Mother Hen",      text: "You can help a turkey in your zone or a zone next to it." },
-  keenEye:    { name: "Keen Eye",        text: "At the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die now and tells the flock where he’s headed." }
+  busyBeak:   { name: "Busy Beak",        text: "+1 white die when you pull a Prank, and every success you roll on a Prank counts twice." },
+  softSteps:  { name: "Soft Steps",       text: "+1 white die when you Sneak, and one Sneak can take you two zones (one roll covers both)." },
+  still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden, and your red dice don’t count on those rolls." },
+  bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away." },
+  quickFeet:  { name: "Quick Feet",       text: "+1 white die when you Scram, and a Scram that works can take you two zones." },
+  coolHead:   { name: "Cool Head",        text: "Hunker Down lowers your urge, or a friend’s, by 3 instead of 2." },
+  motherHen:  { name: "Mother Hen",       text: "When you Hunker Down, every other turkey in your zone lowers its urge by 1 too." },
+  keenEye:    { name: "Keen Eye",         text: "At the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die and tells the flock where he’s headed. Close Calls don’t raise the urge of turkeys in your zone." }
 };
 
 /* --------------------------------------------------------------- quirks -- */
-// Each is a +1 urge "nervous habit"; a turkey's urge rises at most once per action
-// and at most once per farmer's turn (Ch 4 "One thing, one rise").
+// Each is a nervous habit. A turkey's urge rises at most once per action and at
+// most once per farmer's turn (Ch 4 "One thing, one rise").
 GG.quirks = {
-  peckish:    { name: "Peckish",     text: "+1 urge when you move into a zone marked Food." },
-  jumpy:      { name: "Jumpy",       text: "+1 urge when another turkey gobbles in your zone or a zone next to it." },
-  fussy:      { name: "Fussy",       text: "+1 urge when you share a hiding spot with another turkey at the end of your action." },
-  restless:   { name: "Restless",    text: "+1 urge when you Hunker Down (you still lower it first)." },
-  muddyFeet:  { name: "Hates Mud",   text: "+1 urge when you move into a zone marked Mud." },
-  wetFeathers:{ name: "Hates Water", text: "+1 urge when you move into a zone marked Water." },
-  chatterbox: { name: "Chatterbox",  text: "+1 urge when you help another turkey." },
-  scaredy:    { name: "Scaredy",     text: "+1 urge when the farmer ends his move in a zone next to yours." }
+  worrywart:  { name: "Worrywart",  text: "+1 urge whenever any turkey is Spotted." },
+  hiccups:    { name: "Hiccups",    text: "At the end of every round, roll one red die: on a 6 you gobble (hic!)." },
+  fussy:      { name: "Fussy",      text: "+1 urge whenever you end an action sharing a hiding spot, or another turkey squeezes into yours." },
+  restless:   { name: "Restless",   text: "Hunker Down lowers your own urge by only 1." },
+  showOff:    { name: "Show-off",   text: "Whenever you roll a Great, you strike a pose: a “Huh?” token goes on your spot." },
+  jumpy:      { name: "Jumpy",      text: "+1 urge whenever any turkey gobbles." },
+  chatterbox: { name: "Chatterbox", text: "+1 urge whenever you help or are helped." },
+  scaredy:    { name: "Scaredy",    text: "A Close Call happens to you when the farmer or the dog ends in or next to your zone." }
 };
 
 /* -------------------------------------------------------------- turkeys -- */
 GG.turkeys = [
-  { id: "butterbean", name: "Butterbean", breed: "Bourbon Red",   bird: "hen", knack: "busyBeak",  quirk: "peckish" },
-  { id: "pip",        name: "Pip",        breed: "Narragansett",  bird: "jake", knack: "softSteps", quirk: "jumpy" },
-  { id: "duchess",    name: "Duchess",    breed: "Royal Palm",    bird: "hen", knack: "still",     quirk: "fussy" },
-  { id: "bigtom",     name: "Big Tom",    breed: "Bronze",        bird: "tom", knack: "bigGobble", quirk: "restless" },
-  { id: "noodle",     name: "Noodle",     breed: "White Holland", bird: "jake", knack: "quickFeet", quirk: "muddyFeet" },
-  { id: "clementine", name: "Clementine", breed: "Blue Slate",    bird: "hen", knack: "coolHead",  quirk: "wetFeathers" },
-  { id: "gizmo",      name: "Gizmo",      breed: "Black Spanish", bird: "tom", knack: "motherHen", quirk: "chatterbox" },
-  { id: "hazel",      name: "Hazel",      breed: "Chocolate",     bird: "hen", knack: "keenEye",   quirk: "scaredy" }
+  { id: "butterbean", name: "Butterbean", breed: "Bourbon Red",   bird: "hen",  knack: "busyBeak",  quirk: "worrywart" },
+  { id: "pip",        name: "Pip",        breed: "Narragansett",  bird: "jake", knack: "softSteps", quirk: "hiccups" },
+  { id: "duchess",    name: "Duchess",    breed: "Royal Palm",    bird: "hen",  knack: "still",     quirk: "fussy" },
+  { id: "bigtom",     name: "Big Tom",    breed: "Bronze",        bird: "tom",  knack: "bigGobble", quirk: "restless" },
+  { id: "noodle",     name: "Noodle",     breed: "White Holland", bird: "jake", knack: "quickFeet", quirk: "showOff" },
+  { id: "clementine", name: "Clementine", breed: "Blue Slate",    bird: "hen",  knack: "coolHead",  quirk: "jumpy" },
+  { id: "gizmo",      name: "Gizmo",      breed: "Black Spanish", bird: "tom",  knack: "motherHen", quirk: "chatterbox" },
+  { id: "hazel",      name: "Hazel",      breed: "Chocolate",     bird: "hen",  knack: "keenEye",   quirk: "scaredy" }
 ];
 
 /* ---------------------------------------------------------------- farms -- */
 // Zone tags: open (no hiding spots), noisy (sneaking in needs a roll),
-// food, mud, water (quirk triggers). search: the d6 line for which spot the
+// food, mud, water (flavour only). search: the d6 line for which spot the
 // farmer checks (index into spots). route: the d6 line for where he walks next.
-// Every farm has a Farmhouse (events send the farmer there), at least one zone
-// of each of food / mud / water, and a prank in at least six zones.
+// Every farm has a Farmhouse (events send the farmer there) and a prank in at least six zones.
 const z = (name, tags, spots, search, route, pos) => ({ name, tags, spots, search, route, pos });
 const s = (name, cover, room) => ({ name, cover, room });
 
 GG.farms = {
   bramble: {
-    id: "bramble", name: "Bramble Farm", farmer: "Farmer Bramble", dog: "Biscuit",
+    id: "bramble", name: "Bramble Farm", farmer: "Farmer Bramble", dog: "Biscuit", clock: 0,
     start: { turkeys: "pen", farmer: "house", dog: "house" },
     zones: {
       orchard: z("Apple Orchard",   ["food"],         [s("Leaf pile", 3, 3), s("Apple trees", 4, 3), s("Fallen log", 4, 2)],      [0,0,0,1,1,2], ["garden","garden","garden","pumpkin","pumpkin","pumpkin"], [0,0]),
@@ -106,13 +106,81 @@ GG.farms = {
     // straight there and searches nothing; decoy: the next grab grabs the decoy instead.
     pranks: [
       { id: "oven",     zone: "house",   name: "Turn off the oven",          target: 5, need: 2, clock: 3 },
-      { id: "cows",     zone: "pasture", name: "Let the cows out",           target: 4, need: 1, clock: 2, detour: "pasture" },
+      { id: "cows",     zone: "pasture", name: "Let the cows out",           target: 4, need: 1, clock: 3, detour: "pasture" },
       { id: "rooster",  zone: "coop",    name: "Wake the rooster",           target: 3, need: 1, clock: 2, loud: true },
       { id: "scarecrow",zone: "garden",  name: "Dress the scarecrow as a turkey", target: 4, need: 2, clock: 1, decoy: true },
-      { id: "pails",    zone: "barn",    name: "Tip over the milk pails",    target: 4, need: 1, clock: 2, loud: true },
+      { id: "pails",    zone: "barn",    name: "Tip over the milk pails",    target: 4, need: 1, clock: 3, loud: true },
       { id: "tires",    zone: "shed",    name: "Let down the tractor tires", target: 4, need: 2, clock: 2 },
       { id: "boat",     zone: "pond",    name: "Untie the rowboat",          target: 4, need: 1, clock: 2, detour: "pond" },
-      { id: "pumpkin",  zone: "pumpkin", name: "Roll the giant pumpkin",     target: 4, need: 2, clock: 2, loud: true }
+      { id: "pumpkin",  zone: "pumpkin", name: "Roll the giant pumpkin",     target: 4, need: 1, clock: 3, loud: true }
+    ]
+  },
+
+  puddlewick: {
+    id: "puddlewick", name: "Puddlewick Farm", farmer: "Farmer Puddlewick", dog: "Pickles", clock: 2,
+    start: { turkeys: "pen", farmer: "house", dog: "house" },
+    zones: {
+      pond:       z("Duck Pond",     ["noisy","water"], [s("Reeds", 3, 4), s("Duck house", 4, 2), s("Under the jetty", 5, 2)],          [0,0,0,1,1,2], ["willow","willow","willow","goat","goat","goat"], [0,0]),
+      willow:     z("Willow Trees",  [],                [s("Willow curtain", 4, 4), s("Hollow stump", 4, 2)],                            [0,0,0,0,1,1], ["pond","pond","mill","mill","mill","mill"], [1,0]),
+      mill:       z("Water Mill",    ["water"],         [s("Flour sacks", 3, 3), s("Behind the water wheel", 4, 2), s("Millstone", 5, 1)], [0,0,0,1,1,2], ["willow","willow","berry","berry","bridge","bridge"], [2,0]),
+      berry:      z("Berry Patch",   ["food"],          [s("Bramble thicket", 4, 4), s("Berry baskets", 4, 2), s("Old cart", 5, 2)],    [0,0,0,1,1,2], ["mill","mill","mill","mill","mill","mill"], [3,0]),
+      goat:       z("Goat Pen",      ["noisy","mud"],   [s("Goat shed", 4, 3), s("Hay feeder", 3, 2), s("Behind Old Gertie", 4, 2)],    [0,0,1,1,2,2], ["lane","lane","pond","pond","house","house"], [0,1]),
+      lane:       z("Muddy Lane",    ["open","mud"],    [],                                                                              [],            ["goat","goat","bridge","bridge","pen","pen"], [1,1]),
+      bridge:     z("Footbridge",    ["water"],         [s("Under the bridge", 4, 3)],                                                   [0,0,0,0,0,0], ["lane","lane","greenhouse","mill","mill","hen"], [2,1]),
+      greenhouse: z("Greenhouse",    ["food"],          [s("Tomato vines", 3, 3), s("Potting bench", 4, 2), s("Flowerpots", 4, 2)],     [0,0,0,1,1,2], ["bridge","bridge","bridge","barn","barn","barn"], [3,1]),
+      house:      z("Farmhouse",     [],                [s("Porch swing", 5, 1), s("Boot rack", 4, 2), s("Laundry basket", 4, 2)],      [0,0,1,1,2,2], ["pen","pen","pen","goat","goat","goat"], [0,2]),
+      pen:        z("Turkey Pen",    [],                [s("Turkey house", 4, 8), s("Water trough", 4, 2)],                              [0,0,0,0,1,1], ["house","house","hen","hen","lane","lane"], [1,2]),
+      hen:        z("Hen House",     ["noisy"],         [s("Nesting boxes", 4, 2), s("Roost", 3, 2)],                                    [0,0,0,1,1,1], ["pen","pen","barn","barn","bridge","bridge"], [2,2]),
+      barn:       z("Hay Barn",      [],                [s("Hay stacks", 4, 4), s("Loft", 4, 2), s("Hay wagon", 5, 2)],                 [0,0,0,1,1,2], ["hen","hen","hen","greenhouse","greenhouse","greenhouse"], [3,2])
+    },
+    links: [["pond","willow"],["willow","mill"],["mill","berry"],
+            ["goat","lane"],["lane","bridge"],["bridge","greenhouse"],
+            ["house","pen"],["pen","hen"],["hen","barn"],
+            ["pond","goat"],["mill","bridge"],
+            ["goat","house"],["lane","pen"],["bridge","hen"],["greenhouse","barn"]],
+    pranks: [
+      { id: "pan",       zone: "house",      name: "Hide the roasting pan",      target: 5, need: 2, clock: 3 },
+      { id: "goats",     zone: "goat",       name: "Let the goats loose",        target: 4, need: 1, clock: 3, detour: "goat" },
+      { id: "henparty",  zone: "hen",        name: "Start a hen party",          target: 3, need: 1, clock: 2, loud: true },
+      { id: "sprinklers",zone: "greenhouse", name: "Turn on the sprinklers",     target: 4, need: 1, clock: 2, detour: "greenhouse" },
+      { id: "wheel",     zone: "mill",       name: "Jam the water wheel",        target: 4, need: 2, clock: 2 },
+      { id: "berries",   zone: "berry",      name: "Gobble up the pie berries",  target: 3, need: 2, clock: 2 },
+      { id: "choir",     zone: "pond",       name: "Start the duck choir",       target: 3, need: 1, clock: 3, loud: true },
+      { id: "haybale",   zone: "barn",       name: "Dress a hay bale as a turkey", target: 4, need: 2, clock: 1, decoy: true }
+    ]
+  },
+
+  windy: {
+    id: "windy", name: "Windy Ridge Farm", farmer: "Farmer Ruiz", dog: "Moose", clock: 1,
+    start: { turkeys: "pen", farmer: "house", dog: "house" },
+    zones: {
+      windmill: z("Windmill",         [],               [s("Inside the windmill", 4, 3), s("Grain sacks", 3, 2)],                       [0,0,0,0,1,1], ["meadow","meadow","meadow","orchard","orchard","orchard"], [0,0]),
+      meadow:   z("Sheep Meadow",     ["noisy"],        [s("In among the sheep", 3, 6)],                                                [0,0,0,0,0,0], ["windmill","windmill","hilltop","hilltop","wall","wall"], [1,0]),
+      hilltop:  z("Hilltop",          ["open"],         [],                                                                             [],            ["meadow","meadow","pumpkin","pumpkin","barn","barn"], [2,0]),
+      pumpkin:  z("Pumpkin Field",    ["food"],         [s("Pumpkin pile", 3, 4), s("Wheelbarrow", 4, 2), s("Scarecrow", 5, 1)],       [0,0,0,1,1,2], ["hilltop","hilltop","hilltop","pigsty","pigsty","pigsty"], [3,0]),
+      orchard:  z("Apple Orchard",    ["food"],         [s("Leaf pile", 3, 3), s("Apple ladder", 4, 2), s("Cider barrels", 4, 2)],     [0,0,0,1,1,2], ["wall","wall","windmill","windmill","house","house"], [0,1]),
+      wall:     z("Stone Wall",       [],               [s("Behind the wall", 3, 4), s("Woodpile", 4, 2)],                             [0,0,0,0,1,1], ["orchard","barn","barn","meadow","pen","pen"], [1,1]),
+      barn:     z("Big Red Barn",     [],               [s("Hayloft", 3, 4), s("Tractor", 4, 2), s("Feed sacks", 4, 2)],               [0,0,0,1,1,2], ["wall","wall","pigsty","hilltop","garden","garden"], [2,1]),
+      pigsty:   z("Pigsty",           ["noisy","mud"],  [s("In the mud with the pigs", 4, 4), s("Pig trough", 4, 2)],                  [0,0,0,0,1,1], ["barn","barn","pumpkin","pumpkin","drive","drive"], [3,1]),
+      house:    z("Farmhouse",        [],               [s("Porch", 5, 2), s("Garage", 4, 3)],                                         [0,0,1,1,1,1], ["pen","pen","pen","orchard","orchard","orchard"], [0,2]),
+      pen:      z("Turkey Pen",       [],               [s("Turkey house", 4, 8), s("Trough", 4, 2)],                                  [0,0,0,0,1,1], ["house","house","garden","garden","wall","wall"], [1,2]),
+      garden:   z("Vegetable Garden", ["food"],         [s("Cabbage rows", 3, 3), s("Bean poles", 4, 2)],                              [0,0,0,1,1,1], ["pen","pen","drive","drive","barn","barn"], [2,2]),
+      drive:    z("Driveway",         ["open"],         [],                                                                             [],            ["garden","garden","garden","pigsty","pigsty","pigsty"], [3,2])
+    },
+    links: [["windmill","meadow"],["meadow","hilltop"],["hilltop","pumpkin"],
+            ["orchard","wall"],["wall","barn"],["barn","pigsty"],
+            ["house","pen"],["pen","garden"],["garden","drive"],
+            ["windmill","orchard"],["meadow","wall"],["hilltop","barn"],["pumpkin","pigsty"],
+            ["orchard","house"],["wall","pen"],["barn","garden"],["pigsty","drive"]],
+    pranks: [
+      { id: "plug",     zone: "house",    name: "Unplug the oven",               target: 5, need: 2, clock: 3 },
+      { id: "hat",      zone: "windmill", name: "Send his hat up the windmill",  target: 4, need: 1, clock: 2, detour: "windmill" },
+      { id: "sheep",    zone: "meadow",   name: "Stampede the sheep",            target: 4, need: 1, clock: 3, loud: true },
+      { id: "carve",    zone: "pumpkin",  name: "Carve a pumpkin turkey",        target: 4, need: 2, clock: 1, decoy: true },
+      { id: "keys",     zone: "barn",     name: "Hide the tractor keys",         target: 4, need: 2, clock: 2 },
+      { id: "pigs",     zone: "pigsty",   name: "Let the pigs loose",            target: 4, need: 1, clock: 3, detour: "pigsty" },
+      { id: "truck",    zone: "drive",    name: "Let down the truck tires",      target: 4, need: 2, clock: 2 },
+      { id: "apples",   zone: "orchard",  name: "Shake the apple trees",         target: 3, need: 1, clock: 2, loud: true }
     ]
   }
 };
@@ -126,12 +194,14 @@ GG.difficulty = {
   standard: { name: "Standard", dog: true,  nose: 2, chase: 2, clock: 0,  feathers: 0,  quick: 0 },
   hard:     { name: "Hard",     dog: true,  nose: 3, chase: 3, clock: 2,  feathers: -1, quick: 1 }
 };
-// Ch 6 "The Dinner Clock": a countdown. It starts at 8 + 2 per turkey (plus the difficulty's
+// Ch 6 "The Dinner Clock": a countdown. It starts at 16 + 1 per turkey (plus the difficulty's
 // adjustment), moves down one space every round, and pranks move it further. When it
 // reaches 0 it's Too Late: the farmer gives up and the flock wins.
-GG.clock = { base: 8, perTurkey: 2, decoyClock: 2, eventEvery: 4 };
+GG.clock = { base: 16, perTurkey: 1, decoyClock: 2, eventEvery: 4 };
 // Ch 8 "Flock Size": the clock and the flock's Feathers by number of turkeys.
-GG.flock = { min: 2, max: 8, feathers: 2 };
+// Feathers: 2 for the flock. A small flock (2 or 3 turkeys) gets +1 Feather and the clock starts 2 lower.
+// kids: a kid joins the search at each of these flock sizes.
+GG.flock = { min: 2, max: 8, feathers: 2, smallFlock: 3, smallFeathers: 1, smallClock: -2, kids: [5] };
 
 /* --------------------------------------------------------------- events -- */
 // An event is rolled whenever the clock reaches a space that's a multiple of GG.clock.eventEvery (above 0).
