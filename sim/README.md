@@ -1,8 +1,12 @@
 # Rules simulator — method
 
-Nothing is simulated yet: the rules are not written. This file describes the method
-that worked on *Heisty Spideys*, so the simulator for Don’t Get Gobble Gobbled can be built the
-same way as soon as there are rules to test. Only `rng.mjs` exists so far.
+The simulator plays *Don’t Get Gobble Gobbled* strictly by the rulebook to measure balance. This file
+describes the method (carried over from *Heisty Spideys*); the table at the end lists what exists.
+
+```
+node sim/run.mjs --runs 2000 --seed 1     # every farm × difficulty × flock size → sim/REPORT.md
+node sim/options.mjs --runs 8000 --size 5 # what each knack and quirk is worth → sim/OPTIONS.md
+```
 
 **Why simulate.** On Heisty Spideys the rulebook read as tense and risky, but the
 simulator showed that, as written, a party almost could not lose: the dice pools were far
@@ -98,16 +102,15 @@ verification playtest confirms the fixes at the table.
 hand-worked examples with fixed dice, the character generator’s legality, and each
 package’s rule switches.
 
-## Files (to be created)
+## Files
 | File | What |
 |---|---|
-| `rng.mjs` | Seeded RNG (mulberry32 + FNV-1a stream derivation). **Exists.** |
-| `params.mjs` | Every judgement call: defaults, alternatives, docs, refs; presets; clarified baseline; packages |
-| `character.mjs` | Legal random character generation + validator |
-| `scenarios.mjs` | The book’s ready-to-play scenarios as data |
-| `engine.mjs` | Plays one scenario by the rules text |
-| `recorder.mjs` | Stats + issue detectors |
-| `notes.mjs` | Rule gaps found; what is / isn’t modelled |
-| `run.mjs` | CLI → `REPORT.md` |
-| `packages.mjs` | CLI → package comparison (`BALANCE.md`) |
-| `playtests/` | Agent playtest logs |
+| `rng.mjs` | Seeded RNG (mulberry32 + FNV-1a stream derivation) |
+| `engine.mjs` | Plays one game by the rules text: the round, the roll, every action, the farmer’s, dog’s and kid’s turns, the clock and events. Rules arithmetic from `module/logic/rules.mjs`, data from `module/config.mjs` |
+| `policy.mjs` | How the simulated flock plays: who pranks, who hides, when to calm down, Puff Up, Lend a Wing, spend a Feather, Scram and Gobble for a Friend |
+| `params.mjs` | Policy thresholds and presets (`timid`, `bold`, `noPranks`, …) for sensitivity runs |
+| `run.mjs` | CLI → `REPORT.md`: win rates per farm, difficulty and flock size; length; rescues; gobbles; Feathers; pranks; play-style sensitivity |
+| `options.mjs` | CLI → `OPTIONS.md`: each knack’s and quirk’s value, by replaying the same games with it switched off |
+| `quick.mjs` | A quick one-farm table for tuning |
+
+Not modelled: the optional “straight faces” party rule (Chapter 1), and table talk beyond the policy. The policy is sensible, not perfect: §6 of the report shows how much a timid or bold flock changes the numbers.

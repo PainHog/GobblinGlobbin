@@ -2,10 +2,10 @@
  * Farm maps — generated from the game data, so the map can't disagree with the
  * farm tables or the simulator (DESIGN-RULES A25).
  *   node book/tools/maps.mjs            → book/art/map-<farm>.svg for every farm
+ * Text is at least 24 units = 7.9 pt at the printed width of 6.5 in (art checklist §19).
  * Each zone is a box on the farm's grid (`pos` in module/config.mjs); a path between
  * two zones is a wide gap in the fence; no gap means no path. Every box lists its
- * hiding spots (cover and room) and its prank (target, boxes, clock). Text is at least
- * 21 units = 7.56 pt at the printed width of 7.14 in (art checklist §19).
+ * hiding spots (cover and room) and its prank (target, boxes, clock).
  */
 import { writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -14,12 +14,22 @@ import { GG } from "../../module/config.mjs";
 import { C } from "./art-gen/lib.mjs";
 
 const ART = join(dirname(fileURLToPath(import.meta.url)), "..", "art");
-const W = 1428, H = 1180, M = 18, LEG = 132;
+const W = 1428, H = 1330, M = 18, LEG = 162;
 const COLS = 4, ROWS = 3;
 const CW = (W - 2 * M) / COLS, RH = (H - LEG - 2 * M) / ROWS;
 const PAD = 16;               // gap between a cell and its zone box
 const F = `font-family="Alegreya Sans, sans-serif"`;
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** A five-pointed star drawn as a shape (no symbol glyphs in the maps: every font stays embedded). */
+function star(cx, cy, r) {
+  const pts = [];
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r;
+    pts.push(`${(cx + rr * Math.cos(a)).toFixed(1)},${(cy + rr * Math.sin(a)).toFixed(1)}`);
+  }
+  return `<polygon points="${pts.join(" ")}" fill="${C.accent}" stroke="${C.deep}" stroke-width="1.5"/>`;
+}
 
 function wrap(text, max) {
   const words = text.split(" "), lines = [];
@@ -43,14 +53,14 @@ function box(farm, id, zone) {
   const badges = [];
   if (noisy) badges.push(["NOISY", C.alarm]);
   if (open) badges.push(["OPEN", C.accentDeep]);
-  if (farm.start.turkeys === id) badges.push(["TURKEYS START", C.deep]);
-  if (farm.start.farmer === id) badges.push(["FARMER & DOG START", C.deep]);
+  if (farm.start.turkeys === id) badges.push(["TURKEYS", C.deep]);
+  if (farm.start.farmer === id) badges.push(["FARMER & DOG", C.deep]);
   if (badges.length) {
     ty += 12;
     let bx = x + 14;
     for (const [label, fill] of badges) {
-      const bw = label.length * 14 + 24;
-      out.push(`<rect x="${bx}" y="${ty}" width="${bw}" height="28" rx="14" fill="${fill}"/><text x="${bx + bw / 2}" y="${ty + 21}" ${F} font-size="21" font-weight="800" fill="${fill === C.deep ? C.accentB : C.light}" text-anchor="middle" letter-spacing="1">${esc(label)}</text>`);
+      const bw = label.length * 15.5 + 24;
+      out.push(`<rect x="${bx}" y="${ty}" width="${bw}" height="28" rx="14" fill="${fill}"/><text x="${bx + bw / 2}" y="${ty + 21}" ${F} font-size="24" font-weight="800" fill="${fill === C.deep ? C.accentB : C.light}" text-anchor="middle" letter-spacing="1">${esc(label)}</text>`);
       bx += bw + 8;
     }
     ty += 28;
@@ -59,26 +69,27 @@ function box(farm, id, zone) {
   out.push(`<line x1="${x + 14}" y1="${ty}" x2="${x + w - 14}" y2="${ty}" stroke="${C.edge}" stroke-width="2"/>`);
   ty += 30;
   if (open) {
-    out.push(`<text x="${x + 16}" y="${ty}" ${F} font-size="23" font-style="italic" fill="${C.inkSoft}">Open ground: no spots</text>`);
+    out.push(`<text x="${x + 16}" y="${ty}" ${F} font-size="24" font-style="italic" fill="${C.inkSoft}">Open ground: no spots</text>`);
     ty += 30;
   }
   for (const sp of zone.spots) {
-    out.push(`<text x="${x + 16}" y="${ty}" ${F} font-size="23" fill="${C.ink}">${esc(sp.name)}</text>`);
-    out.push(`<text x="${x + w - 74}" y="${ty}" ${F} font-size="23" font-weight="800" fill="${C.dark}" text-anchor="end">${sp.cover}+</text>`);
-    out.push(`<text x="${x + w - 16}" y="${ty}" ${F} font-size="23" fill="${C.inkSoft}" text-anchor="end">×${sp.room}</text>`);
+    out.push(`<text x="${x + 16}" y="${ty}" ${F} font-size="24" fill="${C.ink}">${esc(sp.name)}</text>`);
+    out.push(`<text x="${x + w - 56}" y="${ty}" ${F} font-size="24" font-weight="800" fill="${C.dark}" text-anchor="end">${sp.cover}+</text>`);
+    out.push(`<text x="${x + w - 12}" y="${ty}" ${F} font-size="24" fill="${C.inkSoft}" text-anchor="end">×${sp.room}</text>`);
     ty += 29;
   }
   const prank = farm.pranks.find(p => p.zone === id);
   if (prank) {
-    const py = y + h - 16 - 30 - 29 * Math.min(2, wrap(prank.name, 22).length);
+    const py = y + h - 16 - 30 - 29 * Math.min(2, wrap(prank.name, 19).length);
     out.push(`<rect x="${x + 8}" y="${py - 26}" width="${w - 16}" height="${y + h - 8 - (py - 26)}" rx="12" fill="${C.paper2}" stroke="${C.accent}" stroke-width="2.5"/>`);
     let ly = py;
-    wrap(prank.name, 22).forEach((line, i) => {
-      out.push(`<text x="${x + 18}" y="${ly}" ${F} font-size="23" font-weight="800" fill="${C.deep}">${i === 0 ? "★ " : "   "}${esc(line)}</text>`);
+    wrap(prank.name, 19).forEach((line, i) => {
+      if (i === 0) out.push(star(x + 30, ly - 9, 12));
+      out.push(`<text x="${x + 46}" y="${ly}" ${F} font-size="24" font-weight="800" fill="${C.deep}">${esc(line)}</text>`);
       ly += 29;
     });
     const tags = [prank.loud && "loud", prank.detour && "detour", prank.decoy && "decoy"].filter(Boolean).join(" · ");
-    out.push(`<text x="${x + 18}" y="${ly}" ${F} font-size="22" fill="${C.ink}"><tspan font-weight="800">${prank.target}+</tspan>${prank.clock ? `  clock −${prank.clock}` : ""}${tags ? `  ${tags}` : ""}</text>`);
+    out.push(`<text x="${x + 18}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">${prank.target}+</tspan>${prank.clock ? `  clock −${prank.clock}` : ""}${tags ? `  ${tags}` : ""}</text>`);
     for (let i = 0; i < prank.need; i++) {
       out.push(`<rect x="${x + w - 18 - 26 - i * 32}" y="${ly - 21}" width="24" height="24" rx="4" fill="${C.light}" stroke="${C.ink}" stroke-width="2.5"/>`);
     }
@@ -100,10 +111,12 @@ function legend() {
   out.push(`<rect x="${M}" y="${y}" width="${W - 2 * M}" height="${LEG - 26}" rx="14" fill="${C.paper2}" stroke="${C.edge}" stroke-width="2"/>`);
   const ly = y + 40, ly2 = y + 78;
   out.push(`<rect x="${M + 22}" y="${ly - 22}" width="40" height="28" rx="6" fill="${C.accent}" stroke="${C.dark}" stroke-width="3"/>`);
-  out.push(`<text x="${M + 74}" y="${ly}" ${F} font-size="23" fill="${C.ink}"><tspan font-weight="800">Path</tspan>: you can Sneak this way. No path, no way through.</text>`);
-  out.push(`<text x="${M + 22}" y="${ly2}" ${F} font-size="23" fill="${C.ink}"><tspan font-weight="800">Hayloft 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>`);
-  out.push(`<text x="${W / 2 + 120}" y="${ly}" ${F} font-size="23" fill="${C.ink}"><tspan font-weight="800">★ Prank</tspan>: its target, clock jump, and boxes.</text>`);
-  out.push(`<text x="${W / 2 + 120}" y="${ly2}" ${F} font-size="23" fill="${C.ink}"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>`);
+  out.push(`<text x="${M + 74}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Path</tspan>: you can Sneak this way. No path, no way through.</text>`);
+  out.push(`<text x="${M + 22}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Hayloft 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>`);
+  out.push(star(W / 2 + 132, ly - 9, 12));
+  out.push(`<text x="${W / 2 + 150}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Prank</tspan>: its target, clock jump, and boxes.</text>`);
+  out.push(`<text x="${W / 2 + 120}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>`);
+  out.push(`<text x="${M + 22}" y="${y + 116}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">FARMER &amp; DOG</tspan>, <tspan font-weight="800">TURKEYS</tspan>: where they start the game.</text>`);
   return out.join("\n");
 }
 
