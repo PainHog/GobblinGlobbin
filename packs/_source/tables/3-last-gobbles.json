@@ -1,0 +1,83 @@
+{
+  "key": "last-gobbles",
+  "name": "Famous Last Gobbles",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>When a turkey gets grabbed, its player rolls a d6 (or makes up something better) for its last words as it’s carried off to the kitchen.</p>",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "key": "r1",
+      "type": "text",
+      "name": "",
+      "description": "“Tell my feathers I loved them.”",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r2",
+      "type": "text",
+      "name": "",
+      "description": "“I regret NOTHING. Except the gobbling.”",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r3",
+      "type": "text",
+      "name": "",
+      "description": "“Someone tell Grandma I said hi.”",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r4",
+      "type": "text",
+      "name": "",
+      "description": "“Remember me as I was: hiding very, very badly.”",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r5",
+      "type": "text",
+      "name": "",
+      "description": "“I’ll be back! Next Thanksgiving. Probably.”",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r6",
+      "type": "text",
+      "name": "",
+      "description": "“GOBBLE GOBBLE!” (One last time, for the fans.)",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false
+    }
+  ]
+}

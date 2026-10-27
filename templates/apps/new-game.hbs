@@ -1,0 +1,29 @@
+<section class="gg-new-game-body">
+  <div class="gg-row">
+    <label class="gg-field">Farm
+      <select name="farmId">{{#each farms}}<option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>{{/each}}</select>
+    </label>
+    <label class="gg-field">Difficulty
+      <select name="difficulty">{{#each difficulties}}<option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>{{/each}}</select>
+    </label>
+  </div>
+  <p class="gg-hint">Pick {{min}} to {{max}} turkeys and who plays each one. The Storyteller can play a turkey too.</p>
+  <table class="gg-seats">
+    <thead><tr><th></th><th>Turkey</th><th>Knack / quirk</th><th>Player</th></tr></thead>
+    <tbody>
+      {{#each turkeys}}
+      <tr>
+        <td><input type="checkbox" name="use.{{this.id}}" {{#if this.checked}}checked{{/if}}></td>
+        <td><strong>{{this.n}}. {{this.name}}</strong></td>
+        <td class="gg-small">{{this.knack}} / {{this.quirk}}</td>
+        <td><select name="player.{{this.id}}">{{#each this.players}}<option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>{{/each}}</select></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p class="gg-preview">{{count}} turkeys · the clock starts at <strong>{{clock}}</strong> · Feathers <strong>{{feathers}}</strong></p>
+  <footer class="gg-buttons">
+    <button type="button" data-action="deal"><i class="fa-solid fa-dice"></i> Deal by dice</button>
+    <button type="submit"><i class="fa-solid fa-play"></i> Start the game</button>
+  </footer>
+</section>

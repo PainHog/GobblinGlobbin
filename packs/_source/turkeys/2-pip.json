@@ -1,0 +1,40 @@
+{
+  "key": "pip",
+  "name": "Pip",
+  "type": "turkey",
+  "img": "systems/gobble-gobbled/assets/tokens/pip.svg",
+  "system": {
+    "key": "pip",
+    "breed": "Narragansett",
+    "bird": "jake",
+    "knack": "softSteps",
+    "quirk": "hiccups"
+  },
+  "prototypeToken": {
+    "name": "Pip",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/pip.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}

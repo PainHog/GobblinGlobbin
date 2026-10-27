@@ -1,0 +1,24 @@
+{
+  "key": "credits",
+  "name": "Credits",
+  "pages": [
+    {
+      "key": "credits",
+      "name": "Credits",
+      "type": "text",
+      "text": {
+        "format": 1,
+        "content": "<div class=\"gg-journal gg-credits\">\n<h2 class=\"gg-credits-title\">Don’t Get Gobble Gobbled</h2>\n<p class=\"gg-credits-sub\">A party game of hiding, sneaking and stalling the farmer</p>\n<p class=\"gg-credits-edition\">Version 1.0</p>\n<dl class=\"gg-credits-list\">\n<dt>Game design &amp; writing</dt>\n<dd>Richard Moore</dd>\n<dt>Editing, layout &amp; illustration</dt>\n<dd><span class=\"gg-placeholder\">PLACEHOLDER — credit line to be decided by Richard Moore</span></dd>\n<dt>Typefaces</dt>\n<dd>Fraunces, Alegreya and Alegreya Sans, used under the SIL Open Font License 1.1</dd>\n</dl>\n<hr class=\"gg-credits-rule\">\n<div class=\"gg-credits-legal\">\n<p>© 2026 Richard Moore. All rights reserved.</p>\n<p>No part of this publication may be reproduced, distributed or transmitted in any form or by any means without the prior written permission of the copyright holder, except that the printable sheets at the back of the book may be copied for personal use at the table.</p>\n<p>No turkeys were harmed in the making of this game. Several were mildly embarrassed.</p>\n</div>\n</div>"
+      }
+    },
+    {
+      "key": "about",
+      "name": "About the Game",
+      "type": "text",
+      "text": {
+        "format": 1,
+        "content": "<div class=\"gg-journal gg-about\">\n<div class=\"gg-back-inner\">\n<p class=\"gg-back-lead\">One turkey is going in the oven. Not on our watch.</p>\n<p>It’s Thanksgiving morning, and the farmer is looking for a turkey. Any turkey. You and your friends are the turkeys.</p>\n<p>Hide in the hayloft. Sneak behind the cows. Let the goats loose, turn off the oven and dress the scarecrow up as a turkey. Do anything to stall the farmer until it’s too late to cook, and whatever you do, <strong>don’t gobble</strong>. Every roll comes with a red die for each nervous jitter, and a single six gives you away.</p>\n<p>If the farmer grabs anyone, the whole flock loses. That’s not how turkeys roll.</p>\n<p class=\"gg-back-tagline\">A comedy party game for 2–8 players and a Storyteller · ages 8+ · 1 to 2 hours · ordinary six-sided dice · three farms to play</p>\n<p class=\"gg-back-title\">Don’t Get Gobble Gobbled <span>· Version 1.0</span></p>\n</div>\n</div>"
+      }
+    }
+  ]
+}

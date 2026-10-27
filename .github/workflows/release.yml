@@ -47,14 +47,14 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
 
       # Only what Foundry needs ships: the manifest, module/, styles/, templates/,
-      # lang/, assets/ (if any), compiled packs/, LICENSE and README.
+      # lang/, assets/ (maps as webp, tokens, book maps), compiled packs/, LICENSE and README.
       - name: Build system.zip
         run: |
           zip -r system.zip . \
             -x ".git/*" -x ".github/*" -x ".gitignore" -x "node_modules/*" -x "*.zip" \
             -x "package.json" -x "package-lock.json" \
             -x "tools/*" -x "test/*" -x "packs/_source/*" -x "*/.gitkeep" \
-            -x "book/*" -x "sim/*" -x "docs/*" \
+            -x "book/*" -x "sim/*" -x "docs/*" -x "TESTING.md" -x "assets/maps/*.svg" \
             -x "packs/*/LOCK" -x "packs/*/LOG" -x "packs/*/LOG.old"
 
       - name: Publish release

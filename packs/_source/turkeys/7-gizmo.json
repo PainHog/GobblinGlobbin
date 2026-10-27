@@ -1,0 +1,40 @@
+{
+  "key": "gizmo",
+  "name": "Gizmo",
+  "type": "turkey",
+  "img": "systems/gobble-gobbled/assets/tokens/gizmo.svg",
+  "system": {
+    "key": "gizmo",
+    "breed": "Black Spanish",
+    "bird": "tom",
+    "knack": "motherHen",
+    "quirk": "worrywart"
+  },
+  "prototypeToken": {
+    "name": "Gizmo",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/gizmo.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}

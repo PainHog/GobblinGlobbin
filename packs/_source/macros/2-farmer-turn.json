@@ -1,0 +1,8 @@
+{
+  "key": "farmer-turn",
+  "name": "Farmer’s Turn",
+  "type": "script",
+  "scope": "global",
+  "img": "systems/gobble-gobbled/assets/tokens/farmer-bramble.svg",
+  "command": "game.gobbleGobbled.farmerTurn();"
+}

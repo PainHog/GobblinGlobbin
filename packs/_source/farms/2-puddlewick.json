@@ -1,0 +1,50 @@
+{
+  "key": "puddlewick",
+  "name": "Puddlewick Farm",
+  "active": false,
+  "navigation": true,
+  "navOrder": 2,
+  "navName": "",
+  "background": {
+    "src": "systems/gobble-gobbled/assets/maps/puddlewick.webp"
+  },
+  "thumb": null,
+  "width": 4120,
+  "height": 3500,
+  "padding": 0,
+  "initial": {
+    "x": 2060,
+    "y": 1750,
+    "scale": 0.3
+  },
+  "backgroundColor": "#fbf3e4",
+  "grid": {
+    "type": 0,
+    "size": 100,
+    "style": "solidLines",
+    "thickness": 1,
+    "color": "#000000",
+    "alpha": 0,
+    "distance": 1,
+    "units": ""
+  },
+  "tokenVision": false,
+  "fog": {
+    "exploration": false
+  },
+  "environment": {
+    "darknessLevel": 0,
+    "darknessLock": true,
+    "cycle": false,
+    "globalLight": {
+      "enabled": true
+    }
+  },
+  "flags": {
+    "gobble-gobbled": {
+      "farm": {
+        "farmId": "puddlewick"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "key": "farmer-windy",
+  "name": "Farmer Windle",
+  "type": "farmer",
+  "img": "systems/gobble-gobbled/assets/tokens/farmer-windy.svg",
+  "system": {
+    "farm": "windy"
+  },
+  "prototypeToken": {
+    "name": "Farmer Windle",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/farmer-windy.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}

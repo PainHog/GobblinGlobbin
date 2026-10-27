@@ -1,0 +1,36 @@
+{
+  "key": "farmer-bramble",
+  "name": "Farmer Bramble",
+  "type": "farmer",
+  "img": "systems/gobble-gobbled/assets/tokens/farmer-bramble.svg",
+  "system": {
+    "farm": "bramble"
+  },
+  "prototypeToken": {
+    "name": "Farmer Bramble",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/farmer-bramble.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}

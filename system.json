@@ -2,8 +2,8 @@
   "id": "gobble-gobbled",
   "type": "system",
   "title": "Don't Get Gobble Gobbled",
-  "description": "The companion Foundry VTT game system for Don't Get Gobble Gobbled, a comedy party game by Richard Moore. A skeleton for now: play from the rulebook (version 1.0); automation comes later.",
-  "version": "0.1.0",
+  "description": "The companion Foundry VTT game system for Don’t Get Gobble Gobbled, a comedy party game by Richard Moore: fully automated play, all three farms ready to play, and the full rulebook.",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -18,7 +18,8 @@
     "module/gobble-gobbled.mjs"
   ],
   "styles": [
-    "styles/gobble-gobbled.css"
+    "styles/gobble-gobbled.css",
+    "styles/journal.css"
   ],
   "languages": [
     {
@@ -27,7 +28,103 @@
       "path": "lang/en.json"
     }
   ],
-  "packs": [],
+  "documentTypes": {
+    "Actor": {
+      "turkey": {},
+      "farmer": {},
+      "dog": {},
+      "kid": {}
+    }
+  },
+  "packs": [
+    {
+      "name": "turkeys",
+      "label": "Turkeys",
+      "path": "packs/turkeys",
+      "type": "Actor",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "farm-folk",
+      "label": "Farm Folk",
+      "path": "packs/farm-folk",
+      "type": "Actor",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "farms",
+      "label": "Farms",
+      "path": "packs/farms",
+      "type": "Scene",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "rulebook",
+      "label": "Rulebook",
+      "path": "packs/rulebook",
+      "type": "JournalEntry",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "tables",
+      "label": "Tables",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros",
+      "type": "Macro",
+      "system": "gobble-gobbled",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Don’t Get Gobble Gobbled",
+      "sorting": "m",
+      "color": "#5b2e12",
+      "packs": [
+        "turkeys",
+        "farm-folk",
+        "farms",
+        "rulebook",
+        "tables",
+        "macros"
+      ]
+    }
+  ],
+  "primaryTokenAttribute": null,
+  "grid": {
+    "type": 0,
+    "distance": 1,
+    "units": ""
+  },
   "socket": true,
   "url": "https://github.com/PainHog/GobblinGlobbin",
   "bugs": "https://github.com/PainHog/GobblinGlobbin/issues",

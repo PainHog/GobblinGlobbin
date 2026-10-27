@@ -1,0 +1,298 @@
+/* ==========================================================================
+   DON'T GET GOBBLE GOBBLED — Rulebook journal pages
+   The Rulebook compendium (tools/journal-gen.mjs) wraps every page in
+   <div class="gg-journal">, and every class from the book gets a "gg-" prefix.
+   EVERY selector here is scoped under .gg-journal, so nothing restyles Foundry's
+   own journals. The page sets its own paper and ink, so it reads the same in the
+   light and the dark theme.
+
+   PLACEHOLDER palette and typefaces: the book's tokens (book/src/book.css).
+   Change them together. The book's fonts aren't bundled with the system, so the
+   stacks fall back to common serif and sans-serif faces.
+   ========================================================================== */
+
+.gg-journal {
+  --gg-dark: #5a2e1d;
+  --gg-dark-deep: #3b1d12;
+  --gg-dark-soft: #7a4630;
+  --gg-paper: #fbf3e4;
+  --gg-paper-2: #f1e2c6;
+  --gg-paper-edge: #dcc39a;
+  --gg-paper-light: #fffaf0;
+  --gg-ink: #2a1a12;
+  --gg-ink-soft: #6b5243;
+  --gg-accent: #c8691c;
+  --gg-accent-deep: #9a4a12;
+  --gg-accent-bright: #f6c35c;
+  --gg-alarm: #a3262a;
+  --gg-alarm-bright: #d2453a;
+  --gg-good: #4f7a3a;
+  --gg-display: "Fraunces", "Georgia", "Times New Roman", serif;
+  --gg-text: "Alegreya", "Georgia", "Times New Roman", serif;
+  --gg-sans: "Alegreya Sans", "Signika", "Helvetica Neue", Arial, sans-serif;
+
+  background: var(--gg-paper);
+  color: var(--gg-ink);
+  color-scheme: light;
+  font-family: var(--gg-text);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 1rem 1.25rem 1.1rem;
+  border: 1px solid var(--gg-paper-edge);
+  border-radius: 8px;
+  box-shadow: 0 2px 0 var(--gg-paper-edge);
+  overflow-wrap: break-word;
+}
+
+/* ------------------------------------------------------------ text ------ */
+.gg-journal p { margin: 0 0 0.6em; color: inherit; }
+.gg-journal strong { font-weight: 800; color: var(--gg-dark-deep); }
+.gg-journal em { font-style: italic; }
+.gg-journal a { color: var(--gg-accent-deep); }
+.gg-journal small { font-size: 0.78em; }
+.gg-journal ul,
+.gg-journal ol { margin: 0.2em 0 0.8em; padding-left: 1.4em; color: inherit; }
+.gg-journal li { margin: 0 0 0.3em; }
+.gg-journal li::marker { color: var(--gg-accent-deep); }
+.gg-journal hr { border: none; border-top: 1.5px solid var(--gg-accent); margin: 1em auto; width: 60%; }
+
+.gg-journal h2,
+.gg-journal h3,
+.gg-journal h4 { border: none; text-shadow: none; background: none; padding: 0; }
+.gg-journal h2 {
+  margin: 1.1em 0 0.35em;
+  font: 800 1.45em/1.15 var(--gg-display);
+  color: var(--gg-dark);
+  border-bottom: 2px solid var(--gg-accent);
+  padding-bottom: 0.12em;
+}
+.gg-journal h3 {
+  margin: 0.9em 0 0.25em;
+  font: 800 0.92em/1.2 var(--gg-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gg-alarm);
+}
+.gg-journal h4 {
+  margin: 0 0 0.35em;
+  font: 800 0.88em/1.2 var(--gg-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gg-alarm);
+}
+.gg-journal > :first-child { margin-top: 0; }
+
+.gg-journal .gg-part-lede {
+  margin: 0 0 1em;
+  padding: 0.6em 0.9em;
+  font: italic 1.08em/1.45 var(--gg-display);
+  color: var(--gg-paper);
+  background: var(--gg-dark-deep);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px var(--gg-accent);
+}
+.gg-journal .gg-epigraph { text-align: center; font: italic 1.05em/1.45 var(--gg-display); color: var(--gg-ink-soft); }
+.gg-journal .gg-opener::first-letter {
+  float: left;
+  font: 900 3.1em/0.85 var(--gg-display);
+  color: var(--gg-dark);
+  margin: 0.05em 0.08em 0 0;
+}
+.gg-journal .gg-opener::first-line { font-variant: small-caps; letter-spacing: 0.03em; font-weight: 700; }
+.gg-journal .gg-signoff { text-align: center; font: italic 700 1.15em var(--gg-display); color: var(--gg-dark); }
+.gg-journal .gg-placeholder {
+  outline: 1.5px dashed var(--gg-alarm-bright);
+  outline-offset: 2px;
+  background: color-mix(in srgb, var(--gg-alarm-bright) 8%, transparent);
+}
+.gg-journal .gg-tag { font: 800 0.78em var(--gg-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--gg-alarm); white-space: nowrap; }
+
+/* ------------------------------------------------------------ boxes ----- */
+.gg-journal .gg-box {
+  margin: 0.8em 0 1em;
+  padding: 0.65em 0.9em 0.35em;
+  border-radius: 6px;
+  background: var(--gg-paper-2);
+  border: 1px solid var(--gg-paper-edge);
+  color: var(--gg-ink);
+}
+.gg-journal .gg-box > :last-child { margin-bottom: 0.3em; }
+.gg-journal .gg-box.gg-rule {
+  background: var(--gg-dark-deep);
+  color: var(--gg-paper);
+  border: none;
+  box-shadow: inset 0 0 0 2px var(--gg-accent), 0 2px 0 var(--gg-accent-deep);
+}
+.gg-journal .gg-box.gg-rule h4,
+.gg-journal .gg-box.gg-rule strong { color: var(--gg-accent-bright); }
+.gg-journal .gg-box.gg-example { background: var(--gg-paper-light); border: 1.5px dashed var(--gg-accent); }
+.gg-journal .gg-box.gg-example h4 { color: var(--gg-accent-deep); }
+.gg-journal .gg-box.gg-gm { border-top: 5px solid var(--gg-alarm); background: color-mix(in srgb, var(--gg-alarm) 8%, var(--gg-paper)); }
+.gg-journal .gg-box.gg-designer { border-left: 5px solid var(--gg-accent); background: color-mix(in srgb, var(--gg-accent) 12%, var(--gg-paper)); }
+.gg-journal .gg-box.gg-designer h4 { color: var(--gg-accent-deep); }
+.gg-journal .gg-box.gg-list { border-left: 5px solid var(--gg-dark); }
+.gg-journal .gg-box.gg-list h4 { color: var(--gg-dark); }
+
+/* ------------------------------------------------------------ tables ---- */
+.gg-journal table.gg-tbl {
+  width: 100%;
+  margin: 0.5em 0 1em;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--gg-paper-edge);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--gg-paper-light);
+  font: 0.9em/1.35 var(--gg-sans);
+  color: var(--gg-ink);
+}
+.gg-journal table.gg-tbl th {
+  background: var(--gg-dark-deep);
+  color: var(--gg-paper);
+  font: 800 0.82em/1.2 var(--gg-sans);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.45em 0.55em;
+  border: none;
+}
+.gg-journal table.gg-tbl td {
+  padding: 0.4em 0.55em;
+  vertical-align: top;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--gg-paper-edge) 70%, transparent);
+  background: transparent;
+  color: var(--gg-ink);
+}
+.gg-journal table.gg-tbl tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--gg-paper-2) 60%, transparent); }
+.gg-journal table.gg-tbl tbody tr:hover td { background: color-mix(in srgb, var(--gg-accent-bright) 18%, transparent); }
+.gg-journal table.gg-tbl td:first-child { font-weight: 700; color: var(--gg-dark-deep); }
+.gg-journal table.gg-tbl .gg-num { text-align: center; white-space: nowrap; }
+.gg-journal table.gg-tbl.gg-flow { width: auto; min-width: 50%; }
+.gg-journal table.gg-tbl.gg-farm { font-size: 0.82em; }
+
+/* ------------------------------------------------------------ entries --- */
+.gg-journal .gg-entry { margin: 0.8em 0 1.1em; padding-top: 0.4em; border-top: 1.5px solid var(--gg-paper-edge); }
+.gg-journal .gg-entry > h2 { margin-top: 0.1em; border-bottom: none; }
+.gg-journal .gg-quote { font: italic 500 1.05em/1.4 var(--gg-display); color: var(--gg-ink-soft); }
+.gg-journal .gg-ability {
+  margin: 0.5em 0 0.6em;
+  padding: 0.55em 0.8em 0.2em;
+  background: var(--gg-dark-deep);
+  color: var(--gg-paper);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px var(--gg-accent);
+}
+.gg-journal .gg-ability h4,
+.gg-journal .gg-ability strong { color: var(--gg-accent-bright); }
+.gg-journal .gg-statline {
+  font: 600 0.95em/1.35 var(--gg-sans);
+  padding: 0.4em 0.65em;
+  background: var(--gg-paper-2);
+  border-radius: 4px;
+  border-left: 4px solid var(--gg-accent);
+}
+.gg-journal .gg-statline strong { color: var(--gg-alarm); }
+
+/* ------------------------------------------------------------ maps ------ */
+.gg-journal figure.gg-map { margin: 0.6em 0 1em; }
+.gg-journal figure.gg-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border: 1.5px solid var(--gg-paper-edge);
+  border-radius: 6px;
+  background: var(--gg-paper);
+}
+.gg-journal figure.gg-map figcaption { margin-top: 0.3em; text-align: center; font: italic 0.88em/1.3 var(--gg-sans); color: var(--gg-ink-soft); }
+
+/* ------------------------------------------------------------ glossary -- */
+.gg-journal dl.gg-glossary { margin: 0; }
+.gg-journal dl.gg-glossary dt { margin-top: 0.55em; font: 800 1em var(--gg-sans); color: var(--gg-dark-deep); }
+.gg-journal dl.gg-glossary dd { margin: 0.05em 0 0 1em; }
+
+/* ------------------------------------------------------------ sheets ---- */
+.gg-journal .gg-sheet-intro { text-align: center; color: var(--gg-ink-soft); border-bottom: 2.5px solid var(--gg-accent); padding-bottom: 0.5em; margin-bottom: 0.8em; }
+.gg-journal .gg-sheet-note { margin-top: 1em; padding-top: 0.5em; border-top: 1.5px solid var(--gg-paper-edge); font-size: 0.92em; color: var(--gg-ink-soft); text-align: center; }
+.gg-journal .gg-ref-cols { columns: 2 22em; column-gap: 1.6em; }
+.gg-journal .gg-ref-cols > * { break-inside: avoid-column; }
+.gg-journal .gg-ref-cols h2 { font-size: 1.15em; margin-top: 0.7em; }
+.gg-journal .gg-ref-cols h2:first-child { margin-top: 0; }
+.gg-journal .gg-ref-box { margin: 0 0 0.8em; padding: 0.4em 0.7em; border: 1.5px solid var(--gg-dark); border-radius: 6px; background: var(--gg-paper-light); }
+.gg-journal .gg-ref-box h2 { margin-top: 0; }
+
+/* turkey cards */
+.gg-journal .gg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(17em, 1fr)); gap: 0.8em; margin-bottom: 0.8em; }
+.gg-journal .gg-card {
+  padding: 0.6em 0.75em;
+  border: 2.5px solid var(--gg-dark);
+  border-radius: 10px;
+  background: var(--gg-paper-light);
+  font-size: 0.95em;
+  line-height: 1.35;
+}
+.gg-journal .gg-card h2 { margin: 0 0 0.1em; border: none; font-size: 1.4em; color: var(--gg-dark-deep); }
+.gg-journal .gg-card .gg-card-num {
+  float: right;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5em; height: 1.5em;
+  border: 1.5px solid var(--gg-accent-deep); border-radius: 50%;
+  font: 800 0.6em var(--gg-sans); color: var(--gg-accent-deep);
+}
+.gg-journal .gg-card-breed { font: italic 600 0.95em var(--gg-display); color: var(--gg-ink-soft); }
+.gg-journal .gg-card-knack,
+.gg-journal .gg-card-quirk { padding: 0.35em 0.55em; border-radius: 5px; }
+.gg-journal .gg-card-knack { background: var(--gg-dark-deep); color: var(--gg-paper); }
+.gg-journal .gg-card-knack strong { color: var(--gg-accent-bright); }
+.gg-journal .gg-card-quirk { background: var(--gg-paper-2); border: 1px solid var(--gg-paper-edge); }
+.gg-journal .gg-card-quirk strong { color: var(--gg-alarm); }
+.gg-journal .gg-card-foot { margin: 0; font: 0.88em/1.3 var(--gg-sans); color: var(--gg-ink-soft); }
+
+/* the Dinner Clock */
+.gg-journal .gg-clock-track { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.2em, 1fr)); gap: 0.4em; margin: 0.4em 0 0.8em; }
+.gg-journal .gg-sp {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 3.4em;
+  border: 2px solid var(--gg-dark); border-radius: 8px;
+  background: var(--gg-paper-light);
+  font: 900 1.4em var(--gg-display); color: var(--gg-dark-deep);
+}
+.gg-journal .gg-sp small { font: 800 0.48em var(--gg-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--gg-alarm); }
+.gg-journal .gg-sp.gg-pie { border: 3px double var(--gg-dark); background: var(--gg-paper-2); }
+.gg-journal .gg-sp.gg-late { grid-column: span 2; background: var(--gg-dark-deep); color: var(--gg-accent-bright); font-size: 1.1em; text-align: center; }
+.gg-journal .gg-sp.gg-late small { color: var(--gg-paper); }
+
+/* tokens */
+.gg-journal .gg-tokens-label { margin: 0.8em 0 0.3em; font: 800 0.9em var(--gg-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--gg-alarm); }
+.gg-journal .gg-tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.6em, 1fr)); gap: 0.45em; }
+.gg-journal .gg-tokens.gg-small { grid-template-columns: repeat(auto-fill, minmax(3.6em, 1fr)); }
+.gg-journal .gg-tk {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 0.2em;
+  border: 2px solid var(--gg-dark); border-radius: 50%;
+  background: var(--gg-paper-light);
+  font: 800 0.82em/1.1 var(--gg-sans); color: var(--gg-dark-deep);
+}
+.gg-journal .gg-tk.gg-big { border-width: 3px; background: var(--gg-paper-2); }
+.gg-journal .gg-tk.gg-sq { border-radius: 8px; }
+.gg-journal .gg-tk.gg-huh { background: var(--gg-paper-2); font: 900 0.95em/1.1 var(--gg-display); }
+
+/* ------------------------------------------------------------ credits --- */
+.gg-journal.gg-credits { text-align: center; }
+.gg-journal .gg-credits-title { border: none; font: 900 1.9em/1.1 var(--gg-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--gg-dark-deep); }
+.gg-journal .gg-credits-sub { font: italic 500 1.1em var(--gg-display); color: var(--gg-ink-soft); }
+.gg-journal .gg-credits-edition { font: 800 0.8em var(--gg-sans); letter-spacing: 0.3em; text-transform: uppercase; color: var(--gg-accent-deep); }
+.gg-journal .gg-credits-list { margin: 1em auto; max-width: 30em; }
+.gg-journal .gg-credits-list dt { margin-top: 0.9em; font: 800 0.8em var(--gg-sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gg-alarm); }
+.gg-journal .gg-credits-list dd { margin: 0.15em 0 0; }
+.gg-journal .gg-credits-legal { max-width: 34em; margin: 0 auto; font: 0.88em/1.45 var(--gg-sans); color: var(--gg-ink-soft); }
+
+/* ------------------------------------------------------------ about ----- */
+.gg-journal.gg-about { background: var(--gg-dark-deep); color: var(--gg-paper-2); border-color: var(--gg-dark); }
+.gg-journal.gg-about strong { color: var(--gg-accent-bright); }
+.gg-journal .gg-back-lead { font: 900 1.5em/1.15 var(--gg-display); color: var(--gg-accent-bright); }
+.gg-journal .gg-back-tagline { margin-top: 1em; text-align: center; font: 600 0.95em var(--gg-sans); color: var(--gg-paper); }
+.gg-journal .gg-back-title { text-align: center; font: 900 1.4em var(--gg-display); letter-spacing: 0.05em; text-transform: uppercase; color: var(--gg-accent-bright); }
+.gg-journal .gg-back-title span { font: 800 0.6em var(--gg-sans); letter-spacing: 0.3em; color: var(--gg-paper-2); }

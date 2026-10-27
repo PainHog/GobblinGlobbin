@@ -422,9 +422,21 @@ export class Actor extends BaseDocument {
     this.ownership = clone(data.ownership ?? { default: 0 });
     this.system = clone(data.system ?? {});
     this.items = new Collection();
+    this.statuses = new Set(data.statuses ?? []);
+    this.prototypeToken = data.prototypeToken ? { ...clone(data.prototypeToken), toObject() { return clone({ ...this, toObject: undefined }); } } : null;
     const IC = CONFIG.Item.documentClass ?? Item;
     for (const i of data.items ?? []) this.items.push(new IC(i, { parent: this }));
     this.prepareData();
+  }
+  /** A status effect on or off (owners only), like Actor#toggleStatusEffect. */
+  async toggleStatusEffect(id, { active } = {}) {
+    touch();
+    if (!this.isOwner) throw new Error(`${game.user.name} lacks permission to change ${this.name}'s status effects`);
+    if (!(CONFIG.statusEffects ?? []).some(s => s.id === id)) throw new Error(`unknown status effect ${id}`);
+    const on = active ?? !this.statuses.has(id);
+    if (on) this.statuses.add(id); else this.statuses.delete(id);
+    broadcast("updateActor", this, { statuses: [...this.statuses] }, {}, game.user.id);
+    return on;
   }
   get documentName() { return "Actor"; }
   get uuid() { return `Actor.${this.id}`; }
@@ -441,7 +453,7 @@ export class Actor extends BaseDocument {
   }
   reset() { this.prepareData(); }
   toObject() {
-    return clone({ _id: this.id, name: this.name, type: this.type, img: this.img, flags: this.flags, ownership: this.ownership, system: { ...this.system }, items: this.items.map(i => i.toObject()) });
+    return clone({ _id: this.id, name: this.name, type: this.type, img: this.img, flags: this.flags, ownership: this.ownership, system: { ...this.system }, items: this.items.map(i => i.toObject()), ...(this.prototypeToken ? { prototypeToken: this.prototypeToken.toObject() } : {}) });
   }
   async update(changes, options = {}) {
     touch();
@@ -504,6 +516,106 @@ export class ChatMessage extends BaseDocument {
   }
   static getSpeaker({ actor = null, alias = null } = {}) { return actor ? { actor: actor.id, alias: actor.name } : { alias: alias ?? game.user?.name }; }
   static applyRollMode(data) { return data; }
+}
+
+/* ------------------------------------------------------------- Scenes -- */
+
+/** A token or drawing on a scene. Fields are plain properties, as on the real TokenDocument. */
+class EmbeddedDoc extends BaseDocument {
+  constructor(data, parent, documentName) {
+    super();
+    Object.assign(this, clone(data));
+    this.id = data._id ?? randomID();
+    delete this._id;
+    this.flags ??= {};
+    Object.defineProperty(this, "parent", { value: parent, enumerable: false });
+    Object.defineProperty(this, "documentName", { value: documentName, enumerable: false });
+  }
+  get ownership() { return this.parent.ownership; }
+  get actor() { return this.actorId ? game.actors.get(this.actorId) ?? null : null; }
+  toObject() { return clone({ ...this, _id: this.id }); }
+  async update(changes, options = {}) { await this.parent.updateEmbeddedDocuments(this.documentName, [{ _id: this.id, ...changes }], options); return this; }
+}
+
+export class Scene extends BaseDocument {
+  constructor(data = {}) {
+    super();
+    this._source = clone(data);
+    this.id = data._id ?? randomID();
+    this.name = data.name ?? "Scene";
+    this.flags = clone(data.flags ?? {});
+    this.ownership = clone(data.ownership ?? { default: 0 });
+    this.width = data.width ?? 4000; this.height = data.height ?? 3000;
+    this.grid = { size: data.grid?.size ?? 100 };
+    this.active = false;
+    this.tokens = new Collection();
+    this.drawings = new Collection();
+  }
+  get documentName() { return "Scene"; }
+  get uuid() { return `Scene.${this.id}`; }
+  toObject() { return clone({ ...this._source, _id: this.id, name: this.name, flags: this.flags }); }
+  _embedded(type) {
+    if (type === "Token") return this.tokens;
+    if (type === "Drawing") return this.drawings;
+    throw new Error(`fake Scene: no embedded ${type}`);
+  }
+  async createEmbeddedDocuments(type, list, options = {}) {
+    touch();
+    if (!game.user?.isGM) throw new Error(`${game.user?.name} lacks permission to create a ${type}`);
+    const made = list.map(d => new EmbeddedDoc(d, this, type));
+    this._embedded(type).push(...made);
+    for (const d of made) broadcast(`create${type}`, d, options, game.user.id);
+    return made;
+  }
+  async updateEmbeddedDocuments(type, updates, options = {}) {
+    touch();
+    const out = [];
+    for (const u of updates) {
+      const doc = this._embedded(type).get(u._id);
+      if (!doc) continue;
+      const { _id, ...changes } = u;
+      if (Hooks.call(`preUpdate${type}`, doc, changes, options, game.user.id) === false) continue;
+      if (!game.user?.isGM && !(type === "Token" && doc.actor?.isOwner)) throw new Error(`${game.user?.name} lacks permission to update a ${type}`);
+      const diff = applyUpdate(doc, changes);
+      broadcast(`update${type}`, doc, diff, options, game.user.id);
+      out.push(doc);
+    }
+    return out;
+  }
+  async deleteEmbeddedDocuments(type, ids, options = {}) {
+    touch();
+    if (!game.user?.isGM) throw new Error(`${game.user?.name} lacks permission to delete a ${type}`);
+    const coll = this._embedded(type);
+    const gone = ids.map(id => coll.get(id)).filter(Boolean);
+    for (const d of gone) coll.splice(coll.indexOf(d), 1);
+    for (const d of gone) broadcast(`delete${type}`, d, options, game.user.id);
+    return gone;
+  }
+  async activate() {
+    touch();
+    if (!game.user?.isGM) throw new Error(`${game.user?.name} lacks permission to activate a scene`);
+    for (const s of game.scenes) s.active = s === this;
+    broadcast("updateScene", this, { active: true }, {}, game.user.id);
+    return this;
+  }
+  static async create(data) {
+    touch();
+    if (!game.user?.isGM) throw new Error(`${game.user?.name} lacks permission to create a Scene`);
+    const scene = new Scene(clone(data));
+    game.scenes.push(scene);
+    broadcast("createScene", scene, {}, game.user.id);
+    return scene;
+  }
+}
+
+/** A compendium pack the tests fill: getDocuments() returns documents with toObject() and a uuid. */
+export function makePack(id, documentName, list) {
+  const docs = list.map((d, i) => {
+    const doc = clone(d);
+    const _id = doc._id ?? `pack${String(i).padStart(12, "0")}`;
+    return { ...doc, _id, id: _id, documentName, uuid: `Compendium.${id}.${documentName}.${_id}`, toObject() { return clone({ ...doc, _id }); } };
+  });
+  return { collection: id, documentName, async getDocuments() { touch(); return docs; }, index: docs.map(d => ({ _id: d._id, name: d.name })) };
 }
 
 /* -------------------------------------------------------------- Dice -- */
@@ -667,7 +779,9 @@ export function installFoundry({ users = [] } = {}) {
   CONFIG = globalThis.CONFIG = {
     Actor: { dataModels: {}, documentClass: Actor },
     Item: { dataModels: {}, documentClass: Item },
+    Scene: { documentClass: Scene },
     Combat: {},
+    statusEffects: [],
     queries: {}
   };
   const settings = new ClientSettings();
@@ -682,7 +796,10 @@ export function installFoundry({ users = [] } = {}) {
     items: new Collection(),
     messages: new Collection(),
     journal: new Collection(),
-    scenes: { viewed: null },
+    scenes: Object.defineProperties(new Collection(), {
+      viewed: { get() { return this.find(s => s.active) ?? null; } },
+      active: { get() { return this.find(s => s.active) ?? null; } }
+    }),
     packs: new Map(),
     combat: null,
     i18n: { localize: s => s, format: s => s },
@@ -698,6 +815,7 @@ export function installFoundry({ users = [] } = {}) {
   globalThis.Item = Item;
   globalThis.User = User;
   globalThis.ChatMessage = ChatMessage;
+  globalThis.Scene = Scene;
   globalThis.Roll = Roll;
   globalThis.CONST = {
     CHAT_MESSAGE_STYLES: { OTHER: 0, OOC: 1, IC: 2, EMOTE: 3 },

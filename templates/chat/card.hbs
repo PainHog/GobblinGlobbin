@@ -1,0 +1,20 @@
+<div class="gobble-gobbled gg-card gg-card-{{kind}}{{#if win}} gg-win{{/if}}">
+  <header class="gg-card-head">
+    <h3>{{title}}</h3>
+    <div class="gg-card-meta">Round {{round}} · Clock <strong>{{clock}}</strong> · Feathers {{feathers}}{{#if decoy}} · Decoy ready{{/if}}</div>
+  </header>
+  <ul class="gg-story">
+    {{#each lines}}<li class="gg-line gg-{{this.cls}}">{{{this.html}}}</li>{{/each}}
+  </ul>
+  {{#if flock}}
+  <ul class="gg-flock-list">
+    {{#each flock}}<li><strong>{{this.name}}</strong>: {{this.player}}</li>{{/each}}
+  </ul>
+  {{/if}}
+  {{#if stats}}
+  <table class="gg-stats">
+    {{#each stats}}<tr><th>{{this.label}}</th><td>{{this.value}}</td></tr>{{/each}}
+  </table>
+  {{/if}}
+  <div class="gg-undone-note">Undone by the Storyteller.</div>
+</div>

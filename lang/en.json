@@ -1,3 +1,24 @@
 {
-  "GG.SystemTitle": "Don't Get Gobble Gobbled"
+  "GG.SystemTitle": "Don't Get Gobble Gobbled",
+  "GG.Tracker.title": "Farm Tracker",
+  "GG.Tracker.newGame": "New Game",
+  "GG.Tracker.farmerTurn": "Farmer's Turn",
+  "GG.Tracker.undo": "Undo",
+  "GG.Tracker.endGame": "End Game",
+  "GG.Tracker.open": "Open the Farm Tracker",
+  "GG.Tracker.rules": "Rulebook",
+  "GG.NewGame.title": "New Game",
+  "GG.Notify.noGM": "The Storyteller isn't connected, so nothing can happen on the farm right now.",
+  "GG.Notify.useTracker": "The turkeys move themselves: use Sneak or Scram in the Farm Tracker.",
+  "GG.Status.spotted": "Spotted",
+  "GG.Settings.promptTimeout.name": "Seconds to answer a prompt",
+  "GG.Settings.promptTimeout.hint": "How long a player has to answer a quick question (Puff Up? Spend a Feather? Which spot?) before the flock's sensible default is taken. 0 waits for an answer.",
+  "GG.Settings.showFarmerDice.name": "Show the farmer's dice",
+  "GG.Settings.showFarmerDice.hint": "Roll the farmer's, dog's and kid's dice with Dice So Nice too (turkey rolls always show).",
+  "GG.Settings.trackerOpen.name": "Open the Farm Tracker on load",
+  "GG.Settings.trackerOpen.hint": "Open the Farm Tracker when you join the game.",
+  "TYPES.Actor.turkey": "Turkey",
+  "TYPES.Actor.farmer": "Farmer",
+  "TYPES.Actor.dog": "Farm Dog",
+  "TYPES.Actor.kid": "Farmer's Kid"
 }

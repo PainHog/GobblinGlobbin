@@ -9,7 +9,8 @@
  *     language files are valid JSON; declared packs match the build config both
  *     ways; pack subtypes are declared in documentTypes.
  *  2. Pack integrity — every id is a unique 16-char [A-Za-z0-9]; every
- *     journal's pages are actually attached to it; and each COMPILED document
+ *     journal's pages (and table's results) are actually attached to it; every
+ *     Actor's type is declared in documentTypes; and each COMPILED document
  *     deep-equals what the build derives from SOURCE (extracted from a temp
  *     copy with the official foundryvtt-cli — LevelDB bytes are
  *     non-deterministic, and opening the repo packs would dirty them).
@@ -27,7 +28,7 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { extractPack } from "@foundryvtt/foundryvtt-cli";
 import Handlebars from "handlebars";
-import { ROOT, OUT, PACKS, readSource, toCliDoc } from "./pack-config.mjs";
+import { ROOT, OUT, PACKS, EMBEDDED, readSource, toCliDoc } from "./pack-config.mjs";
 
 const errors = [];
 const err = m => errors.push(m);
@@ -105,22 +106,28 @@ else {
       if (compiled.size !== source.length) err(`${def.out}: compiled ${compiled.size} docs != ${source.length} source — rebuild packs`);
       let pages = 0;
       source.forEach((raw, i) => {
-        const want = toCliDoc(def, raw, i);
+        let want;
+        try { want = toCliDoc(def, raw, i); } catch (e) { return err(e.message); }
         const got = compiled.get(want._id);
         claimId(want._id, `${def.out}::${raw.key}`);
-        for (const pg of want.pages ?? []) claimId(pg._id, `${def.out}::${raw.key}#${pg.name}`);
+        for (const coll of EMBEDDED[def.collection] ?? [])
+          for (const e of want[coll] ?? []) claimId(e._id, `${def.out}::${raw.key}#${coll}.${e.name || e._id}`);
+        if (def.type === "Actor" && !(want.type in (manifest.documentTypes?.Actor ?? {})))
+          err(`${def.out}: "${raw.key}" has Actor type "${want.type}", not in system.json documentTypes`);
         if (!got) return err(`${def.out}: source "${raw.key}" (id ${want._id}) not in compiled pack — rebuild packs`);
-        if (def.type === "JournalEntry") {
-          // A real regression on Heisty Spideys: pages stored but not referenced by the parent.
-          pages += got.pages?.length ?? 0;
-          if ((got.pages?.length ?? 0) !== want.pages.length)
-            err(`${def.out}: journal "${raw.key}" has ${got.pages?.length ?? 0} attached pages, expected ${want.pages.length}`);
+        // A real regression on Heisty Spideys: pages stored but not referenced by the parent.
+        // The same goes for any embedded collection (a table's results).
+        for (const coll of EMBEDDED[def.collection] ?? []) {
+          if (!want[coll]?.length) continue;
+          pages += got[coll]?.length ?? 0;
+          if ((got[coll]?.length ?? 0) !== want[coll].length)
+            err(`${def.out}: "${raw.key}" has ${got[coll]?.length ?? 0} attached ${coll}, expected ${want[coll].length}`);
         }
         if (got._stats?.systemId !== manifest.id) err(`${def.out}: "${raw.key}" _stats.systemId is "${got._stats?.systemId}"`);
         if (JSON.stringify(stable(got)) !== JSON.stringify(stable(want)))
           err(`${def.out}: "${raw.key}" compiled document differs from source — rebuild packs`);
       });
-      if (errors.length === before) pass(`pack ${def.out}: ${compiled.size} docs${pages ? ` (+${pages} attached pages)` : ""} match source`);
+      if (errors.length === before) pass(`pack ${def.out}: ${compiled.size} docs${pages ? ` (+${pages} attached ${def.type === "RollTable" ? "results" : "pages"})` : ""} match source`);
     }
   } finally {
     rmSync(tmp, { recursive: true, force: true });

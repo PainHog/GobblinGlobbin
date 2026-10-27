@@ -10,7 +10,7 @@ It also covers the layout review and two simulator runs (`sim/REPORT.md`, `sim/O
 
 ## 1. Verdict
 
-**Ready to publish once the art and the credits are in.** The rules hold up: both playtests finished without a blocker, and every gap they found has now been answered in the text. The flock won both games, each in round 8. Playtest A won on Easy when Gizmo let the cows out on a Great, and Playtest B won on Hard when Big Tom unplugged the oven with the clock on 2. Both tables found real scares and laughed a lot. The simulator puts the win rates where Chapter 8 says they are. Games run 9 to 13 rounds, about 1 to 2 hours.
+**Ready to publish once the art and the credits are in.** The rules hold up: both playtests finished without a blocker, and every gap they found has now been answered in the text. The flock won both games, each in round 8. Playtest A won on Easy when Gizmo let the cows out on a Great, and Playtest B won on Hard when Big Tom unplugged the oven with the clock on 2. Both tables found real scares and laughed a lot. The simulator puts the win rates where Chapter 8 says they are. Games run 8 to 13 rounds, about 1 to 2 hours.
 
 Everything still open is for the author: the art (every picture is a marked placeholder), the credit line, a trademark search on the title, and the two balance calls in §4, which are judgment calls rather than defects.
 
@@ -31,7 +31,7 @@ None are open. The two rules-review blockers (B1, B2) and the undefined Spotted 
 | Question | Options | Decision | Why |
 |---|---|---|---|
 | **Leading the farmer around with “Huh?” tokens** (Playtest B §5: the dominant tactic on Hard) | (a) keep; (b) tokens fade after one farmer's turn; (c) a die between equally near tokens; (d) a detour costs the flock something | **(a) keep**, with a line in Ch 8: a table that gets good at it should move up a difficulty | Stalling the farmer until it's too late is the game. The simulated flock never lures on purpose, so a flock that does will beat the Ch 8 numbers, and that's the game working. Untested variants don't go in a printed book |
-| **One Feather on Hard with 4+ turkeys** (Playtest B §5) | (a) keep 1; (b) 2 | **(a) keep** | Hard is about 48–70% in the simulator with 1; a second Feather pushes it toward Standard |
+| **One Feather on Hard with 4+ turkeys** (Playtest B §5) | (a) keep 1; (b) 2 | **(a) keep** | Hard is about 50–68% in the simulator with 1; a second Feather pushes it toward Standard |
 | **Gobble for a Friend chains** (Playtest B C6) | (a) allowed; (b) one rescue per farmer per round | **(a) allowed** | One rescue per Spotted turkey per round already caps it, and a chain of brave turkeys is the funniest thing in the game |
 | **Quick Feet plus a Great** (Playtest B C8) | (a) three zones; (b) two | **(a) three** | Matches Soft Steps plus a Great |
 | **Show-off during a search** (Playtest B C7) | (a) the pose stays down after the sweep; (b) the pose Spots you; (c) as before (it did nothing) | **(a)** | Funny and fair: he'll be back to look at the turkey striking a pose |

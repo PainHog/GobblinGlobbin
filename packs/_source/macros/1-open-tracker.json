@@ -1,0 +1,8 @@
+{
+  "key": "open-tracker",
+  "name": "Open the Farm Tracker",
+  "type": "script",
+  "scope": "global",
+  "img": "systems/gobble-gobbled/assets/book/map-bramble.svg",
+  "command": "game.gobbleGobbled.openTracker();"
+}

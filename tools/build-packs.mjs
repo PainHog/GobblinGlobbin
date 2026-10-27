@@ -10,7 +10,7 @@
  * Our source stays human-friendly (a `key` slug, no ids); this script turns
  * each doc into a CLI-ready document with a deterministic 16-char `_id`, a
  * `_key`, `_stats`, and inline embedded pages, stages them outside the repo,
- * then compiles. Packs are declared in tools/pack-config.mjs (empty for now).
+ * then compiles. Packs are declared in tools/pack-config.mjs.
  *
  * Usage:  node tools/build-packs.mjs   |   node tools/build-packs.mjs --clean
  */
@@ -19,7 +19,7 @@ import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { rmSync, mkdirSync, mkdtempSync, writeFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { OUT, PACKS, makeId, readSource, toCliDoc } from "./pack-config.mjs";
+import { OUT, PACKS, EMBEDDED, makeId, readSource, toCliDoc } from "./pack-config.mjs";
 
 /** Fail loudly if any two source entries would produce the same document id. */
 function scanForDuplicateIds() {
@@ -32,8 +32,9 @@ function scanForDuplicateIds() {
         seen.set(id, where);
       };
       check(makeId(def.out, raw.key), `${def.out}::${raw.key}`);
-      (raw.pages ?? []).forEach((page, p) =>
-        check(makeId(def.out, raw.key, page.key ?? String(p)), `${def.out}::${raw.key}#${page.key ?? p}`));
+      for (const coll of EMBEDDED[def.collection] ?? [])
+        (raw[coll] ?? []).forEach((e, j) =>
+          check(makeId(def.out, raw.key, e.key ?? String(j)), `${def.out}::${raw.key}#${coll}.${e.key ?? j}`));
     });
   }
   console.log(`  id scan: ${seen.size} unique ids, no collisions.`);
@@ -46,7 +47,7 @@ async function buildPack(def, stagingRoot) {
   let pages = 0;
   raws.forEach((raw, i) => {
     const doc = toCliDoc(def, raw, i);
-    pages += doc.pages?.length ?? 0;
+    pages += (doc.pages?.length ?? 0) + (doc.results?.length ?? 0);
     writeFileSync(join(staging, `${raw.key}.json`), JSON.stringify(doc, null, 2));
   });
 
@@ -54,7 +55,7 @@ async function buildPack(def, stagingRoot) {
   if (existsSync(outPath)) rmSync(outPath, { recursive: true, force: true });
   await compilePack(staging, outPath, { log: false });
 
-  const extra = pages ? ` (+${pages} pages)` : "";
+  const extra = pages ? ` (+${pages} ${def.type === "RollTable" ? "results" : "pages"})` : "";
   console.log(`  ✓ ${def.out.padEnd(10)} ${String(raws.length).padStart(3)} docs${extra}`);
   return raws.length;
 }

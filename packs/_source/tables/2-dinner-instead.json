@@ -1,0 +1,83 @@
+{
+  "key": "dinner-instead",
+  "name": "What’s for Dinner Instead?",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>When the clock reaches 0, the farmer trudges back to the house, the family arrives, and someone has to make dinner out of whatever’s in the cupboard.</p>",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "key": "r1",
+      "type": "text",
+      "name": "",
+      "description": "Pizza, from the only place still open.",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r2",
+      "type": "text",
+      "name": "",
+      "description": "Grandma’s famous tuna casserole. Nobody is sure about the crackers on top.",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r3",
+      "type": "text",
+      "name": "",
+      "description": "A mountain of mashed potatoes, with lakes of gravy.",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r4",
+      "type": "text",
+      "name": "",
+      "description": "Grilled cheese sandwiches for twenty-two.",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r5",
+      "type": "text",
+      "name": "",
+      "description": "Breakfast for dinner: a tower of pancakes.",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r6",
+      "type": "text",
+      "name": "",
+      "description": "The vegetable “turkey”: a cauliflower in a little paper hat.",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false
+    }
+  ]
+}

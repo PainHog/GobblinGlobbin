@@ -1,0 +1,19 @@
+<section class="gg-turkey-card{{#if spotted}} gg-spotted{{/if}}">
+  <header class="gg-card-title">
+    <img class="gg-art" src="{{img}}" alt="">
+    <div>
+      <h2>{{name}} <span class="gg-num">{{number}}</span></h2>
+      <p class="gg-breed">{{breed}}</p>
+      {{#if inGame}}<p class="gg-place">{{place}}{{#if acted}} · acted this round{{/if}}</p>{{/if}}
+    </div>
+  </header>
+  {{#if knack}}<div class="gg-ability gg-knack"><strong>Knack: {{knack.name}}.</strong> {{knack.text}}</div>{{/if}}
+  {{#if quirk}}<div class="gg-ability gg-quirk"><strong>Quirk: {{quirk.name}}.</strong> {{quirk.text}}</div>{{/if}}
+  <div class="gg-urge-row">Urge {{#each pips}}<span class="gg-pip-n{{#if this.current}} current{{/if}}{{#if this.hot}} hot{{/if}}">{{this.n}}</span>{{/each}}</div>
+  <p class="gg-foot">Start at urge 1. Red dice = your urge. Past 5: gobble, back to 0 (no Feather can stop it).</p>
+  {{#if actions.length}}
+  <div class="gg-actions">
+    {{#each actions}}<button type="button" data-action="act" data-kind="{{this.kind}}" {{#unless this.enabled}}disabled title="{{this.reason}}"{{/unless}}>{{this.label}}</button>{{/each}}
+  </div>
+  {{/if}}
+</section>

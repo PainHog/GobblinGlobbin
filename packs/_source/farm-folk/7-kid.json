@@ -1,0 +1,34 @@
+{
+  "key": "kid",
+  "name": "The Farmer’s Kid",
+  "type": "kid",
+  "img": "systems/gobble-gobbled/assets/tokens/kid.svg",
+  "system": {},
+  "prototypeToken": {
+    "name": "The Farmer’s Kid",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/kid.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": 0,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}

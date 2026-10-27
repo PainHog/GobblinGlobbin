@@ -1,0 +1,74 @@
+<section class="gg-tracker-body">
+  {{#if busy}}<div class="gg-busy"><i class="fa-solid fa-feather fa-bounce"></i> {{busy}}</div>{{/if}}
+  {{#if noGame}}
+  <div class="gg-empty">
+    <p>No game yet. {{#if gm}}Start one, pick a farm, and deal out the turkeys.{{else}}The Storyteller will start one soon.{{/if}}</p>
+    {{#if gm}}<button type="button" data-action="newGame"><i class="fa-solid fa-tractor"></i> {{localize "GG.Tracker.newGame"}}</button>{{/if}}
+  </div>
+  {{else}}
+  <header class="gg-head">
+    <div class="gg-farm"><strong>{{farm}}</strong> · {{difficulty}} · Round {{round}}</div>
+    <div class="gg-phase{{#if over}} gg-over{{/if}}{{#if win}} gg-win{{/if}}">{{phaseLabel}}</div>
+  </header>
+
+  <div class="gg-clock" title="The Dinner Clock: at 0 it's Too Late and the flock wins">
+    {{#each clock}}<span class="gg-space{{#if this.event}} gg-event{{/if}}{{#if this.now}} gg-now{{/if}}{{#if this.past}} gg-past{{/if}}">{{this.n}}</span>{{/each}}
+    <span class="gg-space gg-late">TOO LATE</span>
+  </div>
+
+  <div class="gg-flockbar">
+    <span class="gg-feathers" title="Feathers: spend one to swallow a gobble"><i class="fa-solid fa-feather"></i> {{feathers}}</span>
+    {{#if decoy}}<span class="gg-decoy"><i class="fa-solid fa-person-rays"></i> Decoy ready</span>{{/if}}
+    <span class="gg-tokens" title="“Huh?” tokens on the farm">Huh? ×{{tokens}}</span>
+  </div>
+
+  <div class="gg-folk">
+    <div><i class="fa-solid fa-hat-cowboy"></i> <strong>{{farmer.name}}</strong>: {{farmer.zone}}</div>
+    {{#if dog}}<div><i class="fa-solid fa-dog"></i> <strong>{{dog.name}}</strong>: {{dog.zone}}</div>{{/if}}
+    {{#each kids}}<div><i class="fa-solid fa-child"></i> <strong>The kid</strong>: {{this.zone}}</div>{{/each}}
+    {{#if forecast}}<div class="gg-forecast"><i class="fa-solid fa-eye"></i> Keen Eye ({{forecast.die}}): he'll walk to <strong>{{forecast.zone}}</strong> if nothing calls him.</div>{{/if}}
+  </div>
+
+  <ol class="gg-turkeys">
+    {{#each turkeys}}
+    <li class="gg-turkey{{#if this.spotted}} gg-spotted{{/if}}{{#if this.acted}} gg-acted{{/if}}{{#if this.mine}} gg-mine{{/if}}">
+      <div class="gg-turkey-row">
+        <a class="gg-portrait" data-action="sheet" data-turkey="{{this.id}}">{{#if this.img}}<img src="{{this.img}}" alt="">{{/if}}</a>
+        <div class="gg-who">
+          <div><strong>{{this.name}}</strong> <span class="gg-player">{{this.player}}</span>{{#if this.acted}} <span class="gg-done">acted</span>{{/if}}</div>
+          <div class="gg-place">{{this.place}}</div>
+        </div>
+        <div class="gg-urge" title="Urge {{this.urge}}">{{#each this.pips}}{{#if this.n}}<span class="gg-pip{{#if this.on}} on{{/if}}{{#if this.hot}} hot{{/if}}"></span>{{/if}}{{/each}}</div>
+      </div>
+      {{#if this.actions.length}}
+      <div class="gg-actions">
+        {{#each this.actions}}<button type="button" data-action="act" data-turkey="{{../id}}" data-kind="{{this.kind}}" {{#unless this.enabled}}disabled title="{{this.reason}}"{{/unless}}>{{this.label}}</button>{{/each}}
+      </div>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ol>
+
+  <details class="gg-pranks" open>
+    <summary>Pranks</summary>
+    <ul>
+      {{#each pranks}}
+      <li class="{{#if this.done}}gg-done{{/if}}"><span class="gg-prank-name">{{this.name}}</span> <span class="gg-prank-zone">{{this.zone}}</span>
+        <span class="gg-prank-info">{{this.target}}+ · clock −{{this.clock}}{{#if this.type}} · {{this.type}}{{/if}}</span>
+        <span class="gg-boxes">{{#each this.boxes}}<span class="gg-box{{#if this.ticked}} ticked{{/if}}"></span>{{/each}}</span></li>
+      {{/each}}
+    </ul>
+  </details>
+
+  <div class="gg-links"><button type="button" data-action="rules"><i class="fa-solid fa-book-open"></i> {{localize "GG.Tracker.rules"}}</button></div>
+
+  {{#if gm}}
+  <footer class="gg-gm">
+    <button type="button" data-action="farmer" class="{{#if everyoneActed}}gg-ready{{/if}}" {{#unless canFarmer}}disabled{{/unless}}><i class="fa-solid fa-person-walking"></i> {{localize "GG.Tracker.farmerTurn"}}</button>
+    <button type="button" data-action="undo" {{#unless canUndo}}disabled{{/unless}}><i class="fa-solid fa-rotate-left"></i> {{localize "GG.Tracker.undo"}}</button>
+    <button type="button" data-action="newGame"><i class="fa-solid fa-tractor"></i> {{localize "GG.Tracker.newGame"}}</button>
+    <button type="button" data-action="endGame"><i class="fa-solid fa-flag-checkered"></i> {{localize "GG.Tracker.endGame"}}</button>
+  </footer>
+  {{/if}}
+  {{/if}}
+</section>

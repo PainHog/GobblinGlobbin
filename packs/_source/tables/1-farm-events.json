@@ -1,0 +1,83 @@
+{
+  "key": "farm-events",
+  "name": "Farm Events",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Roll on this table whenever the Dinner Clock lands on or jumps past an EVENT space (every multiple of 4). An effect “on his next turn” lasts for one farmer’s turn.</p>",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "key": "r1",
+      "type": "text",
+      "name": "The truck backfires",
+      "description": "BANG! Every turkey’s urge rises by 1.",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r2",
+      "type": "text",
+      "name": "Grandma calls",
+      "description": "The farmer goes straight to the Farmhouse to answer it. Move him there now.",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r3",
+      "type": "text",
+      "name": "The whole family helps look",
+      "description": "On his next turn, the farmer checks every hiding spot in the zone he ends in.",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r4",
+      "type": "text",
+      "name": "He steps on a rake",
+      "description": "THWACK. On his next turn, the farmer doesn’t walk (he still searches his zone).",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r5",
+      "type": "text",
+      "name": "A cold gust",
+      "description": "Every turkey fluffs up and huddles down: every turkey’s urge falls by 1.",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false
+    },
+    {
+      "key": "r6",
+      "type": "text",
+      "name": "The oven is preheated",
+      "description": "DING! On his next turn, if the farmer walks his route, he hurries: roll his route die twice and walk two zones.",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false
+    }
+  ]
+}

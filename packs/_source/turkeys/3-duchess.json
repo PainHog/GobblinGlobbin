@@ -1,0 +1,40 @@
+{
+  "key": "duchess",
+  "name": "Duchess",
+  "type": "turkey",
+  "img": "systems/gobble-gobbled/assets/tokens/duchess.svg",
+  "system": {
+    "key": "duchess",
+    "breed": "Royal Palm",
+    "bird": "hen",
+    "knack": "still",
+    "quirk": "showOff"
+  },
+  "prototypeToken": {
+    "name": "Duchess",
+    "displayName": 30,
+    "actorLink": true,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "width": 0.9,
+    "height": 0.9,
+    "texture": {
+      "src": "systems/gobble-gobbled/assets/tokens/duchess.svg",
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1
+    },
+    "lockRotation": true,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "sight": {
+      "enabled": false
+    }
+  }
+}
