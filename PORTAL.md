@@ -1,4 +1,4 @@
-Now: Sample pictures fill the rulebook, the turkey cards and the online version, so everything looks finished until Richard draws the real art
+Now: Checking everything again: computer-run games of the online version on every farm, and a fresh test game of the rulebook played strictly by the book
 Next: A real test game online, then a final pass on the rulebook in Richard's own voice and his drawings for the book, maps and tokens
 Number: Design decisions made = 32
 Number: Turkeys to play = 8
@@ -36,6 +36,7 @@ Plain words only: no repo names, usernames, file paths, links or commit IDs. Rul
 
 - [x] Fully automated online version for Foundry, with the three farms, the eight turkeys, the farm folk and the tables
 - [x] Sample turkey and farm-folk tokens that match the book
+- [x] Computer-run test games of the online version on all three farms, from setup to the last card
 - [ ] A real test game online with a Storyteller and players
 - [ ] Richard draws the maps and tokens
 - [ ] Online version released with the rulebook

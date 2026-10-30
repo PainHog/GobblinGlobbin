@@ -1,12 +1,12 @@
 # Testing the Foundry system in a real Foundry
 
-`npm run check` tests the rules engine, the board geometry, the compendiums and a whole game played on a stand-in for Foundry (`tools/fake-foundry.mjs`). That stand-in can't show you the real thing, so before every release, play through this checklist in a real Foundry:
+`npm run check` tests the rules engine, the board geometry and the compendiums. On a stand-in for Foundry (`tools/fake-foundry.mjs`), it also plays whole games through the automation: one on each farm (Easy with 2 turkeys, Standard with 5, Hard with 8) and one that runs out the clock. That stand-in can't show you the real thing, so before every release, play through this checklist in a real Foundry:
 - **Foundry v13 and v14:** once on each.
 - **Two browsers:** one logged in as the GM, and one as a player (a private window works).
 - **Optional:** a third pass with Dice So Nice installed.
 
 ## Install
-1. Zip the system the way the release does (see `.github/workflows/release.yml`), or point Foundry at a local copy of this folder under `Data/systems/gobble-gobbled`.
+1. Unzip the system zip into a folder named `gobble-gobbled` under Foundry's `Data/systems/`. Make the zip the way the release does (see `.github/workflows/release.yml`), or point Foundry at a local copy of this folder.
 2. Create a world with the system, and two users: a Gamemaster and a Player.
 
 ## The checklist
@@ -16,13 +16,14 @@ Tick each line. Anything marked **(console)** means: keep the browser console op
 - [ ] The world loads with no errors **(console)**, in both browsers.
 - [ ] The Farm Tracker opens on its own, for both users.
 - [ ] The compendiums are listed under one "Don't Get Gobble Gobbled" folder: Turkeys (8), Farm Folk (7), Farms (3), Rulebook (4), Tables (3), Macros (2).
-- [ ] Open the Rulebook compendium and two pages. The text is readable in both the light and the dark theme, and the farm maps show.
+- [ ] Open the Rulebook (the tracker's **Rulebook** button) and two pages. The text is readable in both the light and the dark theme, and the farm maps and pictures show.
 
 ### A new game
 - [ ] GM: **New Game**, then Bramble Farm, Standard, and three turkeys, one of them the Player's. The preview says the clock starts at 17 with 3 Feathers.
 - [ ] Afterwards:
   - [ ] the Bramble Farm scene is active for both users;
   - [ ] five tokens are in their circles: three turkeys in the Turkey house, the farmer and the dog in the Farmhouse;
+  - [ ] each token shows its character's picture from the book;
   - [ ] the setup card is in chat;
   - [ ] the GM's hotbar has "Open the Farm Tracker" and "Farmer's Turn".
 - [ ] Player: their own turkey's card has action buttons; the other turkeys' cards don't.

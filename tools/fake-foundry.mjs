@@ -613,7 +613,10 @@ export function makePack(id, documentName, list) {
   const docs = list.map((d, i) => {
     const doc = clone(d);
     const _id = doc._id ?? `pack${String(i).padStart(12, "0")}`;
-    return { ...doc, _id, id: _id, documentName, uuid: `Compendium.${id}.${documentName}.${_id}`, toObject() { return clone({ ...doc, _id }); } };
+    const out = { ...doc, _id, id: _id, documentName, uuid: `Compendium.${id}.${documentName}.${_id}`, toObject() { return clone({ ...doc, _id }); } };
+    // A roll table draws one of its results (seeded), like RollTable#draw({ displayChat: false }).
+    if (documentName === "RollTable") out.draw = async () => { touch(); const r = doc.results ?? []; return { results: r.length ? [clone(r[Math.floor(nextRandom() * r.length)])] : [] }; };
+    return out;
   });
   return { collection: id, documentName, async getDocuments() { touch(); return docs; }, index: docs.map(d => ({ _id: d._id, name: d.name })) };
 }
