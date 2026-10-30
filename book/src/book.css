@@ -554,7 +554,8 @@ dl.glossary dd { margin: 0.01in 0 0; }
 .card h3 { margin: 0; font: 900 19pt/1 var(--display); color: var(--dark-deep); }
 .card h3 .card-num { float: right; font: 800 10pt var(--sans); color: var(--accent-deep); border: 1.5px solid var(--accent-deep); border-radius: 50%; width: 0.26in; height: 0.26in; display: inline-flex; align-items: center; justify-content: center; }
 .card .card-breed { margin: 0.02in 0 0.06in; font: italic 600 9pt var(--display); color: var(--ink-soft); }
-.card .card-draw { flex: 1 1 auto; min-height: 0.9in; margin: 0 0 0.06in; border: 1.5px dashed var(--paper-edge); border-radius: 8px; display: flex; align-items: flex-end; justify-content: center; font: italic 7.8pt var(--sans); color: var(--ink-soft); padding-bottom: 0.04in; }
+.card .card-draw { flex: 1 1 auto; min-height: 0.9in; margin: 0 0 0.06in; display: flex; align-items: center; justify-content: center; }
+.card .card-draw svg { height: 100%; max-height: 1.55in; width: auto; }
 .card .card-knack, .card .card-quirk { margin: 0 0 0.05in; padding: 0.04in 0.07in; border-radius: 5px; }
 .card .card-knack { background: var(--dark-deep); color: var(--paper); }
 .card .card-knack strong { color: var(--accent-bright); }

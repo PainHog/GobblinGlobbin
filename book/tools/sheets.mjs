@@ -22,7 +22,7 @@ function card(t) {
   return `    <div class="card" id="card-${t.id}">
       <h3>${t.name} <span class="card-num">${n}</span></h3>
       <p class="card-breed">${t.breed} ${BIRD[t.bird]}</p>
-      <div class="card-draw">draw ${t.name} here</div>
+      <figure class="art card-draw" data-art="turkey-${t.id}"></figure>
       <p class="card-knack"><strong>Knack: ${k.name}.</strong> ${k.text}</p>
       <p class="card-quirk"><strong>Quirk: ${q.name}.</strong> ${q.text}</p>
       <div class="urge">Urge <span class="u">0</span><span class="u">1</span><span class="u">2</span><span class="u">3</span><span class="u">4</span><span class="u">5</span></div>

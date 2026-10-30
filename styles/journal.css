@@ -296,3 +296,9 @@
 .gg-journal .gg-back-tagline { margin-top: 1em; text-align: center; font: 600 0.95em var(--gg-sans); color: var(--gg-paper); }
 .gg-journal .gg-back-title { text-align: center; font: 900 1.4em var(--gg-display); letter-spacing: 0.05em; text-transform: uppercase; color: var(--gg-accent-bright); }
 .gg-journal .gg-back-title span { font: 800 0.6em var(--gg-sans); letter-spacing: 0.3em; color: var(--gg-paper-2); }
+
+/* Illustrations from the book (sample art): wide vignettes and spots full width, turkey portraits as badges. */
+.gg-journal figure.gg-art { margin: 0.5em 0 0.8em; }
+.gg-journal figure.gg-art img { display: block; width: 100%; height: auto; border: none; }
+.gg-journal figure.gg-badge { float: right; width: 110px; margin: 0 0 0.5em 0.8em; }
+.gg-journal figure.gg-badge img { display: block; width: 100%; height: auto; border: none; }

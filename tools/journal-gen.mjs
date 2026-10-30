@@ -108,7 +108,13 @@ function transform(n, ctx) {
     delete fig.map;
     return [fig];
   }
-  if (cls.includes("art") || attr(n, "data-art") !== undefined) return [];   // art placeholders
+  // illustrations (not placeholders, not the covers): an image of the book's art, copied to assets/book/
+  const art = attr(n, "data-art");
+  if (n.tag === "figure" && art && !art.startsWith("placeholder") && !/cover/.test(art) && existsSync(join(ART, `${art}.svg`))) {
+    ctx.maps.add(art);
+    return [{ tag: "figure", attrs: [["class", art.startsWith("turkey-") ? "gg-badge" : "gg-art"]], kids: [{ tag: "img", attrs: [["src", `${SYSTEM_PATH}/assets/book/${art}.svg`], ["alt", ""]], kids: [] }] }];
+  }
+  if (cls.includes("art") || art !== undefined) return [];   // art placeholders
   if (cls.some(c => DROP_CLASSES.has(c))) return [];
   if (n.tag === "header" && cls.includes("chapter-head")) return [];         // the page title says it
   const inBox = ctx.inBox || cls.some(c => BOX_CLASSES.has(c));
@@ -219,7 +225,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   mkdirSync(RULEBOOK_SRC, { recursive: true });
   mkdirSync(BOOK_ASSETS, { recursive: true });
   // remove generated files that are no longer produced
-  for (const [dir, rel, re] of [[RULEBOOK_SRC, "packs/_source/rulebook", /\.json$/], [BOOK_ASSETS, "assets/book", /^map-.*\.svg$/]]) {
+  for (const [dir, rel, re] of [[RULEBOOK_SRC, "packs/_source/rulebook", /\.json$/], [BOOK_ASSETS, "assets/book", /\.svg$/]]) {
     for (const f of readdirSync(dir)) if (re.test(f) && !(`${rel}/${f}` in files)) { rmSync(join(dir, f)); console.log(`removed ${rel}/${f}`); }
   }
   for (const [rel, data] of Object.entries(files)) {

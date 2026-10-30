@@ -9,10 +9,16 @@ No `<image>`, `<script>`, filters such as `feTurbulence`, or external links.
 
 ## House style
 
-Cartoon, warm and slapstick (DESIGN.md Decisions log): an autumn farm palette. The
-illustrations themselves are not made yet (the book ships “minus the art”), so every
-illustration slot holds a placeholder in this palette. The farm maps are diagrams
-generated from the game data (`book/tools/maps.mjs`), not illustrations.
+Cartoon, warm and slapstick (DESIGN.md Decisions log): an autumn farm palette, flat
+fills, one ink outline, a contact shadow under everything that stands.
+
+**The book ships with SAMPLE ART**: hand-built vector illustrations from the kit in
+`book/tools/art-gen/kit/` (turkeys, farm folk, dogs, props) composed in
+`book/tools/art-gen/scenes/book.mjs`. They fill every slot so the book, the turkey cards
+and the VTT tokens look finished, and they show the intended layout and staging. The
+author plans to commission final art: keep the same slots, sizes and characters
+(`ref-*.svg` are the turkeys' reference sheets). The farm maps are diagrams generated
+from the game data (`book/tools/maps.mjs`), not illustrations.
 
 ## Palette
 
@@ -35,6 +41,12 @@ The same tokens as `book/src/book.css` and `C` in `book/tools/art-gen/lib.mjs`; 
 | alarmB | `#d2453a` | strong danger |
 | good | `#4f7a3a` | sage: calm / safe (sparingly) |
 
+**Character colours** (`K` in `book/tools/art-gen/kit/core.mjs`): the heritage turkey
+colourings (chestnut, steel grey and tan, white, bronze and copper, slate blue, black with a
+green sheen, chocolate), bare-skin blue and pink, wattle red, beak gold and leg pink; denim,
+flannel, skin, rubber-boot yellow and barn red for the farm folk and props. They sit beside
+the palette, never instead of it.
+
 ## Shapes
 
 | Kind | Aspect | Where |
@@ -54,4 +66,15 @@ The same tokens as `book/src/book.css` and `C` in `book/tools/art-gen/lib.mjs`; 
 **Maps** (`book/tools/maps.mjs`, from `module/config.mjs`)
 - `map-bramble`, `map-puddlewick`, `map-windy`: the three farm maps (diagrams, 1428×1150)
 
-No illustrations exist yet.
+**Sample art** (`tools/art-gen/scenes/book.mjs`)
+- `cover`: all eight turkeys hide around the farm while Farmer Bramble waits at the door with an empty roasting tin (612×792)
+- `part-one`, `part-two`: the flock tiptoes past the fence; the search party sets out (3:1)
+- `ch-01` … `ch-08`, `ch-12`: chapter vignettes (3:1, drawn to fill the chapter-head box from the ground up)
+- `spot-01` … `spot-14`: end-of-chapter spots (4:3): the oven plug, Pip's hiccups, the dice, Big Tom and the mouse, Duchess behind a cabbage, the Dinner Clock, the rake, the kid, the cows, the rowboat, the windmill cap, Gizmo and Hazel, Noodle, Clementine
+- `back-cover`: Too late! (4:3)
+- `turkey-<id>`: the eight portraits (square): Chapter 2, the turkey cards and the VTT tokens
+- `ref-<id>`: the turkeys' reference sheets (right and left profiles, signature pose); not printed
+
+The VTT tokens (`assets/tokens/`) are the same portraits, written by `book/tools/vtt-maps.mjs`.
+Regenerate: `node book/tools/art-gen/scenes/build.mjs`, then `npm run build:vtt-maps -- --svg`,
+`npm run build:journals` and `npm run build:packs`.

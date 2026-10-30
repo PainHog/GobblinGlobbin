@@ -6,7 +6,7 @@
  *   node book/tools/vtt-maps.mjs          (npm run build:vtt-maps)
  *     → assets/maps/<farm>.svg   the map, exactly width × height units (= scene pixels)
  *     → assets/maps/<farm>.webp  the scene background, rasterized 1:1 by Chromium
- *     → assets/tokens/*.svg      placeholder token art (turkeys, farmers, dogs, the kid)
+ *     → assets/tokens/*.svg      token art: the sample art's portraits (turkeys, farmers, dogs, the kid)
  *   node book/tools/vtt-maps.mjs --svg    the SVGs only (no Chromium)
  *
  * The maps are PLACEHOLDERS in the book's palette. Final art can replace the
@@ -21,6 +21,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { GG } from "../../module/config.mjs";
 import { farmLayout, L } from "../../module/logic/layout.mjs";
 import { C } from "./art-gen/lib.mjs";
+import { portrait, folkPortrait } from "./art-gen/scenes/book.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const MAPS_DIR = join(ROOT, "assets", "maps");
@@ -341,18 +342,16 @@ function kidBody() {
   ].join("\n");
 }
 
-/** Every placeholder token: file name → SVG string. */
+/** Every token: file name → SVG string. The sample art's portraits (book/tools/art-gen/scenes/book.mjs), so a token looks like its turkey in the book. */
 export function tokenSvgs() {
   const out = {};
-  for (const t of GG.turkeys) {
-    const [bg, body, wing] = TURKEY_LOOK[t.id] ?? [C.accentB, C.dark, C.light];
-    out[`${t.id}.svg`] = tokenFrame(t.name, C.accent, bg, t.name, turkeyBody(body, wing));
-  }
+  const farmerKey = { bramble: "bramble", puddlewick: "puddlewick", windy: "windle" };
+  for (const t of GG.turkeys) out[`${t.id}.svg`] = portrait(t.id);
   for (const f of Object.values(GG.farms)) {
-    out[`farmer-${f.id}.svg`] = tokenFrame(f.farmer, C.deep, C.dark, f.farmer, farmerBody(FARMER_HAT[f.id] ?? C.alarm));
-    out[`dog-${f.id}.svg`] = tokenFrame(f.dog, C.soft, C.paper2, f.dog, dogBody(DOG_FUR[f.id] ?? C.soft));
+    out[`farmer-${f.id}.svg`] = folkPortrait("farmer", farmerKey[f.id]);
+    out[`dog-${f.id}.svg`] = folkPortrait("dog", f.id);
   }
-  out["kid.svg"] = tokenFrame(KID_NAME, C.accentDeep, C.accentB, "Kid", kidBody());
+  out["kid.svg"] = folkPortrait("kid", null);
   return out;
 }
 
