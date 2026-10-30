@@ -22,7 +22,7 @@ Targets: Easy 85–93%, Standard 74–86%, Hard 52–68%. A cell outside its ban
 |---|---|---|---|---|---|---|---|
 | Easy | 90% | 89% | 87% | **81%** | **81%** | **81%** | **80%** |
 | Standard | 79% | 81% | 80% | 84% | 83% | 85% | 80% |
-| Hard | **50%** | 59% | 64% | **68%** | 68% | 67% | 67% |
+| Hard | **50%** | 60% | 63% | **68%** | 68% | 67% | 67% |
 
 ### Windy Ridge Farm
 
@@ -44,7 +44,7 @@ Rounds per game (target 8–15), and an estimated table time of about a minute p
 | Bramble Farm | Standard | 11.3 (60 min) | 10.5 (68 min) | 11.2 (82 min) | 10.4 (88 min) | 10.5 (99 min) | 10.1 (106 min) | 10.2 (117 min) |
 | Bramble Farm | Hard | 11.3 (60 min) | 10.6 (68 min) | 11.2 (82 min) | 10.2 (87 min) | 10.3 (97 min) | 9.8 (104 min) | 9.7 (112 min) |
 | Puddlewick Farm | Easy | 10.7 (58 min) | 10.1 (66 min) | 11.0 (81 min) | 10.0 (85 min) | 10.2 (97 min) | 9.7 (103 min) | 10.0 (115 min) |
-| Puddlewick Farm | Standard | 12.9 (67 min) | 12.1 (75 min) | 13.1 (94 min) | 12.6 (104 min) | 12.8 (117 min) | 12.5 (128 min) | 12.4 (139 min) |
+| Puddlewick Farm | Standard | 12.9 (67 min) | 12.1 (75 min) | 13.1 (94 min) | 12.7 (104 min) | 12.8 (117 min) | 12.5 (128 min) | 12.4 (139 min) |
 | Puddlewick Farm | Hard | 11.8 (62 min) | 11.8 (74 min) | 13.0 (93 min) | 12.4 (102 min) | 12.4 (114 min) | 12.1 (124 min) | 12.3 (138 min) |
 | Windy Ridge Farm | Easy | 9.8 (54 min) | 9.5 (63 min) | 10.5 (78 min) | 9.8 (84 min) | 10.0 (95 min) | 9.8 (103 min) | 10.1 (116 min) |
 | Windy Ridge Farm | Standard | 12.5 (65 min) | 11.0 (70 min) | 12.0 (87 min) | 11.5 (95 min) | 11.7 (109 min) | 11.5 (118 min) | 11.6 (131 min) |
@@ -69,17 +69,17 @@ Per game: how often at least one turkey is Spotted, how many Spotted moments the
 | Bramble Farm | Hard | 6 | 90% | 2.5 | 0.80 | 64% | 61% | 85% |
 | Bramble Farm | Hard | 8 | 96% | 3.4 | 1.18 | 71% | 60% | 87% |
 | Puddlewick Farm | Easy | 2 | 51% | 0.8 | 0.09 | 56% | 79% | 88% |
-| Puddlewick Farm | Easy | 4 | 77% | 1.8 | 0.28 | 62% | 80% | 93% |
-| Puddlewick Farm | Easy | 6 | 91% | 3.0 | 0.54 | 68% | 80% | 94% |
+| Puddlewick Farm | Easy | 4 | 77% | 1.8 | 0.28 | 63% | 80% | 93% |
+| Puddlewick Farm | Easy | 6 | 91% | 3.0 | 0.53 | 68% | 80% | 94% |
 | Puddlewick Farm | Easy | 8 | 96% | 3.7 | 0.72 | 70% | 79% | 94% |
 | Puddlewick Farm | Standard | 2 | 79% | 1.7 | 0.16 | 59% | 78% | 87% |
 | Puddlewick Farm | Standard | 4 | 93% | 2.9 | 0.49 | 61% | 78% | 93% |
-| Puddlewick Farm | Standard | 6 | 97% | 4.1 | 0.78 | 67% | 78% | 96% |
+| Puddlewick Farm | Standard | 6 | 97% | 4.0 | 0.77 | 66% | 78% | 96% |
 | Puddlewick Farm | Standard | 8 | 99% | 5.1 | 1.03 | 71% | 79% | 96% |
 | Puddlewick Farm | Hard | 2 | 91% | 2.0 | 0.33 | 54% | 59% | 74% |
-| Puddlewick Farm | Hard | 4 | 96% | 3.0 | 0.87 | 62% | 60% | 88% |
-| Puddlewick Farm | Hard | 6 | 98% | 4.1 | 1.37 | 68% | 60% | 92% |
-| Puddlewick Farm | Hard | 8 | 99% | 5.0 | 1.70 | 72% | 61% | 93% |
+| Puddlewick Farm | Hard | 4 | 96% | 3.0 | 0.86 | 62% | 60% | 88% |
+| Puddlewick Farm | Hard | 6 | 98% | 4.1 | 1.36 | 68% | 60% | 92% |
+| Puddlewick Farm | Hard | 8 | 99% | 5.0 | 1.68 | 72% | 61% | 93% |
 | Windy Ridge Farm | Easy | 2 | 23% | 0.3 | 0.01 | 52% | 79% | 85% |
 | Windy Ridge Farm | Easy | 4 | 62% | 1.2 | 0.15 | 61% | 79% | 89% |
 | Windy Ridge Farm | Easy | 6 | 75% | 1.7 | 0.29 | 67% | 77% | 90% |
@@ -90,7 +90,7 @@ Per game: how often at least one turkey is Spotted, how many Spotted moments the
 | Windy Ridge Farm | Standard | 8 | 91% | 3.1 | 0.58 | 68% | 78% | 93% |
 | Windy Ridge Farm | Hard | 2 | 78% | 1.3 | 0.08 | 59% | 61% | 69% |
 | Windy Ridge Farm | Hard | 4 | 91% | 2.2 | 0.52 | 60% | 60% | 79% |
-| Windy Ridge Farm | Hard | 6 | 95% | 2.8 | 0.86 | 64% | 59% | 84% |
+| Windy Ridge Farm | Hard | 6 | 95% | 2.8 | 0.85 | 64% | 59% | 84% |
 | Windy Ridge Farm | Hard | 8 | 97% | 3.5 | 1.10 | 71% | 60% | 88% |
 
 ## 4. Gobbles, Feathers, pushes and help (Standard, all farms)
@@ -102,10 +102,10 @@ Feathers spent is the share of the flock's starting Feathers used (A7: at least 
 | 2 | 2.92 | 0.27 | 0.88 | 0.11 | 0.09 | 79% | 8.8 | 1.0 | 71% | 27% | 30% |
 | 3 | 4.36 | 0.39 | 1.56 | 0.22 | 0.22 | 84% | 10.8 | 2.0 | 70% | 27% | 30% |
 | 4 | 7.22 | 0.50 | 1.90 | 0.35 | 0.50 | 89% | 16.2 | 3.6 | 71% | 28% | 29% |
-| 5 | 8.90 | 0.83 | 2.73 | 0.44 | 0.66 | 91% | 18.6 | 4.7 | 71% | 28% | 29% |
-| 6 | 10.39 | 1.09 | 2.91 | 0.55 | 0.94 | 93% | 22.8 | 6.2 | 72% | 29% | 29% |
-| 7 | 11.81 | 1.62 | 3.64 | 0.60 | 1.11 | 94% | 24.8 | 7.3 | 72% | 29% | 29% |
-| 8 | 13.33 | 2.14 | 4.03 | 0.76 | 1.37 | 96% | 29.0 | 9.0 | 73% | 30% | 29% |
+| 5 | 8.90 | 0.83 | 2.73 | 0.43 | 0.67 | 91% | 18.6 | 4.7 | 71% | 28% | 29% |
+| 6 | 10.38 | 1.08 | 2.91 | 0.54 | 0.94 | 93% | 22.8 | 6.2 | 72% | 29% | 29% |
+| 7 | 11.81 | 1.62 | 3.64 | 0.60 | 1.10 | 94% | 24.8 | 7.3 | 72% | 29% | 29% |
+| 8 | 13.32 | 2.14 | 4.03 | 0.76 | 1.37 | 96% | 29.0 | 9.0 | 73% | 30% | 29% |
 
 ## 5. Pranks (Standard, 4 turkeys)
 
