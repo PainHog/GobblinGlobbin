@@ -1,11 +1,12 @@
-Now: Version 1.0 of the rulebook and a fully automated online version are done, with three farms and eight turkeys; every picture is a stand-in until Richard draws the art
+Now: Sample pictures fill the rulebook, the turkey cards and the online version, so everything looks finished until Richard draws the real art
 Next: A real test game online, then a final pass on the rulebook in Richard's own voice and his drawings for the book, maps and tokens
 Number: Design decisions made = 32
 Number: Turkeys to play = 8
 Number: Farms ready to play = 3
 Number: Rulebook pages = 46
-Number: Pictures still to draw = 20
+Number: Pictures still to draw = 35
 Number: Simulated games per balance check = 126,000
+Screenshot: docs/portal/cover.png = Sample cover: the eight turkeys hide around the farm while the farmer waits with an empty roasting tin
 
 # Game plan
 
@@ -25,6 +26,7 @@ Plain words only: no repo names, usernames, file paths, links or commit IDs. Rul
 ## Rulebook
 
 - [x] Version 1.0 written and laid out for digital and print-on-demand
+- [x] Sample pictures in every spot in the book, with a sample cover, to show the layout until Richard's drawings
 - [ ] Final pass on the rulebook text in Richard's own voice
 - [ ] Richard draws all the pictures
 - [ ] Store page ready: description, preview pages and cover
@@ -33,6 +35,7 @@ Plain words only: no repo names, usernames, file paths, links or commit IDs. Rul
 ## Online version
 
 - [x] Fully automated online version for Foundry, with the three farms, the eight turkeys, the farm folk and the tables
+- [x] Sample turkey and farm-folk tokens that match the book
 - [ ] A real test game online with a Storyteller and players
 - [ ] Richard draws the maps and tokens
 - [ ] Online version released with the rulebook
