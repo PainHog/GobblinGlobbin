@@ -1,6 +1,6 @@
-Now: Checking everything again: computer-run games of the online version on every farm, and a fresh test game of the rulebook played strictly by the book
+Now: A fresh test game played strictly by the book found no blockers; its few unclear rules are fixed in the rulebook and the online version
 Next: A real test game online, then a final pass on the rulebook in Richard's own voice and his drawings for the book, maps and tokens
-Number: Design decisions made = 32
+Number: Design decisions made = 33
 Number: Turkeys to play = 8
 Number: Farms ready to play = 3
 Number: Rulebook pages = 46
@@ -20,6 +20,7 @@ Plain words only: no repo names, usernames, file paths, links or commit IDs. Rul
 - [x] One page of core rules
 - [x] Balance simulator: win and loss rates for every farm, difficulty and flock size from 2 to 8
 - [x] Rules review and test games for version 1.0
+- [x] A fresh test game of the finished rules, played strictly by the book
 - [ ] Full check that the title is free to use
 - [ ] Credits page worded by Richard
 

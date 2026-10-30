@@ -180,7 +180,7 @@
 <rect x="18" y="1184" width="1392" height="136" rx="14" fill="#f1e2c6" stroke="#dcc39a" stroke-width="2"/>
 <rect x="40" y="1202" width="40" height="28" rx="6" fill="#c8691c" stroke="#5a2e1d" stroke-width="3"/>
 <text x="92" y="1224" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">Path</tspan>: you can Sneak this way. No path, no way through.</text>
-<text x="40" y="1262" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">Hayloft 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>
+<text x="40" y="1262" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">Pumpkin pile 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>
 <polygon points="846.0,1203.0 849.2,1210.6 857.4,1211.3 851.1,1216.7 853.1,1224.7 846.0,1220.4 838.9,1224.7 840.9,1216.7 834.6,1211.3 842.8,1210.6" fill="#c8691c" stroke="#3b1d12" stroke-width="1.5"/>
 <text x="864" y="1224" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">Prank</tspan>: its target, clock jump, and boxes.</text>
 <text x="834" y="1262" font-family="Alegreya Sans, sans-serif" font-size="24" fill="#2a1a12"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>

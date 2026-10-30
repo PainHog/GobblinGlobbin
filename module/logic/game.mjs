@@ -526,8 +526,8 @@ async function farmerSteps(S, io) {
     }
     // The decoy: he grabs it instead and carries it to the Farmhouse. Skip steps 2–4.
     S.decoy = false; S.stats.decoyUsed++; decoyed = true;
-    unspot(S, grab[0], "decoy");
     emit(S, { t: "decoy", turkey: grab[0].id });
+    for (const t of grab) unspot(S, t, "decoy");   // his arms are full: everyone he'd spotted there goes free
     moveNpc(S, "farmer", "house", "decoy");
     await advanceClock(S, GG.clock.decoyClock, "decoy");
     if (S.over) return;

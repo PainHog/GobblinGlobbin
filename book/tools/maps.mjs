@@ -121,13 +121,19 @@ function creek(row) {
   return out.join("\n");
 }
 
-function legend() {
+/** The legend's example spot: one of this farm's own (3+ ×4 if it has one). */
+function legendSpot(farm) {
+  const spots = Object.values(farm.zones).flatMap(z => z.spots);
+  return spots.find(s => s.cover === 3 && s.room === 4) ?? spots[0];
+}
+
+function legend(farm) {
   const y = H - LEG + 16, out = [];
   out.push(`<rect x="${M}" y="${y}" width="${W - 2 * M}" height="${LEG - 26}" rx="14" fill="${C.paper2}" stroke="${C.edge}" stroke-width="2"/>`);
   const ly = y + 40, ly2 = y + 78;
   out.push(`<rect x="${M + 22}" y="${ly - 22}" width="40" height="28" rx="6" fill="${C.accent}" stroke="${C.dark}" stroke-width="3"/>`);
   out.push(`<text x="${M + 74}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Path</tspan>: you can Sneak this way. No path, no way through.</text>`);
-  out.push(`<text x="${M + 22}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Hayloft 3+ ×4</tspan>: a hiding spot; roll 3+ to stay hidden; room for 4 turkeys.</text>`);
+  out.push(`<text x="${M + 22}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">${esc(legendSpot(farm).name)} ${legendSpot(farm).cover}+ ×${legendSpot(farm).room}</tspan>: a hiding spot; roll ${legendSpot(farm).cover}+ to stay hidden; room for ${legendSpot(farm).room} turkeys.</text>`);
   out.push(star(W / 2 + 132, ly - 9, 12));
   out.push(`<text x="${W / 2 + 150}" y="${ly}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">Prank</tspan>: its target, clock jump, and boxes.</text>`);
   out.push(`<text x="${W / 2 + 120}" y="${ly2}" ${F} font-size="24" fill="${C.ink}"><tspan font-weight="800">NOISY</tspan>: Sneak in on 3+. <tspan font-weight="800">OPEN</tspan>: no spots.</text>`);
@@ -142,7 +148,7 @@ export function farmMap(farm) {
   if (farm.creek !== undefined) parts.push(creek(farm.creek));
   for (const [a, b] of farm.links) parts.push(path(farm, a, b));
   for (const [id, zone] of Object.entries(farm.zones)) parts.push(box(farm, id, zone));
-  parts.push(legend());
+  parts.push(legend(farm));
   parts.push("</svg>");
   return parts.join("\n");
 }

@@ -36,12 +36,12 @@ GG.urge = { min: 0, max: 5, start: 1, hunker: 2, hunkerCoolHead: 3, closeRange: 
 GG.knacks = {
   busyBeak:   { name: "Busy Beak",        text: "+1 white die when you pull a Prank, and when the roll works it ticks two boxes." },
   softSteps:  { name: "Soft Steps",       text: "+1 white die when you Sneak, and one Sneak can take you two zones (one roll covers both)." },
-  still:      { name: "Still as a Stump", text: "+1 white die when you roll to stay hidden, and your red dice don’t count on those rolls." },
+  still:      { name: "Still as a Stump", text: "+1 white die when the farmer, the dog or the kid checks your spot, and your red dice don’t count on those rolls." },
   bigGobble:  { name: "Big Gobble",       text: "+1 white die when you Gobble for a Friend, and you can do it from two zones away (two paths)." },
   quickFeet:  { name: "Quick Feet",       text: "+1 white die when you Scram, and a Scram that works can take you two zones (three on a Great)." },
   coolHead:   { name: "Cool Head",        text: "Hunker Down lowers your urge, or a friend’s, by 3 instead of 2." },
   motherHen:  { name: "Mother Hen",       text: "When you Hunker Down, every other turkey in your zone lowers its urge by 1 too." },
-  keenEye:    { name: "Keen Eye",         text: "At the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die and tells the flock where he’ll walk if nothing else (a detour, a rake or a “Huh?” token) decides it. Close Calls don’t raise the urge of turkeys in your zone." }
+  keenEye:    { name: "Keen Eye",         text: "From round 2, at the start of the turkeys’ turn, the Storyteller rolls the farmer’s route die and tells the flock where he’ll walk if nothing else (a detour, a rake or a “Huh?” token) decides it. If he’s moved first, read the roll on his new zone’s route line. Close Calls don’t raise the urge of turkeys in your zone." }
 };
 
 /* --------------------------------------------------------------- quirks -- */

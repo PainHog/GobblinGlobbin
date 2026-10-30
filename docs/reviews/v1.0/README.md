@@ -4,9 +4,10 @@ This combines three reports, written by the procedure in `docs/REVIEW-PROCEDURE.
 
 - `rules-review.md`: a close reading of every chapter and sheet;
 - `playtest-a.md`: a first night (Bramble Farm, Easy, 3 turkeys), plus five drills;
-- `playtest-b.md`: a rowdy table (Windy Ridge Farm, Hard, 5 turkeys), plus twelve drills.
+- `playtest-b.md`: a rowdy table (Windy Ridge Farm, Hard, 5 turkeys), plus twelve drills;
+- `playtest-c.md`: a re-test of the final text (Puddlewick Farm, Standard, 5 turkeys with the kid), plus ten drills on the newest rules.
 
-It also covers the layout review and two simulator runs (`sim/REPORT.md`, `sim/OPTIONS.md`). The dice logs are in `dice/`. Every ruling that changed the book is a row in `book/REVIEW.md` (rows 11–47), and every design decision is in the Decisions log in `docs/DESIGN.md`.
+It also covers the layout review and two simulator runs (`sim/REPORT.md`, `sim/OPTIONS.md`). The dice logs are in `dice/`. Every ruling that changed the book is a row in `book/REVIEW.md` (rows 11–62), and every design decision is in the Decisions log in `docs/DESIGN.md`.
 
 ## 1. Verdict
 
@@ -98,6 +99,18 @@ Checked by rendering every page:
 - **Title:** a web search found no product called “Gobble Gobbled”. The nearest names are *Gobblet Gobblers* (Blue Orange Games, a children's strategy game) and *GOBBLE* (a video game). A proper trademark search is still needed before publishing.
 - **Images:** none yet, so no source log yet. Start one with the first picture.
 - **Echoes of other works:** the turkeys, farms and farmers are original. There are no Pilgrims and no Native American imagery, by design.
+
+## Playtest C (30 October)
+
+A re-test of the final text, with the sample art in place. **No blockers.** The flock won on Puddlewick in round 8, when Clementine's hen party rolled a Great with the clock on 2. Nobody was ever Spotted, and no Feathers were spent. The newest rules gave clear answers in every drill: Show-off's lasting pose, Quick Feet's three zones, Restless, rescue chains and compulsory hiding.
+
+Its four "confusing" findings and nine wording fixes are applied, and logged as rows 50–62 of `book/REVIEW.md`:
+- the grab tie-break is now the same everywhere;
+- "Huh?" tokens go down in round 1;
+- quirks set off by a farm event apply like the event itself;
+- the token sheet says what to do past 20 tokens.
+
+One engine change came with them: the decoy now frees every turkey the farmer had Spotted in his zone. The fake-Foundry tests also play a whole game on each farm through the automation.
 
 ## 9. What works
 

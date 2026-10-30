@@ -162,3 +162,16 @@ test("the state survives a round trip through JSON (a Foundry world setting)", a
   assert.deepEqual(G.legalActions(T, "duchess"), G.legalActions(S, "duchess"));
   assert.equal(T.kids.length, 1, "5 turkeys: the kid helps");
 });
+
+test("the decoy frees every turkey he'd spotted in his zone: his arms are full", async () => {
+  const S = game(["butterbean", "noodle", "clementine"], "easy");
+  S.farmer.indoors = false; S.farmer.zone = "pen"; S.decoy = true; S.clock = 15;
+  for (const id of ["noodle", "clementine"]) { const t = tk(S, id); t.spotted = true; t.zone = "pen"; t.spot = 0; t.urge = 2; }
+  tk(S, "butterbean").zone = "orchard";
+  // Easy: no dog, no kid. End of round: clock 13 → 12 is an EVENT space (5: a cold gust).
+  const io = scripted({ d6: [5] });
+  await G.farmerPhase(S, io);
+  assert.equal(tk(S, "noodle").spotted, false);
+  assert.equal(tk(S, "clementine").spotted, false);
+  assert.equal(io.events.find(e => e.t === "decoy").turkey, "noodle", "tied on urge: the lowest card number is the one he reaches for");
+});

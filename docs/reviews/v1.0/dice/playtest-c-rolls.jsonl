@@ -1,0 +1,118 @@
+{"seq":1,"label":"R1 Clementine Sneak TP->HH (Noisy 3+) white","dice":[6]}
+{"seq":2,"label":"R1 Clementine Sneak TP->HH red (urge 1)","dice":[3]}
+{"seq":3,"label":"R1 Duchess Sneak TP->HH (Noisy 3+) white","dice":[1]}
+{"seq":4,"label":"R1 Duchess Sneak TP->HH red (urge 1)","dice":[6]}
+{"seq":5,"label":"R2 Keen Eye: farmer route die (from FH)","dice":[4]}
+{"seq":6,"label":"R2 farmer turn: dog die (1-2 nose)","dice":[3]}
+{"seq":7,"label":"R2 farmer turn: dog route die (from FH)","dice":[6]}
+{"seq":8,"label":"R2 farmer turn: kid route die (from FH)","dice":[1]}
+{"seq":9,"label":"R2 farmer turn: kid search line (TP)","dice":[2]}
+{"seq":10,"label":"R2 end: farm event (clock 21->20)","dice":[3]}
+{"seq":11,"label":"R3 Keen Eye: farmer route die (from HH)","dice":[1]}
+{"seq":12,"label":"R3 Clementine Prank hay bale decoy (HB, 5+), Wing from Duchess, no Puff: white","dice":[2,3]}
+{"seq":13,"label":"R3 Clementine Prank hay bale red (urge 1)","dice":[4]}
+{"seq":14,"label":"R3 Duchess helper die (Wing on Clementine)","dice":[5]}
+{"seq":15,"label":"R3 Noodle Sneak ML->GP (Noisy 3+) white","dice":[2]}
+{"seq":16,"label":"R3 Noodle Sneak ML->GP red (urge 1)","dice":[4]}
+{"seq":17,"label":"R3 Hazel Sneak ML->GP (Noisy 3+) white","dice":[4]}
+{"seq":18,"label":"R3 Hazel Sneak ML->GP red (urge 2)","dice":[5,6]}
+{"seq":19,"label":"R3 farmer turn: dog die (1-2 nose), dog in GP","dice":[5]}
+{"seq":20,"label":"R3 farmer turn: dog route die (from GP)","dice":[2]}
+{"seq":21,"label":"R3 farmer turn: kid route die (from TP)","dice":[3]}
+{"seq":22,"label":"R3 farmer turn: kid search line (HH)","dice":[5]}
+{"seq":23,"label":"R4 Keen Eye: farmer route die (from FH)","dice":[5]}
+{"seq":24,"label":"R4 Noodle Prank goats (GP 4+), Wing from Hazel, no Puff: white","dice":[3,1]}
+{"seq":25,"label":"R4 Noodle Prank goats red (urge 2)","dice":[1,1]}
+{"seq":26,"label":"R4 Hazel helper die (Wing on Noodle)","dice":[3]}
+{"seq":27,"label":"R4 Hazel Prank goats (GP 4+), Puff Up 1->2, Wing from Noodle: white","dice":[2,4,1]}
+{"seq":28,"label":"R4 Hazel Prank goats red (urge 2)","dice":[3,4]}
+{"seq":29,"label":"R4 Noodle helper die (Wing on Hazel)","dice":[5]}
+{"seq":30,"label":"R4 farm event (goats prank, clock 19->16)","dice":[5]}
+{"seq":31,"label":"R4 Duchess Prank hay bale (HB 5+), Puff Up 0->1, Wing from Clementine: white","dice":[4,3,4]}
+{"seq":32,"label":"R4 Duchess Prank hay bale red (urge 1)","dice":[6]}
+{"seq":33,"label":"R4 Clementine helper die (Wing on Duchess)","dice":[3]}
+{"seq":34,"label":"R4 Clementine Prank hay bale (HB 5+), Puff Up 1->2, Wing from Duchess: white","dice":[2,6,3]}
+{"seq":35,"label":"R4 Clementine Prank hay bale red (urge 2)","dice":[1,3]}
+{"seq":36,"label":"R4 Duchess helper die (Wing on Clementine)","dice":[1]}
+{"seq":37,"label":"R4 farmer turn: dog die (1-2 nose), dog in ML","dice":[5]}
+{"seq":38,"label":"R4 farmer turn: dog route die (from ML)","dice":[4]}
+{"seq":39,"label":"R4 farmer turn: kid route die (from HH)","dice":[1]}
+{"seq":40,"label":"R4 farmer turn: kid search line (TP)","dice":[4]}
+{"seq":41,"label":"R5 Keen Eye: farmer route die (from GP)","dice":[6]}
+{"seq":42,"label":"R5 Butterbean Prank water wheel (WM 4+, 2 boxes), Busy Beak, no Puff: white","dice":[4,6]}
+{"seq":43,"label":"R5 Butterbean Prank water wheel red (urge 2)","dice":[4,3]}
+{"seq":44,"label":"R5 farm event (water wheel prank, clock 14->12)","dice":[5]}
+{"seq":45,"label":"R5 farmer turn: farmer search line (FB)","dice":[3]}
+{"seq":46,"label":"R5 farmer turn: dog die (1-2 nose), dog in FB","dice":[2]}
+{"seq":47,"label":"R5 dog in WM: Butterbean stay hidden 4+, Puff Up 1->2: white","dice":[2,5]}
+{"seq":48,"label":"R5 dog in WM: Butterbean red (urge 2)","dice":[1,2]}
+{"seq":49,"label":"R5 farmer turn: kid route die (from TP)","dice":[4]}
+{"seq":50,"label":"R5 farmer turn: kid search line (HH)","dice":[6]}
+{"seq":51,"label":"R6 Keen Eye: farmer route die (from FB)","dice":[4]}
+{"seq":52,"label":"R6 Duchess Prank sprinklers (GH 4+), Puff Up 1->2: white","dice":[5,4]}
+{"seq":53,"label":"R6 Duchess Prank sprinklers red (urge 2)","dice":[2,6]}
+{"seq":54,"label":"R6 Noodle Sneak GP->DP (Noisy 3+) white","dice":[2]}
+{"seq":55,"label":"R6 Noodle Sneak GP->DP red (urge 1)","dice":[4]}
+{"seq":56,"label":"R6 farmer turn: dog die (1-2 nose), dog in WM","dice":[6]}
+{"seq":57,"label":"R6 farmer turn: dog route die (from WM)","dice":[6]}
+{"seq":58,"label":"R6 farmer turn: kid route die (from HH)","dice":[4]}
+{"seq":59,"label":"R6 farmer turn: kid search line (HB)","dice":[2]}
+{"seq":60,"label":"R6 kid peeks HB Hay stacks: Clementine cover 4+, Puff Up 0->1: white","dice":[6,1]}
+{"seq":61,"label":"R6 kid peek: Clementine red (urge 1)","dice":[1]}
+{"seq":62,"label":"R6 end: farm event (clock 9->8)","dice":[3]}
+{"seq":63,"label":"R7 Keen Eye: farmer route die (from GH)","dice":[2]}
+{"seq":64,"label":"R7 Noodle Prank duck choir (DP 3+), Puff Up 2->3: white","dice":[2,3]}
+{"seq":65,"label":"R7 Noodle Prank duck choir red (urge 3)","dice":[2,6,6]}
+{"seq":66,"label":"R7 Clementine Sneak HB->HH (4+, farmer next to HB), Puff Up 2->3: white","dice":[6,2]}
+{"seq":67,"label":"R7 Clementine Sneak HB->HH red (urge 3)","dice":[5,4,1]}
+{"seq":68,"label":"R7 farmer turn: dog die (1-2 nose), dog in FB","dice":[5]}
+{"seq":69,"label":"R7 farmer turn: dog route die (from FB)","dice":[2]}
+{"seq":70,"label":"R7 farmer turn: kid route die (from HB)","dice":[4]}
+{"seq":71,"label":"R7 farmer turn: kid search line (GH)","dice":[6]}
+{"seq":72,"label":"R7 end: farm event (clock 5->4)","dice":[4]}
+{"seq":73,"label":"R8 Keen Eye: farmer route die (from HB; rake pending)","dice":[5]}
+{"seq":74,"label":"R8 Butterbean Prank pie berries (BP 3+, 2 boxes), Busy Beak, Puff Up 4->5: white","dice":[6,4,2]}
+{"seq":75,"label":"R8 Butterbean Prank pie berries red (urge 5)","dice":[5,6,3,4,3]}
+{"seq":76,"label":"R8 Clementine Prank hen party (HH 3+), Puff Up 4->5: white","dice":[6,1]}
+{"seq":77,"label":"R8 Clementine Prank hen party red (urge 5)","dice":[2,4,4,4,5]}
+{"seq":78,"label":"R8 Too Late: what's for dinner instead (d6)","dice":[6]}
+{"seq":79,"label":"D1 attempt 1: Duchess stay hidden Behind the wheel (WM 4+), Still as a Stump + Puff Up 2->3 (red dice don't count): white","dice":[1,6,3]}
+{"seq":80,"label":"D1 next farmer turn: he stays (pose token in his zone), Duchess stay hidden Behind the wheel 4+, Puff Up 3->4: white","dice":[6,1,1]}
+{"seq":81,"label":"D2 round N+1: Noodle (Restless, can't Hunker) Sneak WT->DP (4+, WT next to farmer in WM): white","dice":[1]}
+{"seq":82,"label":"D2 Noodle Sneak WT->DP red (urge 2)","dice":[3,1]}
+{"seq":83,"label":"D3 attempt 1: Noodle Scram from FB (4+), Quick Feet + Puff Up 1->2: white","dice":[3,3,1]}
+{"seq":84,"label":"D3 attempt 1: Noodle Scram red (urge 2)","dice":[1,2]}
+{"seq":85,"label":"D3 attempt 2 (reset): Noodle Scram from FB (4+), Quick Feet + Puff Up 1->2: white","dice":[1,6,3]}
+{"seq":86,"label":"D3 attempt 2: Noodle Scram red (urge 2)","dice":[3,5]}
+{"seq":87,"label":"D4 attempt 1: Clementine (in farmer's zone GP) Gobble for a Friend for Hazel (4+, no red): white","dice":[1]}
+{"seq":88,"label":"D4: Butterbean (FH, next door) Gobble for a Friend for Clementine (4+, no red): white","dice":[6]}
+{"seq":89,"label":"D4: Hazel Scram from GP (4+), Puff Up 3->4, Wing from Clementine: white","dice":[4,3,3]}
+{"seq":90,"label":"D4: Hazel Scram red (urge 4)","dice":[5,1,2,3]}
+{"seq":91,"label":"D4: Clementine helper die (Wing on Hazel, in farmer's zone)","dice":[6]}
+{"seq":92,"label":"D5 grab tie-break die per Chapter 5 (odd = Noodle, even = Clementine)","dice":[4]}
+{"seq":93,"label":"D5 farm event (decoy clock 9->7 passes 8)","dice":[5]}
+{"seq":94,"label":"D5 dog die (1-2 nose), dog in TP","dice":[4]}
+{"seq":95,"label":"D5 dog route die (from TP)","dice":[4]}
+{"seq":96,"label":"D5 dog in HH: Noodle stay hidden 4+ (urge 1): white","dice":[5]}
+{"seq":97,"label":"D5 dog in HH: Noodle red (urge 1)","dice":[6]}
+{"seq":98,"label":"D6: Butterbean Prank hen party (HH 3+, loud), Busy Beak: white","dice":[4,3]}
+{"seq":99,"label":"D6: Butterbean hen party red (urge 2)","dice":[2,3]}
+{"seq":100,"label":"D6 farmer in HH (token 20 on zone): search line","dice":[1]}
+{"seq":101,"label":"D6 Hazel stay hidden Roost (3+), urge 0: white","dice":[6]}
+{"seq":102,"label":"D6 Butterbean stay hidden Nesting boxes (4+), Puff Up 2->3, Wing from Hazel: white","dice":[3,6,1]}
+{"seq":103,"label":"D6 Butterbean red (urge 3)","dice":[2,3,3]}
+{"seq":104,"label":"D6 Hazel helper die (Wing on Butterbean)","dice":[5]}
+{"seq":105,"label":"D7b Keen Eye route die (farmer in WM, rake pending)","dice":[3]}
+{"seq":106,"label":"D7b farmer's turn: rake, no walk; search line (WM)","dice":[3]}
+{"seq":107,"label":"D7c Keen Eye route die (farmer in HH)","dice":[3]}
+{"seq":108,"label":"D7c Duchess Prank sprinklers (GH 4+), urge 1, no Puff: white","dice":[5]}
+{"seq":109,"label":"D7c Duchess sprinklers red (urge 1)","dice":[1]}
+{"seq":110,"label":"D8 Clementine Sneak FB->WM (4+, farmer in WT next to WM), urge 1: white","dice":[3]}
+{"seq":111,"label":"D8 Clementine Sneak red (urge 1)","dice":[1]}
+{"seq":112,"label":"D9 attempt 1: end of round farm event (clock 13->12)","dice":[1]}
+{"seq":113,"label":"D10 kid in HH: search line","dice":[5]}
+{"seq":114,"label":"D10 kid peeks Roost: Butterbean cover 3+ (urge 1): white","dice":[1]}
+{"seq":115,"label":"D10 Butterbean red (urge 1)","dice":[6]}
+{"seq":116,"label":"D10 kid peeks Roost: Hazel cover 3+ (urge 2): white","dice":[3]}
+{"seq":117,"label":"D10 Hazel red (urge 2)","dice":[1,1]}
+{"seq":118,"label":"D10 Hazel third red die (correction: Jumpy from Butterbean's gobble made her urge 3 before her roll)","dice":[4]}

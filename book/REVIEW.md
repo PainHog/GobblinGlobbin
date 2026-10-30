@@ -54,3 +54,16 @@ why, and the source (author / playtest / simulator).
 | 47 | 2026-10-27 | Ch 2, cards | Restless is now “You can’t Hunker Down two rounds in a row” (was: Hunker Down lowers your own urge by only 1) | Playtest A §8: a Restless turkey spent four rounds Hunkering Down to stand still, the least fun part of the night; Noodle “cannot sit still for one single second” | Playtest A |
 | 48 | 2026-10-27 | Ch 5 | The “Huh?” token list names Duchess (not Noodle) for Show-off, and says a pose struck during a search stays down | The quirks were reshuffled in review; the list still named the old Show-off | Content build |
 | 49 | 2026-10-27 | Ch 8 | Win rates and game length re-measured on the shared engine (Easy with five or more turkeys: nearer 8 in 10; 8 to 13 rounds) | The simulator now runs the same engine as the Foundry system, which enforces two rules the old simulator let slip: a Spotted turkey can only Scram, and nobody acts after Too Late. Keen Eye no longer forecasts in round 1 | Simulator |
+| 50 | 2026-10-30 | Ch 5 | A tie on urge at the grab goes to the lowest card number (was “the Storyteller rolls a die”), as in Ch 7 and the Storyteller's Card | Playtest C C1: with the decoy ready, the two rules freed different turkeys | Playtest C |
+| 51 | 2026-10-30 | Ch 3 | Round 1: gobbles and failed Sneaks still put “Huh?” tokens down (he hears them from the kitchen) | Playtest C C2: “don't count for anything” left it open | Playtest C |
+| 52 | 2026-10-30 | Ch 4, Ch 7 | A farm event's urge change, and the quirks it sets off, apply even after another rise | Playtest C C3: a Jumpy turkey at a backfire | Playtest C |
+| 53 | 2026-10-30 | Ch 7, sheet 45 | Renumber the “Huh?” tokens when the next number is already down; with all 20 down, a coin is the newest | Playtest C C4: renumbering at 20 freed nothing | Playtest C |
+| 54 | 2026-10-30 | Ch 3 | Each Spotted turkey can be the target of one Gobble for a Friend per round, whether it works or not | Playtest C M1 | Playtest C |
+| 55 | 2026-10-30 | Ch 7 | Path ties: the first-listed path in each zone where the ways split | Playtest C M2: ways that split after his first step | Playtest C |
+| 56 | 2026-10-30 | Ch 7, sheets 40–41 | Every end-of-round list includes the farm event (after the clock, before the urge rises) | Playtest C M3: only Ch 3 had it | Playtest C |
+| 57 | 2026-10-30 | Ch 2, cards | Keen Eye: from round 2; if he's moved first, read the roll on his new zone's route line. Still as a Stump: when the farmer, the dog or the kid checks your spot | Playtest C M4, M7 | Playtest C |
+| 58 | 2026-10-30 | Ch 3 | There's no passing: Hunker Down is how a turkey stays put | Playtest C M5: Restless only bites because of it | Playtest C |
+| 59 | 2026-10-30 | Ch 6, Ch 7 | The decoy frees every turkey he'd spotted in his zone (his arms are full); an event rolled in his turn affects his following turn | Playtest C M6: a second Spotted turkey sat in limbo for a round | Playtest C |
+| 60 | 2026-10-30 | Ch 7 | A gobble on the kid's roll is an ordinary gobble, as on the dog's | Playtest C M7 | Playtest C |
+| 61 | 2026-10-30 | Maps | Each map's legend uses one of its own spots (Puddlewick: Reeds) | Playtest C M8: Puddlewick's legend named Bramble's Hayloft | Playtest C |
+| 62 | 2026-10-30 | Ch 8 | The time table lists every flock size from 2 to 8 | Playtest C M9 | Playtest C |
