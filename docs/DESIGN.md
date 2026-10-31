@@ -30,6 +30,30 @@ This is a living document. **§1 Pitch** is Richard's own. **§3 Decisions** lis
 
   **What sets this game apart:** live hide-and-seek, the gobble you're trying to hold in, and the no-turkey-left-behind loyalty. Make those the centrepiece.
 
+### Register and web searches (2026-10-30 to 31; risk flags, not legal advice)
+
+**Result: low to medium risk.** There's no exact match for the title on the US or UK register, or in the stores.
+- **US register (searched directly):** no record for GOBBLE GOBBLED, DON'T GET GOBBLED or the full title. Two marks to know about:
+  - **GOBBLE GOBBLE GO:** an intent-to-use application for board games (class 28), serial 50008259, filed 22 Jul 2026 by an individual applicant. Publication for opposition is set for 17 Nov 2026. A second application with the same words, serial 50062553, was filed on 20 Aug 2026.
+  - **DON'T GET GOT** (Big Potato's party game): live registrations 5849839 (class 28: board, card, party and tabletop games) and 8211930 (class 9: game software). This game's tagline also calls it a party game.
+  - Other "Don't Get…" game marks exist, such as DON'T GET HAMMERED (application 99622159, class 28 party games, filed 29 Jan 2026). The pattern is shared, which lowers the risk.
+  - GOBBLET (registration 5609589, class 28) is live, as already noted.
+- **UK register (read through a third-party checker of UK IPO data):** no exact match. Related marks:
+  - DON'T GET GOT is registered there too (UK00003354904 in class 28, UK00004169129 in class 9);
+  - DON'T GET RATTLED (UK00003294276, class 28);
+  - Don't Get The Duck (UK00004224309, classes 9, 25 and 28; also confirmed in the UK Trade Mark Journal);
+  - Gobble Monster (UK00003535179, class 28).
+- **EU register: not searched yet.** Automated access was blocked, and the checker's EU search was down on 30 and 31 Oct.
+- **Stores:** nothing with the title on itch.io, Steam, DriveThruRPG, BoardGameGeek or Kickstarter. There are only "gobble" games, such as Gobble Up, Gobble Inn and GOBBLE (video games).
+- **Practical advice:**
+  - Don't style the logo like Don't Get Got's.
+  - Keep clear of "Gobble Gobble Go" and "Gobblet".
+- **Still to do before a store page, cover or logo:**
+  - search the EU register by hand;
+  - confirm the UK marks and the US records on the official registers (a public web search could only confirm Don't Get The Duck);
+  - ideally, get a trademark attorney's clearance.
+- Sources: the USPTO trademark search (tmsearch.uspto.gov) and a UK register checker (trademarked.uk).
+
 ## 3. Decisions log
 | Date | Decision | Notes |
 |---|---|---|
